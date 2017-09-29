@@ -1,0 +1,90 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: Helvetica Neue;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: fixed;
+  height: 8rem;
+  width: 100%;
+  border-bottom: 10px solid #830065;
+  background: rgba(255, 255, 255, 0.76);
+  padding-top: 0.5rem;
+  padding-left: 35px;
+  font-size: 5rem;
+  font-weight: 500;
+
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.header > img {
+  height: 11rem;
+}
+
+.jumbo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: 8rem;
+  padding-bottom: 2.5rem;
+  height: 65rem;
+  background: url(jumbo1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #558d6d;
+}
+
+.jumbo-content {
+  width: 100%;
+  max-width: 90rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  min-width: 30rem;
+  padding: 1rem 2rem;
+  flex: 1;
+  flex-basis: 50%;
+  flex-shrink: 0;
+  color: white;
+  font-size: 2.7rem;
+  text-shadow: 0 0 4px black;
+}
+
+input {
+  -webkit-appearance: none;
+  display: block;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: 0.8rem;
+  background-clip: padding-box;
+  font-size: 2.3rem;
+  padding: 1rem 2rem;
+  border: 3px solid rgba(255, 255, 255, 0.32);
+  border-radius: 1rem 0 0 1rem;
+}
+
+label span {
+  padding-left: 5px;
+}
+.input-dst, .input-dte {
+  border-radius: 0 1rem 1rem 0;
+}
