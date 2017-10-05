@@ -9,35 +9,38 @@
   <title>Renfe</title>
 </head>
 <body>
+
   <header class="header">
     <img src="renfe.png" />
   </header>
   <div>
 
     <div class="jumbo">
-
       <div class="jumbo-content">
 
-        <div class="form-journey">
+        <h1 style="
+        font-weight: 400;
+        width: 500px;
+        font-size: 6rem;
+        text-align: center;
+        margin: auto;
+        padding-top: 10rem;
+        color: #fff7f7;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);">Viajes tan buenos como el destino</h1>
+
+        <div class="form-container">
           <form>
-            <label>
-              <span>Origen</span>
-              <input type="text" placeholder="Valladolid" class="input-src" name="origen"></input>
-            </label>
-            <label>
-              <span>Destino</span>
-              <input type="text" placeholder="Madrid" class="input-dst" name="destino"></input>
-            </label>
-            <label>
-              <span>Pasajeros</span>
-              <input type="text" placeholder="1" class="input-psg" name="pasajeros"></input>
-            </label>
-            <label>
-              <span>Fecha</span>
-              <input type="text" placeholder="01/01/2001" class="input-dte" name="fecha"></input>
-            </label>
+            <input type="text" placeholder="Origen" class="form-input origin" name="origin"></input>
+            <button type="button" class="form-input swap" onclick="toggle(event, 'ida-vuelta')"></button>
+            <input type="text" placeholder="Destino" class="form-input destination" name="destination"></input>
+            <div class="form-input date">Ida − Vuelta</div>
+            <div class="form-input">1 Adulto</div>
+            <button type="submit" class="form-input submit">></button>
+
+            <div id="ida-vuelta"></div>
           </form>
         </div>
+
 
         <div class="quick-journey">
             <div></div>
@@ -94,6 +97,22 @@
 
     </div>
   </div>
+
+  <script>
+    function toggle(ev, id) {
+      let el = document.getElementById(id);
+      if(el.classList.contains('show')) {
+        el.classList.remove('show');
+      }else {
+        el.classList.add('show');
+        const buttonEle = ev.target;
+        const x = buttonEle.offsetLeft;
+        const y = buttonEle.offsetTop - el.offsetHeight - 12;
+        el.style.left = x+"px";
+        el.style.top = y+"px";
+      }
+    }
+  </script>
 
 </body>
 </html>
