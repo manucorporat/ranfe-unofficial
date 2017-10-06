@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">  
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <title>Renfe</title>
 </head>
+
 <body>
 
   <header class="header">
@@ -15,20 +17,11 @@
   </header>
   <div>
 
-    <div class="jumbo">
+    <div class="jumbo" id="jumbo">
       <div class="jumbo-content">
 
-        <h1 style="
-        font-weight: 400;
-        width: 500px;
-        font-size: 6rem;
-        text-align: center;
-        margin: auto;
-        padding-top: 10rem;
-        color: #fff7f7;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);">Viajes tan buenos como el destino</h1>
-
         <div class="form-container">
+          <h1>Viajes tan buenos como el destino</h1>
           <form>
             <input type="text" placeholder="Origen" class="form-input origin" name="origin"></input>
             <button type="button" class="form-input swap" onclick="toggle(event, 'ida-vuelta')"></button>
@@ -43,76 +36,85 @@
 
 
         <div class="quick-journey">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
 
     </div>
+    <div class="content">
 
-    <div class="buttons">
-       <div class="button">
-        <i class="fa fa-train fa-3x" aria-hidden="true"></i>                      
-        <span class="button-title">
+      <div class="buttons">
+
+        <div class="button">
+          <i class="fa fa-train fa-3x" aria-hidden="true"></i>
+          <span class="button-title">
             Mis Viajes
         </span>
-        <span class="button-description">
+          <span class="button-description">
           Consulta tus ultimos viajes
         </span>
-      </div>
-      <div class="button">
-        <i class="fa fa-ticket fa-3x" aria-hidden="true"></i>                
-        <span class="title-button">
+        </div>
+
+        <div class="button">
+          <i class="fa fa-ticket fa-3x" aria-hidden="true"></i>
+          <span class="title-button">
           Bonos
         </span>
-        <span class="button-description">
+          <span class="button-description">
             Ahorra comprando bonos de viajes
           </span>
-      </div>      
-      <div class="button">
-        <i class="fa fa-ban fa-3x" aria-hidden="true"></i>            
-        <span class="title-button">
+        </div>
+
+        <div class="button">
+          <i class="fa fa-ban fa-3x" aria-hidden="true"></i>
+          <span class="title-button">
             Anulaciones
         </span>
-        <span class="button-description">
+          <span class="button-description">
             Cambia o cancela tu viaje
           </span>
-      </div>      
-      <div class="button">
-        <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>          
-        <span class="title-button">
+        </div>
+
+        <div class="button">
+          <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
+          <span class="title-button">
             Factura Online
         </span>
-        <span class="button-description">
+          <span class="button-description">
             Consulta la factura de tu viaje
           </span>
-      </div>                
-    </div>
+        </div>
 
-
-
-  
-    <div>
-
+      </div>
     </div>
   </div>
+  <div class="content" style="background: black">
+
+  </div>
+
 
   <script>
+    const imgs = ['jumbo1', 'jumbo2', 'jumbo3', 'jumbo4', 'jumbo5'];
+    const jumbo = document.getElementById('jumbo');
+    jumbo.classList.add(imgs[Math.floor(Math.random() * imgs.length)]);
+
     function toggle(ev, id) {
       let el = document.getElementById(id);
-      if(el.classList.contains('show')) {
+      if (el.classList.contains('show')) {
         el.classList.remove('show');
-      }else {
+      } else {
         el.classList.add('show');
         const buttonEle = ev.target;
         const x = buttonEle.offsetLeft;
         const y = buttonEle.offsetTop - el.offsetHeight - 12;
-        el.style.left = x+"px";
-        el.style.top = y+"px";
+        el.style.left = x + "px";
+        el.style.top = y + "px";
       }
     }
   </script>
 
 </body>
+
 </html>
