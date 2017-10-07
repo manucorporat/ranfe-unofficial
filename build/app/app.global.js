@@ -1,0 +1,5 @@
+/*! Built with http://stenciljs.com */
+(function(appNamespace,publicPath){"use strict";
+(function(publicPath){var __assign=Object.assign||function(n){for(var t,r=1,o=arguments.length;r<o;r++){t=arguments[r];for(var e in t)Object.prototype.hasOwnProperty.call(t,e)&&(n[e]=t[e])}return n};Context.activeRouter=function(){function n(){return{location:{pathname:Context.window.location.pathname,search:Context.window.location.search}}}function t(){i={}}function r(){for(var n=c,t=0;t<n.length;t++)(0,n[t])()}var o={},e={},i={},c=[];return{set:function(n){o=__assign({},o,n),t(),r()},get:function(t){return 0===Object.keys(o).length?n():t?o[t]:o},subscribe:function(n){if("function"!=typeof n)throw new Error("Expected listener to be a function.");var t=!0;return c.push(n),function(){if(t){t=!1;var r=c.indexOf(n);c.splice(r,1)}}},addToGroup:function(n,t){t in e||(e[t]=[]),e[t].push(n)},removeFromGroups:function(n){for(var t in e){var r=e[t];e[t]=r.filter(function(t){return t!==n})}},didGroupAlreadyMatch:function(n){return!!n&&!0===i[n]},setGroupMatched:function(n){i[n]=!0}}}();
+})(publicPath);
+})("App","/build/app/");

@@ -1,0 +1,1 @@
+{"code":"import { setup } from './js/setup';\r\nexport * from './js/globals';\r\nsetup();\r\n//# sourceMappingURL=index.js.map","map":{"version":3,"file":"index.js","sourceRoot":"","sources":["src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,EAAE,MAAM,YAAY,CAAC;AACnC,cAAc,cAAc,CAAC;AAE7B,KAAK,EAAE,CAAC"}}
