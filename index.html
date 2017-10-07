@@ -20,7 +20,7 @@
     <div class="jumbo" id="jumbo">
       <div class="jumbo-content">
 
-        <div class="form-container">
+        <div class="form-container" id="form-container">
           <h1>Viajes tan buenos como el destino</h1>
           <form>
             <input type="text" placeholder="Origen" class="form-input origin" name="origin"></input>
@@ -90,13 +90,38 @@
       </div>
     </div>
   </div>
-  <div class="content" style="background: black">
+
+  <div class="content cities">
+    <h2>Explora</h2>
+    <div class="cities-container">
+      <div class="city madrid">Madrid</div>
+      <div class="city barcelona">Barcelona</div>
+      <div class="city valencia">Valencia</div>
+      <div class="city bilbao">Bilbao</div>
+      <div class="city sevilla">Sevilla</div>
+      <div class="city madrid">Madrid</div>
+      <div class="city barcelona">Barcelona</div>
+      <div class="city valencia">Valencia</div>
+      <div class="city bilbao">Bilbao</div>
+      <div class="city sevilla">Sevilla</div>
+      <div class="city discover">+</div>
+
+    </div>
+  </div>
+  <div class="content footer">
 
   </div>
 
 
   <script>
-    const imgs = ['jumbo1', 'jumbo2', 'jumbo3', 'jumbo4', 'jumbo5'];
+    const form = document.getElementById('form-container');
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY;
+      if(y < 648) {
+        form.style.transform = 'translateY(-'+y*0.3+'px)';
+      }
+    }, {passive: true});
+    const imgs = ['jumbo1', 'jumbo2', 'jumbo3', 'jumbo4'];
     const jumbo = document.getElementById('jumbo');
     jumbo.classList.add(imgs[Math.floor(Math.random() * imgs.length)]);
 

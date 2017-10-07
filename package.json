@@ -1,0 +1,17 @@
+{
+  "name": "renfe-website",
+  "version": "0.0.1",
+  "description": "Rediseño de la web de renfe",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manucorporat/renfe.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manucorporat/renfe/issues"
+  },
+  "homepage": "https://github.com/manucorporat/renfe#readme"
+}
