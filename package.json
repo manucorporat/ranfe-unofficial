@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Rediseño de la web de renfe",
   "scripts": {
+    "upload": "bs"
   },
   "repository": {
     "type": "git",
@@ -13,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/manucorporat/renfe/issues"
   },
-  "homepage": "https://github.com/manucorporat/renfe#readme"
+  "homepage": "https://github.com/manucorporat/renfe#readme",
+  "devDependencies": {
+    "branchsite": "^4.0.2"
+  }
 }
