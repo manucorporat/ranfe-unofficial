@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
   <title>Renfe</title>
 </head>
 
@@ -24,7 +23,7 @@
           <h1>Viajes tan buenos como el destino</h1>
           <form>
             <input type="text" placeholder="Origen" class="form-input origin" name="origin"></input>
-            <button type="button" class="form-input swap" onclick="toggle(event, 'ida-vuelta')"></button>
+            <button type="button" class="form-input swap" onclick="app.toggle(event, 'ida-vuelta')"></button>
             <input type="text" placeholder="Destino" class="form-input destination" name="destination"></input>
             <div class="form-input date">Ida − Vuelta</div>
             <div class="form-input">1 Adulto</div>
@@ -51,17 +50,17 @@
           <i class="fa fa-train fa-3x" aria-hidden="true"></i>
           <span class="button-title">
             Mis Viajes
-        </span>
+          </span>
           <span class="button-description">
-          Consulta tus ultimos viajes
-        </span>
+            Consulta tus ultimos viajes
+          </span>
         </div>
 
         <div class="button">
           <i class="fa fa-ticket fa-3x" aria-hidden="true"></i>
           <span class="title-button">
-          Bonos
-        </span>
+            Bonos
+          </span>
           <span class="button-description">
             Ahorra comprando bonos de viajes
           </span>
@@ -71,7 +70,7 @@
           <i class="fa fa-ban fa-3x" aria-hidden="true"></i>
           <span class="title-button">
             Anulaciones
-        </span>
+          </span>
           <span class="button-description">
             Cambia o cancela tu viaje
           </span>
@@ -81,7 +80,7 @@
           <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
           <span class="title-button">
             Factura Online
-        </span>
+          </span>
           <span class="button-description">
             Consulta la factura de tu viaje
           </span>
@@ -113,34 +112,7 @@
     <img src="logo_gob.jpg" style="width: 200px;" />
   </div>
 
-
-  <script>
-    const form = document.getElementById('form-container');
-    window.addEventListener('scroll', ()=>{
-      const y = window.scrollY;
-      if(y < 648) {
-        form.style.transform = 'translateY(-'+y*0.3+'px)';
-      }
-    }, {passive: true});
-    const imgs = ['jumbo1', 'jumbo2', 'jumbo3', 'jumbo4'];
-    const jumbo = document.getElementById('jumbo');
-    jumbo.classList.add(imgs[Math.floor(Math.random() * imgs.length)]);
-
-    function toggle(ev, id) {
-      let el = document.getElementById(id);
-      if (el.classList.contains('show')) {
-        el.classList.remove('show');
-      } else {
-        el.classList.add('show');
-        const buttonEle = ev.target;
-        const x = buttonEle.offsetLeft;
-        const y = buttonEle.offsetTop - el.offsetHeight - 12;
-        el.style.left = x + "px";
-        el.style.top = y + "px";
-      }
-    }
-  </script>
-
+  <script src="index.js"></script>
 </body>
 
 </html>

@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "Rediseño de la web de renfe",
   "scripts": {
-    "upload": "bs"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run build-js && npm run build-css && npm run copy-html",
+    "build-css": "node-sass ./src/index.scss --output ./dist/",
+    "build-js": "rollup -c",
+    "copy-html": "cp ./src/*.html ./dist"
   },
   "repository": {
     "type": "git",
@@ -16,6 +20,15 @@
   },
   "homepage": "https://github.com/manucorporat/renfe#readme",
   "devDependencies": {
-    "branchsite": "^4.0.2"
+    "node-sass": "^4.5.3",
+    "rollup": "^0.50.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-typescript2": "^0.7.0",
+    "tslint": "^5.7.0",
+    "tslint-ionic-rules": "0.0.11",
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0"
   }
 }

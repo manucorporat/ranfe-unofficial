@@ -1,18 +1,4 @@
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 9px;
-  font-family: Helvetica Neue;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: #830065;
-}
 .buttons{
   display: flex;
   align-items: center;
@@ -20,6 +6,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .button {
   height: 29rem;
   width: 30rem;
@@ -346,7 +333,6 @@ label span {
   font-size: 15rem;
   line-height: 25rem;
 }
-
 
 .footer {
   background: #830065;
