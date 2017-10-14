@@ -76,18 +76,18 @@ button {
 }
 
 .jumbo1 {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url(rail.jpeg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url(assets/rail.jpeg);
 }
 .jumbo2 {
-  background-image: linear-gradient(to bottom, rgba(255, 184, 184, 0.52) 0%, rgba(255, 255, 255, 0) 66%), url(alex.jpg);}
+  background-image: linear-gradient(to bottom, rgba(255, 184, 184, 0.52) 0%, rgba(255, 255, 255, 0) 66%), url(assets/alex.jpg);}
 .jumbo3 {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgba(86, 0, 255, 0.79) 100%), url(marina.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgba(86, 0, 255, 0.79) 100%), url(assets/marina.jpg);
 }
 .jumbo4 {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url(jumbo1.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url(assets/jumbo1.jpg);
 }
 .jumbo5 {
-  background-image: linear-gradient(to bottom, rgba(216, 213, 208, 0.95) 12%, rgba(255, 255, 255, 0) 67%), url(maxim.jpg);
+  background-image: linear-gradient(to bottom, rgba(216, 213, 208, 0.95) 12%, rgba(255, 255, 255, 0) 67%), url(assets/maxim.jpg);
 }
 
 .jumbo h1 {
@@ -305,24 +305,24 @@ label span {
 
 .madrid {
   flex-grow: 3;
-  background-image: url('madrid.jpg')
+  background-image: url('assets/madrid.jpg')
 }
 
 .barcelona {
   flex-grow: 2;
-  background-image: url('barcelona.jpg')
+  background-image: url('assets/barcelona.jpg')
 }
 
 .bilbao {
-  background-image: url('bilbao.jpg')
+  background-image: url('assets/bilbao.jpg')
 }
 
 .sevilla {
-  background-image: url('sevilla.jpg')
+  background-image: url('assets/sevilla.jpg')
 }
 
 .valencia {
-  background-image: url('valencia.jpg')
+  background-image: url('assets/valencia.jpg')
 }
 
 .discover {

@@ -3,15 +3,17 @@
   "version": "0.0.1",
   "description": "Rediseño de la web de renfe",
   "scripts": {
+    "start": "npm run build && npm run watch",
     "clean": "rm -rf dist",
-    "server": "http-server ./dist -s",
-    "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run server\"",
+    "dev-server": "http-server ./dist -s",
+    "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run dev-server\"",
     "watch-css": "node-sass ./src/index.scss --output ./dist/ --watch",
     "watch-js": "rollup -c --watch",
-    "build": "npm run clean && npm run build-js && npm run build-css && npm run copy-html",
+    "build": "npm run clean && npm run build-js && npm run build-css && npm run copy-html && npm run copy-assets",
     "build-css": "node-sass ./src/index.scss --output ./dist/",
     "build-js": "rollup -c",
-    "copy-html": "cp ./src/*.html ./dist"
+    "copy-html": "cp ./src/*.html ./dist",
+    "copy-assets": "cp -a ./src/assets ./dist"
   },
   "repository": {
     "type": "git",
