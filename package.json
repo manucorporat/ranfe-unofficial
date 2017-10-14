@@ -4,6 +4,10 @@
   "description": "Rediseño de la web de renfe",
   "scripts": {
     "clean": "rm -rf dist",
+    "server": "http-server ./dist -s",
+    "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run server\"",
+    "watch-css": "node-sass ./src/index.scss --output ./dist/ --watch",
+    "watch-js": "rollup -c --watch",
     "build": "npm run clean && npm run build-js && npm run build-css && npm run copy-html",
     "build-css": "node-sass ./src/index.scss --output ./dist/",
     "build-js": "rollup -c",
@@ -20,6 +24,8 @@
   },
   "homepage": "https://github.com/manucorporat/renfe#readme",
   "devDependencies": {
+    "concurrently": "^3.5.0",
+    "http-server": "^0.10.0",
     "node-sass": "^4.5.3",
     "rollup": "^0.50.0",
     "rollup-plugin-typescript": "^0.8.1",

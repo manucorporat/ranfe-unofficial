@@ -11,7 +11,7 @@ export default {
     {
       file: './dist/index.js',
       name: 'app',
-      format: 'umd'
+      format: 'iife'
     }
   ]
 }
