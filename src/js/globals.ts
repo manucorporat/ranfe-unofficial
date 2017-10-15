@@ -1,7 +1,7 @@
 export { http } from './http';
 export { weather } from './weather';
 
-export function toggle(ev: any, id: string) {
+export function toggle(ev: Event, id: string) {
   const el = document.getElementById(id);
   if (!el) {
     return;
@@ -10,7 +10,7 @@ export function toggle(ev: any, id: string) {
     el.classList.remove('show');
   } else {
     el.classList.add('show');
-    const buttonEle = ev.target;
+    const buttonEle = ev.target as HTMLElement;
     const x = buttonEle.offsetLeft;
     const y = buttonEle.offsetTop - el.offsetHeight - 12;
     el.style.left = x + 'px';

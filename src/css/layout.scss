@@ -1,0 +1,29 @@
+
+.header {
+  position: absolute;
+  height: 8rem;
+  width: 100%;
+  border-bottom: 1rem solid #830065;
+  padding-top: 1rem;
+  padding-left: 3.5rem;
+  font-size: 5rem;
+  font-weight: 500;
+
+  /* background: rgba(255, 255, 255, 0.76);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px); */
+}
+
+.header > img {
+  height: 10rem;
+}
+
+.content {
+  padding: 12rem 10rem;
+  background: white;
+}
+
+.footer {
+  background: #830065;
+  padding: 15rem;
+}
