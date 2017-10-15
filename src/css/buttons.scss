@@ -1,60 +1,64 @@
 
 button {
-  -webkit-appearance: none;
   border: 0;
+
+  -webkit-appearance: none;
   margin: 0;
   padding: 0;
 }
 
-.buttons{
+.buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
+
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .button {
-  height: 29rem;
-  width: 30rem;
-  padding: 1rem;
-  margin: 3rem;
   display: flex;
-  align-items: center;
-  text-align: center;
+
   flex: 1;
-  /* flex-direction: column; */
   flex-flow: column;
-  /* flex-wrap: nowrap; */
-  /* flex-basis: 20%; */
   flex-shrink: 0;
-  color: #853566;
-  background: #FFFFFF;
+  align-items: center;
+
+  width: 30rem;
+  height: 29rem;
+
   border-top: 1rem solid #853566;
   font-size: 2.5rem;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
-  background-color: white;
+  color: #853566;
+  background: #fff;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .12);
   transition: transform 100ms ease-in-out;
+
+  text-align: center;
+  padding: 1rem;
+  margin: 3rem;
 }
 
-.button:hover{
-  background: #FCE3F3;
+.button:hover {
+  background: #fce3f3;
   transform: scale(1.05);
 }
 
-.fa{
-  display: inline-block;
-  font: normal normal normal 1.4rem/1 FontAwesome;
-  font-size: inherit;
-  flex-basis: 5rem;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  font-size: 3em;
-  min-width: 80%;
-  margin: 10%;
-}
-.button-description{
+// .fa {
+//   display: inline-block;
+//   font: normal normal normal 1.4rem/1 FontAwesome;
+//   font-size: inherit;
+//   flex-basis: 5rem;
+//   text-rendering: auto;
+//   -webkit-font-smoothing: antialiased;
+//   font-size: 3em;
+//   min-width: 80%;
+//   margin: 10%;
+// }
+
+.button-description {
   font-size: 1.9rem;
-  color: grey;
+  color: #555;
+
   margin: 2rem;
 }

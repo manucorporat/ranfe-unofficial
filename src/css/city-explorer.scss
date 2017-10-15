@@ -1,92 +1,93 @@
 .cities {
-  background: black;
+  background: #000;
+
   padding: 0;
 }
 
 .cities > h2 {
-  color: white;
-  font-weight: 200;
-  font-size: 7rem;
-  margin: 0;
-
-  padding: 3.5rem 13rem;
-  background: black;
-
-  position: -webkit-sticky;
   position: sticky;
-
-  display: block;
   top: 0;
   z-index: 1;
-
-  background: rgba(0, 0, 0, 0.56);
-  position: -webkit-sticky;
-  position: sticky;
   display: block;
-  top: 0;
+
+  font-size: 7rem;
+  font-weight: 200;
+  color: #fff;
+  background: rgba(0, 0, 0, .56);
+
+  margin: 0;
+  padding: 3.5rem 13rem;
   -webkit-backdrop-filter: saturate(180%) blur(2rem);
 }
 
 .cities-container {
   display: flex;
+
   flex-wrap: wrap;
+
   padding: 10rem 13rem;
   padding-top: 0;
-
 }
 
 .city {
   flex: 1;
+
   min-width: 25rem;
   max-width: 45rem;
   height: 30rem;
-  margin: 0.25rem;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 
-  text-align: center;
+  font-size: 5rem;
   font-weight: 200;
   line-height: 30rem;
-  color: white;
-  font-size: 5rem;
   text-shadow: 0 0 1rem rgb(0, 0, 0);
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  margin: .25rem;
+  text-align: center;
+  background-position: center;
 }
 
 .city:hover {
-  filter: sepia(1) hue-rotate(200deg);
-  color: black;
-  text-shadow: none;
   font-weight: 500;
+  text-shadow: none;
+  color: #000;
+
+  filter: sepia(1) hue-rotate(200deg);
 }
 
 .madrid {
   flex-grow: 3;
-  background-image: url('assets/madrid.jpg')
+
+  background-image: url("assets/madrid.jpg");
 }
 
 .barcelona {
   flex-grow: 2;
-  background-image: url('assets/barcelona.jpg')
+
+  background-image: url("assets/barcelona.jpg");
 }
 
 .bilbao {
-  background-image: url('assets/bilbao.jpg')
+  background-image: url("assets/bilbao.jpg");
 }
 
 .sevilla {
-  background-image: url('assets/sevilla.jpg')
+  background-image: url("assets/sevilla.jpg");
 }
 
 .valencia {
-  background-image: url('assets/valencia.jpg')
+  background-image: url("assets/valencia.jpg");
 }
 
 .discover {
   max-width: initial;
-  background: #3e3e3e;
-  text-shadow: none;
-  color: black;
+
   font-size: 15rem;
   line-height: 25rem;
+
+  text-shadow: none;
+  color: #000;
+  background: #3e3e3e;
 }
