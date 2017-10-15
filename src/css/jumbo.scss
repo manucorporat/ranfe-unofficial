@@ -1,3 +1,5 @@
+@import "./variables";
+
 .jumbo {
   height: 65rem;
 
@@ -8,9 +10,7 @@
   background-size: cover;
 
   padding: 8rem 6rem 2.5rem;
-  background-position: center,
-    left,
-    right;
+  background-position: center, center, center;
 }
 
 .jumbo1 {
@@ -36,8 +36,6 @@
 .jumbo h1 {
   width: 50rem;
 
-  font-size: 7rem;
-  font-weight: 200;
   text-shadow: 0 0 1rem rgb(0, 0, 0);
   color: #fff;
 
@@ -65,28 +63,31 @@
   will-change: transform;
 }
 
-form {
+form,
+.form-group {
   position: relative;
   display: flex;
 
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
 
+form {
   background: #e6e6e6;
   box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, .1);
 
-  padding: 6rem;
+  padding: 4rem 6rem;
   border-radius: .2rem;
 }
+
 
 .form-input {
   display: block;
 
   flex: 1;
-  flex-shrink: 0;
 
-  max-width: 15rem;
+  width: 0;
   height: 5rem;
 
   border: 0;
@@ -107,6 +108,7 @@ input.form-input::-webkit-input-placeholder {
 
 .swap {
   position: relative;
+  bottom: -2rem;
   z-index: 10;
 
   flex: 0;
@@ -114,20 +116,51 @@ input.form-input::-webkit-input-placeholder {
 
   height: 3.5rem;
 
+
   border: .4rem solid #e6e6e6;
+  color: $main-color;
   background: #fff;
 
   padding: 0;
+  margin-top: -3.75rem;
   margin-right: -3.75rem;
   left: -2rem;
 }
 
-.date {
+.origin,
+.destination {
+  min-width: 14rem;
+}
+
+.form-group {
+  flex: 4;
+  flex-wrap: nowrap;
+
+  margin: 2rem -.25rem;
+}
+
+.date,
+.people {
+  min-width: 14rem;
+
   color: rgb(211, 211, 211);
 }
 
+.date {
+  flex-grow: 3;
+}
+
+.people {
+  flex-grow: 2;
+}
+
 .submit {
+  min-width: 5rem;
   max-width: 5rem;
+
+  color: $main-color;
+
+  padding: 0;
 }
 
 #ida-vuelta {
@@ -154,4 +187,87 @@ input.form-input::-webkit-input-placeholder {
   opacity: 1 !important;
   visibility: visible !important;
   transform: scale(1) !important;
+}
+
+
+@media (max-width: 800px) {
+  .jumbo {
+    padding: 3rem;
+  }
+
+  form {
+    padding: 4rem;
+  }
+
+  .origin,
+  .destination {
+    min-width: 100%;
+  }
+
+  h1,
+  h2 {
+    font-size: 5.5rem;
+  }
+
+  .jumbo h1 {
+    width: 40rem;
+  }
+
+  .content {
+    padding: 8rem 3rem;
+  }
+
+  .cities {
+    padding: .5rem;
+  }
+
+  .content h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .jumbo {
+    padding: 2rem;
+  }
+
+  .jumbo h1 {
+    width: 30rem;
+  }
+
+  form {
+    padding: 2rem;
+  }
+
+  h1,
+  h2 {
+    font-size: 4.7rem;
+  }
+
+  .form-group {
+    min-width: 100%;
+  }
+
+  .date,
+  .people {
+    min-width: auto;
+  }
+
+  .header {
+    padding-top: 1.4rem;
+  }
+
+  .header > img {
+    height: 5rem;
+  }
+
+  .submit {
+    max-width: 50%;
+
+    border: .3rem solid $main-color;
+  }
+
+  .content {
+    padding: 8rem .5rem;
+  }
 }
