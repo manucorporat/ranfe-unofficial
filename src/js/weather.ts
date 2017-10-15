@@ -15,27 +15,36 @@ export class WeatherService {
     private apiKey: string
   ) { }
 
-  private request(query: string): Promise<any> {
+  private async request(query: string): Promise<any> {
     const url = `http://apidev.accuweather.com/${query}&apiKey=${this.apiKey}`;
-    return http.GET(url).then((response) => {
-      if (response.length === 0) {
-        throw new Error('not found');
-      } else {
-        return response[0];
+    const response = await http.GET(url);
+    if (response.length > 0) {
+      const result = response[0];
+      if (typeof result !== 'object') {
+        throw new Error('response is not an object');
       }
-    });
+      return result;
+    } else {
+      throw new Error('empty response');
+    }
   }
 
   private async resolveCity(cityName: string): Promise<string> {
-    const city = await this.request(`locations/v1/search?q=${cityName}`);
-    return city.Key;
+    const query = `locations/v1/search?q=${cityName}`;
+    const city = await this.request(query);
+    const key = city.Key;
+    if (!key) {
+      throw new Error('city key is null');
+    }
+    return key;
   }
 
   private resolveForecast(key: string): Promise<Forecast> {
-    return this.request(`currentconditions/v1/${key}.json?language=es`);
+    const query = `currentconditions/v1/${key}.json?language=es`;
+    return this.request(query);
   }
 
-  async todayForecast(city: string) {
+  async todayForecast(city: string): Promise<Forecast> {
     const key = await this.resolveCity(city);
     return this.resolveForecast(key);
   }
