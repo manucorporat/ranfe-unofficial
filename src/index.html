@@ -23,7 +23,7 @@
           <h1>Viajes tan buenos como el destino</h1>
           <form>
             <input type="text" placeholder="Origen" class="form-input origin" name="origin"></input>
-            <button type="button" class="form-input swap" onclick="app.toggle(event, 'ida-vuelta')"></button>
+            <button type="button" class="form-input swap" onclick="app.toggleVisibility(event, 'ida-vuelta')"></button>
             <input type="text" placeholder="Destino" class="form-input destination" name="destination"></input>
             <div class="form-input date">Ida − Vuelta</div>
             <div class="form-input">1 Adulto</div>
@@ -107,12 +107,14 @@
     </div>
   </div>
 
-
   <div class="content footer">
     <img src="assets/logo_gob.jpg" style="width: 200px;" />
   </div>
 
   <script src="index.js"></script>
+  <script>
+    window.app.setupIndex();
+  </script>
 </body>
 
 </html>

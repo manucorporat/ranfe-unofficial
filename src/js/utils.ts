@@ -1,7 +1,5 @@
-export { http } from './http';
-export { weather } from './weather';
 
-export function toggle(ev: Event, id: string) {
+export function toggleVisibility(ev: Event, id: string) {
   const el = document.getElementById(id);
   if (!el) {
     return;
