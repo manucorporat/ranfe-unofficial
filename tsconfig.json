@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+      "strict": true,
       "lib": ["es2017", "dom"],
       "outDir": "./dist/",        // path to output directory
       "sourceMap": true,          // allow sourcemap support

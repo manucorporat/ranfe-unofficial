@@ -15,8 +15,6 @@ export class WeatherService {
     private apiKey: string
   ) { }
 
-
-
   private request(query: string): Promise<any> {
     const url = `http://apidev.accuweather.com/${query}&apiKey=${this.apiKey}`;
     return http.GET(url).then((response) => {

@@ -1,8 +1,11 @@
 export { http } from './http';
 export { weather } from './weather';
 
-export function toggle(ev, id) {
-  let el = document.getElementById(id);
+export function toggle(ev: any, id: string) {
+  const el = document.getElementById(id);
+  if (!el) {
+    return;
+  }
   if (el.classList.contains('show')) {
     el.classList.remove('show');
   } else {
