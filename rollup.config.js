@@ -9,7 +9,7 @@ export default {
 
   output: [
     {
-      file: './dist/index.js',
+      file: './www/index.js',
       name: 'app',
       format: 'iife'
     }
