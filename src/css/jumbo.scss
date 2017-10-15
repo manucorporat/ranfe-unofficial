@@ -1,5 +1,15 @@
 @import "./variables";
 
+.typewriter {
+  display: block;
+  width: fit-content;
+  height: 1.2em;
+  padding: 0 1rem;
+  background: #0c2228;
+  margin-left: -0.5rem;
+  font-weight: 500;
+}
+
 .jumbo {
   height: 65rem;
 
@@ -34,9 +44,9 @@
 }
 
 .jumbo h1 {
-  width: 50rem;
+  width: 45rem;
 
-  text-shadow: 0 0 1rem rgb(0, 0, 0);
+  text-shadow: 0 0 1rem rgba(0, 0, 0, .5);
   color: #fff;
 
   text-align: left;
@@ -75,10 +85,11 @@ form,
 
 form {
   background: #e6e6e6;
+  background: linear-gradient(20deg, #d5c8d3, #689072);
   box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, .1);
 
   padding: 4rem 6rem;
-  border-radius: .2rem;
+  border-radius: .3rem;
 }
 
 
@@ -94,6 +105,7 @@ form {
   border-bottom: .3rem solid rgb(131, 0, 101);
   font-size: 1.8rem;
   background: #fff;
+  // background: rgba(255, 255, 255, 0.75);
 
   background-clip: padding-box;
   padding: 1rem 2rem;

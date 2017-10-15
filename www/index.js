@@ -180,11 +180,77 @@ function toggleVisibility(ev, id) {
         el.style.top = y + 'px';
     }
 }
+function isEmpty(str) {
+    return !str || str.length === 0;
+}
 //# sourceMappingURL=utils.js.map
+
+var TypeWritter = /** @class */ (function () {
+    function TypeWritter(sentences, ele) {
+        this.sentences = sentences;
+        this.ele = ele;
+        this.rmLatency = 50;
+        this.addLatency = 100;
+        this.emptyDelay = 50;
+        this.finishDelay = 6000;
+        this.isRemoving = true;
+        this.sentenceIndex = 0;
+        this.sentenceLength = 0;
+    }
+    TypeWritter.prototype.start = function () {
+        this.schedule();
+    };
+    TypeWritter.prototype.do = function () {
+        var text = this.ele.textContent;
+        if (this.isRemoving) {
+            if (isEmpty(text)) {
+                this.isRemoving = false;
+                setTimeout(this.schedule.bind(this), this.emptyDelay);
+            }
+            else {
+                this.ele.textContent = text.substr(0, text.length - 1);
+                this.schedule();
+            }
+        }
+        else {
+            this.sentenceLength++;
+            var sentence = this.sentences[this.sentenceIndex];
+            var substr = sentence.substr(0, this.sentenceLength);
+            this.ele.textContent = substr;
+            if (this.sentenceLength >= sentence.length) {
+                this.isRemoving = true;
+                this.sentenceLength = 0;
+                this.sentenceIndex++;
+                if (this.sentenceIndex >= this.sentences.length) {
+                    this.sentenceIndex = 0;
+                }
+                setTimeout(this.schedule.bind(this), this.finishDelay);
+            }
+            else {
+                this.schedule();
+            }
+        }
+    };
+    TypeWritter.prototype.schedule = function () {
+        setTimeout(this.do.bind(this), this.delay());
+    };
+    TypeWritter.prototype.delay = function () {
+        var latency;
+        if (this.isRemoving) {
+            latency = this.rmLatency;
+        }
+        else {
+            latency = this.addLatency;
+        }
+        return Math.random() * latency + (latency / 2);
+    };
+    return TypeWritter;
+}());
 
 function setupIndex() {
     setupFormContainer();
     setupJumboImage();
+    setupDynamicJumbo();
 }
 function setupFormContainer() {
     var form = document.getElementById('form-container');
@@ -205,7 +271,15 @@ function setupJumboImage() {
         jumbo.classList.add(imgs[Math.floor(Math.random() * imgs.length)]);
     }
 }
-//# sourceMappingURL=setup.js.map
+function setupDynamicJumbo() {
+    var ele = document.getElementById('dynamic-jumbo');
+    var typewritter = new TypeWritter([
+        'Madrid', 'Valladolid', 'Bilbao', 'Sevilla', 'Barcelona', 'Valencia', 'el destino'
+    ], ele);
+    setTimeout(function () {
+        typewritter.start();
+    }, 5000);
+}
 
 // Variables exportadas en este modulo, podrán ser accedidas directamente desde el exterior
 // en window.app

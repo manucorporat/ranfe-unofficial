@@ -15,3 +15,7 @@ export function toggleVisibility(ev: Event, id: string) {
     el.style.top = y + 'px';
   }
 }
+
+export function isEmpty(str: string | null): str is null {
+  return !str || str.length === 0;
+}

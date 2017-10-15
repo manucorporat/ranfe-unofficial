@@ -1,7 +1,9 @@
+import { TypeWritter } from './typewritter';
 
 export function setupIndex() {
   setupFormContainer();
   setupJumboImage();
+  setupDynamicJumbo();
 }
 
 function setupFormContainer () {
@@ -23,4 +25,14 @@ function setupJumboImage() {
   if (jumbo) {
     jumbo.classList.add(imgs[Math.floor(Math.random() * imgs.length)]);
   }
+}
+
+function setupDynamicJumbo() {
+  const ele = document.getElementById('dynamic-jumbo') as HTMLElement;
+  const typewritter = new TypeWritter([
+    'Madrid', 'Valladolid', 'Bilbao', 'Sevilla', 'Barcelona', 'Valencia', 'el destino'
+  ], ele);
+  setTimeout(() => {
+    typewritter.start();
+  }, 5000);
 }
