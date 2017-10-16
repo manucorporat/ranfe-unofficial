@@ -26,17 +26,17 @@
             <span class="typewriter" id="dynamic-jumbo">el destino</span>
           </h1>
           <form>
-            <input type="text" placeholder="Origen" class="form-input origin" name="origin"></input>
-            <button type="button" class="form-input swap" onclick="app.toggleVisibility(event, 'ida-vuelta')">
+            <input type="text" id="origin" placeholder="Origen" class="form-input origin" name="origin"></input>
+            <button type="button" class="form-input swap" onclick="app.swapInput('origin', 'destination')" alt="Intercambiar origen/destino">
                 <i class="fa fa-exchange" aria-hidden="true"></i>
             </button>
-            <input type="text" placeholder="Destino" class="form-input destination" name="destination"></input>
+            <input type="text" id="destination" placeholder="Destino" class="form-input destination" name="destination"></input>
             <div class="form-group">
-              <div class="form-input date">Ida − Vuelta</div>
+              <div class="form-input date" onclick="app.toggleVisibility(event, 'ida-vuelta')">Ida − Vuelta</div>
               <div class="form-input people">1 Adulto</div>
             </div>
             <button type="submit" class="form-input submit">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
             </button>
 
             <div id="ida-vuelta"></div>
@@ -56,45 +56,29 @@
 
       <div class="buttons">
 
-        <div class="button">
+        <button class="main-button">
           <i class="fa fa-train fa-3x" aria-hidden="true"></i>
-          <span class="button-title">
-            Mis Viajes
-          </span>
-          <span class="button-description">
-            Consulta tus ultimos viajes
-          </span>
-        </div>
+          <h4>Mis Viajes</h4>
+          <p>Consulta tus ultimos viajes</p>
+        </button>
 
-        <div class="button">
-          <i class="fa fa-ticket fa-3x" aria-hidden="true"></i>
-          <span class="title-button">
-            Bonos
-          </span>
-          <span class="button-description">
-            Ahorra comprando bonos de viajes
-          </span>
-        </div>
+        <button class="main-button">
+            <i class="fa fa-ticket fa-3x" aria-hidden="true"></i>
+            <h4>Bonos</h4>
+            <p>Ahorra comprando bonos de viajes</p>
+        </button>
 
-        <div class="button">
-          <i class="fa fa-ban fa-3x" aria-hidden="true"></i>
-          <span class="title-button">
-            Anulaciones
-          </span>
-          <span class="button-description">
-            Cambia o cancela tu viaje
-          </span>
-        </div>
+        <button class="main-button">
+            <i class="fa fa-ban fa-3x" aria-hidden="true"></i>
+            <h4>Anulaciones</h4>
+            <p>Cambia o cancela tu viaje</p>
+        </button>
 
-        <div class="button">
-          <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
-          <span class="title-button">
-            Factura Online
-          </span>
-          <span class="button-description">
-            Consulta la factura de tu viaje
-          </span>
-        </div>
+        <button class="main-button">
+            <i class="fa fa-credit-card fa-3x" aria-hidden="true"></i>
+            <h4>Factura Online</h4>
+            <p>Consulta la factura de tu viaje</p>
+        </button>
 
       </div>
     </div>

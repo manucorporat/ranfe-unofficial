@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: Helvetica Neue;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 9px;
 }
 
@@ -22,7 +22,7 @@ body {
   width: 100%;
   height: 8rem;
 
-  border-bottom: 1rem solid $main-color;
+  border-bottom: $fat-border solid $main-color;
 
   padding-left: 3.5rem;
   padding-top: 1rem;

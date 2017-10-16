@@ -2,12 +2,16 @@
 
 .typewriter {
   display: block;
+
   width: fit-content;
   height: 1.2em;
-  padding: 0 1rem;
-  background: #0c2228;
-  margin-left: -0.5rem;
+
   font-weight: 500;
+  letter-spacing: .1rem;
+  background: #0c2228;
+
+  margin-left: -.5rem;
+  padding: 0 1rem;
 }
 
 .jumbo {
@@ -89,7 +93,7 @@ form {
   box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, .1);
 
   padding: 4rem 6rem;
-  border-radius: .3rem;
+  border-radius: $border-radius;
 }
 
 
@@ -102,11 +106,12 @@ form {
   height: 5rem;
 
   border: 0;
-  border-bottom: .3rem solid rgb(131, 0, 101);
+  border-bottom: $thin-border solid rgb(131, 0, 101);
   font-size: 1.8rem;
   background: #fff;
   // background: rgba(255, 255, 255, 0.75);
 
+  border-radius: 0;
   background-clip: padding-box;
   padding: 1rem 2rem;
   margin: .25rem;
@@ -116,6 +121,13 @@ form {
 
 input.form-input::-webkit-input-placeholder {
   color: rgb(211, 211, 211);
+}
+
+
+
+input.form-input:focus {
+  border-bottom: $thin-border solid #4c85f5;
+  outline: 0;
 }
 
 .swap {
@@ -129,7 +141,7 @@ input.form-input::-webkit-input-placeholder {
   height: 3.5rem;
 
 
-  border: .4rem solid #e6e6e6;
+  border: $thin-border solid #e6e6e6;
   color: $main-color;
   background: #fff;
 
@@ -137,6 +149,11 @@ input.form-input::-webkit-input-placeholder {
   margin-top: -3.75rem;
   margin-right: -3.75rem;
   left: -2rem;
+}
+
+button.form-input:focus {
+  border: $thin-border solid #4c85f5;
+  outline: 0;
 }
 
 .origin,
@@ -170,6 +187,7 @@ input.form-input::-webkit-input-placeholder {
   min-width: 5rem;
   max-width: 5rem;
 
+  font-size: 2.5rem;
   color: $main-color;
 
   padding: 0;
@@ -189,7 +207,7 @@ input.form-input::-webkit-input-placeholder {
   transition-timing-function: ease-in-out;
 
   transform-origin: left bottom;
-  border-radius: .3rem;
+  border-radius: $border-radius;
   -webkit-backdrop-filter: saturate(180%) blur(2rem);
 }
 
@@ -214,6 +232,10 @@ input.form-input::-webkit-input-placeholder {
   .origin,
   .destination {
     min-width: 100%;
+  }
+
+  .form-container {
+    transform: none !important;
   }
 
   h1,
@@ -256,6 +278,10 @@ input.form-input::-webkit-input-placeholder {
     font-size: 4.7rem;
   }
 
+  .form-container {
+    bottom: 0;
+  }
+
   .form-group {
     min-width: 100%;
   }
@@ -276,10 +302,11 @@ input.form-input::-webkit-input-placeholder {
   .submit {
     max-width: 50%;
 
-    border: .3rem solid $main-color;
+    border: $thin-border solid $main-color;
+    font-size: 3.5rem;
   }
 
   .content {
-    padding: 8rem .5rem;
+    padding: 1rem .5rem;
   }
 }

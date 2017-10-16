@@ -30,7 +30,7 @@ function setupJumboImage() {
 function setupDynamicJumbo() {
   const ele = document.getElementById('dynamic-jumbo') as HTMLElement;
   const typewritter = new TypeWritter([
-    'Madrid', 'Valladolid', 'Bilbao', 'Sevilla', 'Barcelona', 'Valencia', 'el destino'
+    'Madrid', 'Valladolid', 'Bilbao', 'Sevilla', 'Barcelona', 'Valencia'
   ], ele);
   setTimeout(() => {
     typewritter.start();

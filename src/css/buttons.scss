@@ -17,49 +17,53 @@ button {
   justify-content: center;
 }
 
-.button {
+.main-button {
   display: flex;
 
   flex: 1;
   flex-flow: column;
   flex-shrink: 0;
   align-items: center;
+  justify-content: center;
 
-  width: 30rem;
+  min-width: 20rem;
   height: 29rem;
 
   border-top: 1rem solid #853566;
   font-size: 2.5rem;
   color: #853566;
   background: #fff;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .12);
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
   transition: transform 100ms ease-in-out;
 
   text-align: center;
-  padding: 1rem;
-  margin: 3rem;
-}
+  padding: 1rem 1rem 2rem;
+  margin: 1rem;
 
-.button:hover {
-  background: #fce3f3;
-  transform: scale(1.05);
-}
+  &:hover {
+    border-top: $fat-border solid #4c85f5;
+    color: #4c85f5;
+  }
 
-// .fa {
-//   display: inline-block;
-//   font: normal normal normal 1.4rem/1 FontAwesome;
-//   font-size: inherit;
-//   flex-basis: 5rem;
-//   text-rendering: auto;
-//   -webkit-font-smoothing: antialiased;
-//   font-size: 3em;
-//   min-width: 80%;
-//   margin: 10%;
-// }
+  > i {
+    display: inline-block;
+    font: normal normal normal 1.4rem/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 3em;
+    min-width: 80%;
+    margin: 0;
+  }
 
-.button-description {
-  font-size: 1.9rem;
-  color: #555;
+  > h4 {
+    margin: 2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
 
-  margin: 2rem;
+  > p {
+    font-size: 1.9rem;
+    margin: 0;
+  }
 }

@@ -1,4 +1,4 @@
-import { isEmpty } from './utils';
+import { isEmpty, shuffleArray } from './utils';
 
 export class TypeWritter {
 
@@ -14,7 +14,12 @@ export class TypeWritter {
   constructor(
     private sentences: string[],
     private ele: HTMLElement
-  ) { }
+  ) {
+    shuffleArray(this.sentences);
+    if (ele.textContent) {
+      this.sentences.push(ele.textContent);
+    }
+  }
 
 
   start() {

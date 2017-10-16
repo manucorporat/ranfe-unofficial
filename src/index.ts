@@ -2,5 +2,5 @@
 // en window.app
 export { http } from './js/http';
 export { weather } from './js/weather';
-export { toggleVisibility } from './js/utils';
+export { toggleVisibility, swapInput } from './js/utils';
 export { setupIndex } from './js/setup';
