@@ -16,6 +16,21 @@ body {
   padding: 0;
 }
 
+.github {
+  position: fixed;
+  right: -60px;
+  top: 30px;
+  z-index: 1000;
+  background: #0c2229;
+  color: white;
+  width: 200px;
+  text-align: center;
+  padding: 5px 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transform: rotateZ(45deg);
+}
+
 .header {
   position: absolute;
 
