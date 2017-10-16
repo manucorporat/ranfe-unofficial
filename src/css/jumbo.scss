@@ -24,23 +24,23 @@
 }
 
 .jumbo1 {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url("assets/rail.jpeg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url("../assets/rail.jpeg");
 }
 
 .jumbo2 {
-  background-image: linear-gradient(to bottom, rgba(255, 184, 184, .52) 0%, rgba(255, 255, 255, 0) 66%), url("assets/alex.jpg");
+  background-image: linear-gradient(to bottom, rgba(255, 184, 184, .52) 0%, rgba(255, 255, 255, 0) 66%), url("../assets/alex.jpg");
 }
 
 .jumbo3 {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgba(86, 0, 255, .79) 100%), url("assets/marina.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgba(86, 0, 255, .79) 100%), url("../assets/marina.jpg");
 }
 
 .jumbo4 {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url("assets/jumbo1.jpg");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 47%, rgb(255, 255, 255) 100%), url("../assets/jumbo1.jpg");
 }
 
 .jumbo5 {
-  background-image: linear-gradient(to bottom, rgba(216, 213, 208, .95) 12%, rgba(255, 255, 255, 0) 67%), url("assets/maxim.jpg");
+  background-image: linear-gradient(to bottom, rgba(216, 213, 208, .95) 12%, rgba(255, 255, 255, 0) 67%), url("../assets/maxim.jpg");
 }
 
 .jumbo h1 {
@@ -85,7 +85,7 @@ form,
 
 form {
   background: #e6e6e6;
-  background: linear-gradient(20deg, #d5c8d3, #689072);
+  // background: linear-gradient(20deg, #d5c8d3, #689072);
   box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, .1);
 
   padding: 4rem 6rem;
