@@ -11,7 +11,8 @@
     "build": "npm run build-js && npm run build-css",
     "build-css": "node-sass ./src/index.scss --output ./www/build",
     "build-js": "rollup -c",
-    "deploy": "bs --directory ./www --no-yarn --no-cleanup --hook build"
+    "dist": "npm run build && cp -a www dist",
+    "deploy": "bs --no-yarn --no-cleanup --directory ./dist --hook dist"
   },
   "repository": {
     "type": "git",
