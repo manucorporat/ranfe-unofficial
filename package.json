@@ -9,8 +9,8 @@
     "watch-css": "node-sass ./src/index.scss --output ./www/build --watch",
     "watch-js": "rollup -c --watch",
     "build": "npm run build-js && npm run build-css",
-    "build-css": "node-sass ./src/index.scss --output ./www/build",
-    "build-js": "rollup -c",
+    "build-css": "node-sass ./src/index.scss --output ./www/build --format compressed",
+    "build-js": "rollup -c && uglifyjs -o ./www/build/index.js  -c -m -- ./www/build/index.js",
     "dist": "npm run clean && npm run build && cp -a www dist",
     "deploy": "bs --no-yarn --no-cleanup --directory ./dist --hook dist"
   },
@@ -33,6 +33,7 @@
     "rollup-plugin-typescript2": "^0.7.0",
     "tslint": "^5.7.0",
     "tslint-ionic-rules": "0.0.11",
-    "typescript": "^2.5.3"
+    "typescript": "^2.5.3",
+    "uglify-es": "^3.1.3"
   }
 }
