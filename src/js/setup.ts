@@ -2,7 +2,7 @@ import { TypeWritter } from './typewritter';
 
 export function setupIndex() {
   setupFormContainer();
-  setupJumboImage();
+  // setupJumboImage();
   setupDynamicJumbo();
 }
 
