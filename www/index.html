@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="build/index.css">
   <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="build/index.js" defer onload="onready()"></script>
+
   <title>Renfe</title>
 </head>
 
@@ -29,12 +30,13 @@
           <h1>Viajes tan buenos como
             <span class="typewriter" id="dynamic-jumbo">el destino</span>
           </h1>
-          <form>
-            <input type="text" id="origin" placeholder="Origen" class="form-input origin" name="origin"></input>
+          <button class="crazy-button" msg="Viajes anteriores">Viajes anteriores</button>
+          <form class="widget">
+            <input type="text" id="origin" placeholder="Origen" class="form-input origin" name="origin" list="data-ciudades"></input>
             <button type="button" class="form-input swap" onclick="app.swapInput('origin', 'destination')" alt="Intercambiar origen/destino">
                 <i class="fa fa-exchange" aria-hidden="true"></i>
             </button>
-            <input type="text" id="destination" placeholder="Destino" class="form-input destination" name="destination"></input>
+            <input type="text" id="destination" placeholder="Destino" class="form-input destination awesomplete" name="destination" list="data-ciudades"></input>
             <div class="form-group">
               <div class="form-input date" onclick="app.toggleVisibility(event, 'ida-vuelta')">Ida − Vuelta</div>
               <div class="form-input people">1 Adulto</div>
@@ -44,9 +46,9 @@
             </button>
 
             <div id="ida-vuelta"></div>
+            <datalist id="data-ciudades"></datalist>
           </form>
         </div>
-
 
         <div class="quick-journey">
           <div></div>
@@ -106,7 +108,6 @@
   </div>
 
   <div class="content footer">
-    <img src="assets/logo_gob.jpg" style="width: 200px;" />
   </div>
   <script>
     function onready() {

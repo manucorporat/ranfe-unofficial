@@ -23,7 +23,7 @@
   no-repeat;
   background-size: cover;
 
-  padding: 8rem 6rem 2.5rem;
+  padding: $header-height 6rem 2.5rem;
   background-position: center, center, center;
 }
 
@@ -58,6 +58,12 @@
   padding-left: 1rem;
 }
 
+.jumbo-small {
+  height: $header-height;
+  background-position-y: top;
+  padding: 0;
+}
+
 .jumbo-content {
   position: relative;
 
@@ -88,8 +94,8 @@ form,
   justify-content: center;
 }
 
-form {
-  background: #e6e6e6;
+.widget {
+  background: $widget-color;
   // background: linear-gradient(20deg, #d5c8d3, #689072);
   box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, .1);
 
@@ -115,6 +121,7 @@ form {
   border-radius: 0;
   background-clip: padding-box;
   padding: 1rem 2rem;
+  padding-right: 1rem;
   margin: .25rem;
   margin-top: .8rem;
   -webkit-appearance: none;
@@ -127,7 +134,7 @@ input.form-input::-webkit-input-placeholder {
 
 
 input.form-input:focus {
-  border-bottom: $thin-border solid #4c85f5;
+  border-bottom: $thin-border solid $focus-color;
   outline: 0;
 }
 
@@ -153,7 +160,7 @@ input.form-input:focus {
 }
 
 button.form-input:focus {
-  border: $thin-border solid #4c85f5;
+  border: $thin-border solid $focus-color;
   outline: 0;
 }
 

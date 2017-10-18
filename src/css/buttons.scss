@@ -41,8 +41,8 @@ button {
   margin: 1rem;
 
   &:hover {
-    border-top: $fat-border solid #4c85f5;
-    color: #4c85f5;
+    border-top: $fat-border solid $focus-color;
+    color: $focus-color;
   }
 
   > i {
@@ -68,3 +68,54 @@ button {
     margin: 0;
   }
 }
+
+
+.crazy-button {
+  position: relative;
+  text-transform: lowercase;
+  outline: 0.3rem solid #fff;
+  width: 22rem;
+  height: 5rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  font-weight: 500;
+
+  background: transparent;
+  color: white;
+
+  font-size: 2rem;
+  z-index: 1;
+
+
+
+  position: absolute;
+  right: 10rem;
+  bottom: 32rem;
+  transition: padding 200ms;
+
+}
+
+.crazy-button::before {
+  content: "";
+  position: absolute;
+  color: white;
+  left: 1rem;
+  top: 1rem;
+  right: -1rem;
+  bottom: -1rem;
+  padding: 1rem;
+  background: #48ce93;
+  z-index: -1;
+
+  transition: transform 200ms;
+}
+
+.crazy-button:hover {
+  padding-left: 0;
+  padding-top: 0;
+
+  &::before {
+    transform: translate(-1rem, -1rem);
+  }
+}
+

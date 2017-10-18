@@ -1,9 +1,23 @@
 import { TypeWritter } from './typewritter';
 
+const CITIES = ['Madrid', 'Valladolid', 'Bilbao', 'Sevilla', 'Barcelona', 'Valencia'];
+
 export function setupIndex() {
   setupFormContainer();
   // setupJumboImage();
   setupDynamicJumbo();
+  setupDataList();
+}
+function setupDataList() {
+  const datalist = document.getElementById('data-ciudades');
+  if (!datalist) {
+    return;
+  }
+  for (let city of CITIES) {
+    let option = document.createElement('option');
+    option.setAttribute('value', city);
+    datalist.appendChild(option);
+  }
 }
 
 function setupFormContainer () {
@@ -29,9 +43,10 @@ function setupJumboImage() {
 
 function setupDynamicJumbo() {
   const ele = document.getElementById('dynamic-jumbo') as HTMLElement;
-  const typewritter = new TypeWritter([
-    'Madrid', 'Valladolid', 'Bilbao', 'Sevilla', 'Barcelona', 'Valencia'
-  ], ele);
+  if (!ele) {
+    return;
+  }
+  const typewritter = new TypeWritter(CITIES, ele);
   setTimeout(() => {
     typewritter.start();
   }, 5000);

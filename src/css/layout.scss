@@ -16,6 +16,13 @@ body {
   padding: 0;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  border: none;
+}
+
 .github {
   position: fixed;
   right: -60px;
@@ -35,7 +42,7 @@ body {
   position: absolute;
 
   width: 100%;
-  height: 8rem;
+  height: $header-height;
 
   border-bottom: $fat-border solid $main-color;
 

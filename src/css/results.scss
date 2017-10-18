@@ -1,0 +1,33 @@
+
+.results {
+  display: flex;
+  padding: 5rem 10rem;
+}
+
+.results-container {
+  margin-left: 6rem;
+}
+
+.results-widget > form {
+  position: sticky;
+  top: 5rem;
+}
+
+.results-widget {
+  flex: 1;
+  max-width: 25rem;
+}
+
+.results-container {
+  flex: 2;
+  height: 80rem;
+
+  h2 {
+    margin: 0;
+    color: $main-color
+  }
+  h3 {
+    margin: 0;
+    color: $main-color;
+  }
+}
