@@ -1,26 +1,119 @@
+@import "./variables";
+
+$arrow-heigth: 4.0rem;
 
 .results {
   display: flex;
-  padding: 5rem 10rem;
-}
-
-.results-container {
-  margin-left: 6rem;
+  padding: 5rem 3rem;
+  background: rgb(245, 245, 245);
 }
 
 .results-widget > form {
   position: sticky;
   top: 5rem;
 }
+.top-content{
+  flex: 1;
 
-.results-widget {
+}
+.form-group-mini{
+  margin: 1rem -.25rem;
+}
+.widget-mini{
+  margin: 0em;
+  padding: 0.3rem 1rem;
+  box-shadow: none;
+  border-radius: 0;
+}
+.title-result {
+  border-bottom: 1rem solid #853566;
+}
+.side-container {
   flex: 1;
   max-width: 25rem;
 }
 
 .results-container {
   flex: 2;
+  margin-left: 6rem;  
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.arrow-button {
+  margin-right: 1.5rem;
+  flex: 1;
+  position: relative;
+  border-bottom: $thin-border solid $main-color;
+  padding-top: 0.5rem;
+  text-align: center;
+  font-size: 2.1rem;
+  height: $arrow-heigth;
+  z-index: 0;
+  text-transform: lowercase;
+  letter-spacing: 0.7px;
+  opacity: 0.5;
+
+  &.selected {
+    opacity: 1.0;
+    border-bottom: $thin-border solid $focus-color;
+    &::before {
+      border-bottom: $thin-border solid $focus-color;
+      border-right: $thin-border solid $focus-color;
+    }
+  }
+}
+.tickets{
+  border-collapse: collapse;
+  margin-top: 4rem;
+  width: 100%;
+  font-size: 2rem;
+  thead td{
+    border-bottom: $thin-border solid $main-color;
+  }
+  tbody {
+    :first-child td {
+      padding-top: 2.5rem;
+    }
+    td {
+    border-bottom: 0.1rem solid rgba(128, 128, 128, 0.493);
+    margin: 0;
+    
+    }
+  }
+  td{
+    padding: 1.5rem 0;
+    padding-left: 1rem;
+  }
+}
+
+.arrow-button::before {
+  content: "";
+  position: absolute;
+  width: $arrow-heigth / 1.4142;
+  height: $arrow-heigth / 1.4142;
+  right: 0;
+  top: 0;
+  border-bottom: $thin-border solid $main-color;
+  border-right: $thin-border solid $main-color;
+  transform: rotateZ(-45deg);
+  transform-origin: top right;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.results-content {
+  margin-top: 2rem;
+  background: white;
   height: 80rem;
+
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
+  padding: 2.5rem;
+  border-radius: $border-radius;
 
   h2 {
     margin: 0;

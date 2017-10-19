@@ -22,20 +22,100 @@
   </a>
 
   <div class="jumbo jumbo2 jumbo-small"></div>
-  <div class="content results">
-    <div class="results-widget">
+
+  <div class="top-content">
+    <form class="widget widget-mini">
+      <input type="text" id="origin" placeholder="Origen" class="form-input origin" name="origin" list="data-ciudades"></input>
+      <button type="button" class="form-input swap" onclick="app.swapInput('origin', 'destination')" alt="Intercambiar origen/destino">
+        <i class="fa fa-exchange" aria-hidden="true"></i>
+      </button>
+      <input type="text" id="destination" placeholder="Destino" class="form-input destination awesomplete" name="destination" list="data-ciudades"></input>
+      <div class="form-group form-group-mini">
+        <div class="form-input date" onclick="app.toggleVisibility(event, 'ida-vuelta')">Ida − Vuelta</div>
+        <div class="form-input people">1 Adulto</div>
+      </div>
+      <button type="submit" class="form-input submit">
+        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      </button>
+
+      <div id="ida-vuelta"></div>
+      <datalist id="data-ciudades"></datalist>
+    </form>
+  </div>
+
+
+
+  <div class="results">
+
+    <div class="side-container">
       <form class="widget">
       </form>
     </div>
     <div class="results-container">
-      <h2>1 - IDA</h2>
-      <h3>Valladolid a Madrid</h3>
+      <div class="tabs">
+        <div class="arrow-button selected">Ida</div>
+        <div class="arrow-button">Vuelta</div>
+        <div class="arrow-button">Pasajeros</div>
+        <div class="arrow-button">Finalizar</div>
+      </div>
 
+      <div class="results-content">
+        <div class="title-result">
+          <h2>Valladolid a Madrid </h2>
+        </div>
+
+
+        <table class="tickets">
+          <thead>
+            <tr>
+              <td>Salida</td>
+              <td>Llegada</td>
+              <td>Duración</td>
+              <td>Tren</td>
+              <td>Clase</td>
+              <td>Precio</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>18:00</td>
+                <td>20:30</td>
+                <td>2h. 30min.</td>
+                <td>AVE</td>
+                <td>Turista</td>
+                <td>69.43€</td>
+            </tr>
+            <tr>
+                <td>18:00</td>
+                <td>20:30</td>
+                <td>2h. 30min.</td>
+                <td>AVE</td>
+                <td>Turista</td>
+                <td>69.43€</td>
+            </tr><tr>
+                <td>18:00</td>
+                <td>20:30</td>
+                <td>2h. 30min.</td>
+                <td>AVE</td>
+                <td>Turista</td>
+                <td>69.43€</td>
+            </tr><tr>
+                <td>18:00</td>
+                <td>20:30</td>
+                <td>2h. 30min.</td>
+                <td>AVE</td>
+                <td>Turista</td>
+                <td>69.43€</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
-
   <div class="content footer">
+
+
   </div>
 
   <script>

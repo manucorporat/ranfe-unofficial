@@ -84,7 +84,6 @@
   will-change: transform;
 }
 
-form,
 .form-group {
   position: relative;
   display: flex;
@@ -95,6 +94,14 @@ form,
 }
 
 .widget {
+  position: relative;
+  display: flex;
+
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+
   background: $widget-color;
   // background: linear-gradient(20deg, #d5c8d3, #689072);
   box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, .1);
