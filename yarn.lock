@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/awesomplete@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@types/awesomplete/-/awesomplete-1.1.6.tgz#ed8f0e2150d2476812f2d7715aeb74953a330598"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -134,6 +138,10 @@ async@~1.0.0:
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
+
+awesomplete@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/awesomplete/-/awesomplete-1.1.2.tgz#b6e253f73474e46278bba5ae7f81d4262160fb75"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
