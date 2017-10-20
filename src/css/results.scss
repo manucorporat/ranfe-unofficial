@@ -8,6 +8,14 @@ $arrow-heigth: 4.0rem;
   flex-wrap: wrap-reverse;
   padding: 5rem 5rem;
   background: rgb(245, 245, 245);
+  justify-content: center;
+}
+
+.filter {
+  position: sticky;
+  top: 4rem;
+  margin-top: 8rem;
+  padding: 1rem;
 }
 
 .top-content{
@@ -15,7 +23,7 @@ $arrow-heigth: 4.0rem;
   position: sticky;
   top: 0;
   letter-spacing: 0.2rem;
-  z-index: 1;  
+  z-index: 1;
 }
 .form-group-mini{
   margin: 1rem -.25rem;
@@ -33,12 +41,15 @@ $arrow-heigth: 4.0rem;
 }
 .side-container {
   flex: 1;
-  max-width: 25rem;
+  max-width: 31rem;
+  min-width: 31rem;
+  margin-right: 5rem;
 }
 
 .results-container {
   flex: 2;
-  margin-left: 6rem;  
+  max-width: 85rem;
+  min-width: 65rem;
 }
 
 .tabs {
@@ -53,6 +64,7 @@ $arrow-heigth: 4.0rem;
   position: relative;
   border-bottom: $thin-border solid $main-color;
   padding-top: 0.5rem;
+  padding-left: 1rem;
   text-align: center;
   font-size: 2.1rem;
   height: $arrow-heigth;
@@ -69,6 +81,7 @@ $arrow-heigth: 4.0rem;
     }
   }
 }
+
 .tickets{
   border-collapse: collapse;
   margin-top: 4rem;
@@ -77,6 +90,7 @@ $arrow-heigth: 4.0rem;
   thead td{
     border-bottom: $thin-border solid $main-color;
     padding-bottom: 1.5rem;
+    font-weight: 500;
   }
   tbody {
     :first-child td {
@@ -109,7 +123,7 @@ $arrow-heigth: 4.0rem;
 }
 
 .results-content {
-  margin-top: 2rem;
+  margin-top: 4rem;
   background: white;
 
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
