@@ -5,7 +5,7 @@ $arrow-heigth: 4.0rem;
 .results {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap-reverse;
+  flex-wrap: nowrap;
   padding: 5rem 5rem;
   background: rgb(245, 245, 245);
   justify-content: center;
@@ -15,16 +15,22 @@ $arrow-heigth: 4.0rem;
   position: sticky;
   top: 4rem;
   margin-top: 8rem;
-  padding: 1rem;
+
+  .widget {
+    padding: 1rem;
+    margin-bottom: 5rem;
+  }
 }
 
 .top-content{
+  display: none;
   flex: 1;
   position: sticky;
   top: 0;
   letter-spacing: 0.2rem;
   z-index: 1;
 }
+
 .form-group-mini{
   margin: 1rem -.25rem;
 }
@@ -82,7 +88,7 @@ $arrow-heigth: 4.0rem;
   }
 }
 
-.tickets{
+.tickets {
   border-collapse: collapse;
   margin-top: 4rem;
   width: 100%;
@@ -96,9 +102,13 @@ $arrow-heigth: 4.0rem;
     :first-child td {
       padding-top: 2.5rem;
     }
+    tr:hover > td {
+      border-bottom: 0.1rem solid $focus-color;
+      color: $focus-color;
+    }
     td {
-    border-bottom: 0.1rem solid rgba(128, 128, 128, 0.493);
-    margin: 0;
+      border-bottom: 0.1rem solid rgba(128, 128, 128, 0.493);
+      margin: 0;
     }
   }
   td{
@@ -125,7 +135,7 @@ $arrow-heigth: 4.0rem;
 .results-content {
   margin-top: 4rem;
   background: white;
-
+  min-height: 60rem;
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
   padding: 2.5rem;
   border-radius: $border-radius;
@@ -138,5 +148,41 @@ $arrow-heigth: 4.0rem;
   h3 {
     margin: 0;
     color: $main-color;
+  }
+}
+
+.weather-container {
+  display: block;
+}
+
+.weather-content {
+  padding: 2rem;
+
+  h3{
+    font-size: 5rem;
+    font-weight: 200;
+    margin: 0;
+  }
+  h4{
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.no-trains {
+  display: none;
+  margin-top: 10rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+@include bigtablet {
+  .top-content {
+    display: block;
+  }
+  .side-container{
+    display: none;
   }
 }

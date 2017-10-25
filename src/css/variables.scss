@@ -6,3 +6,28 @@ $thin-border: .3rem;
 $fat-border: 1rem;
 $border-radius: .3rem;
 $header-height: 8rem;
+
+
+$big-size: 1000px;
+$tablet-size: 800px;
+$phone-size: 440px;
+
+
+@mixin bigtablet {
+  @media (max-width: $big-size) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (max-width: $tablet-size) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: $phone-size) {
+    @content;
+  }
+}

@@ -23,13 +23,13 @@
 
   <div class="jumbo jumbo2 jumbo-small"></div>
 
-  <!-- <div class="top-content">
+  <div class="top-content">
     <form class="widget widget-mini">
-      <input type="text" id="origin" placeholder="Origen" class="form-input origin" name="origin" list="data-ciudades"></input>
+      <input type="text" placeholder="Origen" class="form-input origin" name="origin" list="data-ciudades"></input>
       <button type="button" class="form-input swap" onclick="app.swapInput('origin', 'destination')" alt="Intercambiar origen/destino">
         <i class="fa fa-exchange" aria-hidden="true"></i>
       </button>
-      <input type="text" id="destination" placeholder="Destino" class="form-input destination awesomplete" name="destination" list="data-ciudades"></input>
+      <input type="text" placeholder="Destino" class="form-input destination awesomplete" name="destination" list="data-ciudades"></input>
       <div class="form-group form-group-mini">
         <div class="form-input date" onclick="app.toggleVisibility(event, 'ida-vuelta')">Ida − Vuelta</div>
         <div class="form-input people">1 Adulto</div>
@@ -41,30 +41,30 @@
       <div id="ida-vuelta"></div>
       <datalist id="data-ciudades"></datalist>
     </form>
-  </div> -->
+  </div>
 
 
 
   <div class="results">
 
     <div class="side-container">
-        <form class="widget filter">
-            <input type="text" id="origin" placeholder="Origen" class="form-input origin" name="origin" list="data-ciudades"></input>
-            <button type="button" class="form-input swap" onclick="app.swapInput('origin', 'destination')" alt="Intercambiar origen/destino">
-              <i class="fa fa-exchange" aria-hidden="true"></i>
-            </button>
-            <input type="text" id="destination" placeholder="Destino" class="form-input destination awesomplete" name="destination" list="data-ciudades"></input>
-            <div class="form-group form-group-mini">
-              <div class="form-input date" onclick="app.toggleVisibility(event, 'ida-vuelta')">Ida − Vuelta</div>
-              <div class="form-input people">1 Adulto</div>
-            </div>
-            <button type="submit" class="form-input submit">
-              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-            </button>
-
-            <div id="ida-vuelta"></div>
-            <datalist id="data-ciudades"></datalist>
-          </form>
+      <div class="filter">
+        <form class="widget">
+          <input type="text" placeholder="Origen" class="form-input origin" name="origin" list="data-ciudades"></input>
+          <button type="button" class="form-input swap" onclick="app.swapInput('origin', 'destination')" alt="Intercambiar origen/destino">
+            <i class="fa fa-exchange" aria-hidden="true"></i>
+          </button>
+          <input type="text" placeholder="Destino" class="form-input destination awesomplete" name="destination" list="data-ciudades"></input>
+          <div class="form-group form-group-mini">
+            <div class="form-input date" onclick="app.toggleVisibility(event, 'ida-vuelta')">Ida − Vuelta</div>
+            <div class="form-input people">1 Adulto</div>
+          </div>
+          <button type="submit" class="form-input submit">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+        <div class="widget weather-container" id="weather-container"></div>
+      </div>
     </div>
     <div class="results-container">
       <div class="tabs">
@@ -77,12 +77,11 @@
       <div class="results-content">
         <div class="title-result">
           <h2>
-            Valladolid
+            <span id="title-origin">Valladolid</span>
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-            Madrid
+            <span id="title-destination">Madrid</span>
           </h2>
         </div>
-
 
         <table class="tickets">
           <thead>
@@ -95,97 +94,9 @@
               <td>Precio</td>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-            <tr>
-                <td>18:00</td>
-                <td>20:30</td>
-                <td>2h. 30min.</td>
-                <td>AVE</td>
-                <td>Turista</td>
-                <td>69.43€</td>
-            </tr>
-          </tbody>
+          <tbody id="table-data"></tbody>
         </table>
+        <div class="no-trains" id="no-trains">No hay trenes disponibles</div>
       </div>
     </div>
   </div>
@@ -197,7 +108,7 @@
 
   <script>
     function onready() {
-      window.app.setupIndex();
+      window.app.setupResults();
     }
   </script>
 </body>

@@ -6,7 +6,11 @@ export class HTTPService {
       const req = new XMLHttpRequest();
       req.open(method, url);
       req.addEventListener('load', () => {
-        resolve(JSON.parse(req.responseText));
+        if (req.status >= 200 && req.status < 400) {
+          resolve(JSON.parse(req.responseText));
+        } else {
+          reject(req.statusText);
+        }
       });
       req.addEventListener('error', (ev) => {
         reject(ev);

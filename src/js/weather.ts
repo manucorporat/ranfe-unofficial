@@ -2,6 +2,7 @@ import { http } from './http';
 
 export interface Forecast {
   WeatherText: string;
+  WeatherIcon: number;
   Temperature: {
     Metric: {
       Value: number;

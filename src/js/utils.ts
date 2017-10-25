@@ -39,3 +39,21 @@ export function shuffleArray(a: any[]) {
       a[j] = x;
   }
 }
+
+export function getParameterByName(name: string): string {
+  const url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return '';
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+export function setDOMValues(query: string, key: string, value: any) {
+  const elements = document.querySelectorAll(query);
+  for (let i = 0; i < elements.length; i++) {
+    const el = elements.item(i) as any;
+    el[key] = value;
+  }
+}

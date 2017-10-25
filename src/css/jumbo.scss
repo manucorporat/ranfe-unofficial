@@ -235,7 +235,7 @@ button.form-input:focus {
 }
 
 
-@media (max-width: 800px) {
+@include tablet {
   .jumbo {
     padding: 3rem;
   }
@@ -275,7 +275,7 @@ button.form-input:focus {
   }
 }
 
-@media (max-width: 440px) {
+@include phone {
   .jumbo {
     padding: 2rem;
   }
