@@ -85,7 +85,6 @@ function updateWeatherWidget(id: string, city: string, forecast: Forecast) {
 function getIcon(forecast: Forecast): string {
   const icon = forecast.WeatherIcon;
   let iconName = 'fa-sun-o';
-  console.log(icon);
   switch (icon) {
     case 6:
     case 7:

@@ -1,19 +1,23 @@
 @import "./variables";
 
-$arrow-heigth: 4.0rem;
+$arrow-heigth: 4rem;
 
 .results {
   display: flex;
+
   flex-direction: row;
   flex-wrap: nowrap;
-  padding: 5rem 5rem;
-  background: rgb(245, 245, 245);
   justify-content: center;
+
+  background: rgb(245, 245, 245);
+
+  padding: 5rem;
 }
 
 .filter {
   position: sticky;
   top: 4rem;
+
   margin-top: 8rem;
 
   .widget {
@@ -22,133 +26,168 @@ $arrow-heigth: 4.0rem;
   }
 }
 
-.top-content{
-  display: none;
-  flex: 1;
+.top-content {
   position: sticky;
+  position: -webkit-sticky;
+
   top: 0;
-  letter-spacing: 0.2rem;
   z-index: 1;
+  display: none;
+
+  flex: 1;
+
+  letter-spacing: .2rem;
 }
 
-.form-group-mini{
+.form-group-mini {
   margin: 1rem -.25rem;
 }
-.widget-mini{
-  margin: 0em;
-  padding: 0.3rem 1rem;
-  box-shadow: none;
-  border-radius: 0;
+
+.widget-mini {
   position: sticky;
   top: 0;
+
+  box-shadow: none;
+
+  border-radius: 0;
+  padding: .3rem 1rem;
+  margin: 0;
 }
+
 .title-result {
   text-align: center;
 }
+
 .side-container {
   flex: 1;
-  max-width: 31rem;
+
   min-width: 31rem;
+  max-width: 31rem;
+
   margin-right: 5rem;
 }
 
 .results-container {
   flex: 2;
-  max-width: 85rem;
+
   min-width: 65rem;
+  max-width: 85rem;
 }
 
 .tabs {
   display: flex;
+
   flex-direction: row;
   flex-wrap: nowrap;
 }
 
 .arrow-button {
-  margin-right: 1.5rem;
-  flex: 1;
   position: relative;
-  border-bottom: $thin-border solid $main-color;
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  text-align: center;
-  font-size: 2.1rem;
+
+  flex: 1;
+
   height: $arrow-heigth;
+
+  border-bottom: $thin-border solid $main-color;
+  font-size: 2.1rem;
+  letter-spacing: .7px;
   text-transform: lowercase;
-  letter-spacing: 0.7px;
-  opacity: 0.5;
+  opacity: .5;
+
+  text-align: center;
+  padding-left: 1rem;
+  padding-top: .5rem;
+  margin-right: 1.5rem;
 
   &.selected {
-    opacity: 1.0;
     border-bottom: $thin-border solid $focus-color;
+    opacity: 1;
+
     &::before {
-      border-bottom: $thin-border solid $focus-color;
       border-right: $thin-border solid $focus-color;
+      border-bottom: $thin-border solid $focus-color;
     }
   }
 }
 
 .tickets {
-  border-collapse: collapse;
-  margin-top: 4rem;
   width: 100%;
+
   font-size: 2rem;
-  thead td{
+  border-collapse: collapse;
+
+  margin-top: 4rem;
+
+  thead td {
     border-bottom: $thin-border solid $main-color;
-    padding-bottom: 1.5rem;
     font-weight: 500;
+
+    padding-bottom: 1.5rem;
   }
+
   tbody {
     :first-child td {
       padding-top: 2.5rem;
     }
+
     tr:hover > td {
-      border-bottom: 0.1rem solid $focus-color;
+      border-bottom: .1rem solid $focus-color;
       color: $focus-color;
     }
+
     td {
-      border-bottom: 0.1rem solid rgba(128, 128, 128, 0.493);
+      border-bottom: .1rem solid rgba(128, 128, 128, .493);
+
       margin: 0;
     }
   }
-  td{
+
+  td {
     padding-top: 1.5rem;
-    padding-bottom: 0.7rem;
+    padding-bottom: .7rem;
     padding-left: 1rem;
   }
 }
 
 .arrow-button::before {
-  content: "";
   position: absolute;
+  top: 0;
+
   width: $arrow-heigth / 1.4142;
   height: $arrow-heigth / 1.4142;
-  right: 0;
-  top: 0;
-  border-bottom: $thin-border solid $main-color;
+
   border-right: $thin-border solid $main-color;
+  border-bottom: $thin-border solid $main-color;
+  content: "";
   transform: rotateZ(-45deg);
+
   transform-origin: top right;
   box-sizing: border-box;
+  right: 0;
 }
 
 .results-content {
-  margin-top: 4rem;
-  background: white;
   min-height: 60rem;
+
+  background: #fff;
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
+
   padding: 2.5rem;
+  margin-top: 4rem;
   border-radius: $border-radius;
 
   h2 {
-    text-transform: capitalize;
     font-size: 5rem;
-    margin: 0;
-    color: $main-color
-  }
-  h3 {
-    margin: 0;
+    text-transform: capitalize;
     color: $main-color;
+
+    margin: 0;
+  }
+
+  h3 {
+    color: $main-color;
+
+    margin: 0;
   }
 }
 
@@ -159,15 +198,18 @@ $arrow-heigth: 4.0rem;
 .weather-content {
   padding: 2rem;
 
-  h3{
+  h3 {
     font-size: 5rem;
     font-weight: 200;
+
     margin: 0;
   }
-  h4{
-    text-transform: capitalize;
+
+  h4 {
     font-size: 3rem;
     font-weight: 400;
+    text-transform: capitalize;
+
     margin: 0;
     margin-bottom: 1.5rem;
   }
@@ -175,16 +217,19 @@ $arrow-heigth: 4.0rem;
 
 .no-trains {
   display: none;
+
+  font-size: 3rem;
+
   margin-top: 10rem;
   text-align: center;
-  font-size: 3rem;
 }
 
 @include bigtablet {
   .top-content {
     display: block;
   }
-  .side-container{
+
+  .side-container {
     display: none;
   }
 }

@@ -17,25 +17,29 @@ body {
 }
 
 button {
-  margin: 0;
+  border: 0;
+
   padding: 0;
   -webkit-appearance: none;
-  border: none;
+  margin: 0;
 }
 
 .github {
   position: fixed;
-  right: -60px;
   top: 30px;
   z-index: 1000;
-  background: #0c2229;
-  color: white;
+
   width: 200px;
-  text-align: center;
-  padding: 5px 0;
-  font-weight: 600;
+
   font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  background: #0c2229;
   transform: rotateZ(45deg);
+
+  padding: 5px 0;
+  text-align: center;
+  right: -60px;
 }
 
 .header {
