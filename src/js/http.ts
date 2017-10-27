@@ -24,7 +24,7 @@ export class HTTPService {
   }
 
   POST(url: string): Promise<any> {
-    return this.request('GET', url);
+    return this.request('POST', url);
   }
 }
 
