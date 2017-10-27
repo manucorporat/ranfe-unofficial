@@ -21,8 +21,8 @@ export function isEmpty(str: string | null): str is null {
 }
 
 export function swapInput(inputId1: string, inputId2: string) {
-  const input1 = document.getElementById(inputId1) as HTMLInputElement | null;
-  const input2 = document.getElementById(inputId2) as HTMLInputElement | null;
+  const input1 = document.querySelector(`input[name=${inputId1}]`) as HTMLInputElement | null;
+  const input2 = document.querySelector(`input[name=${inputId2}]`) as HTMLInputElement | null;
   if (input1 && input2) {
     const tmp = input1.value;
     input1.value = input2.value;

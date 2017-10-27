@@ -19,6 +19,7 @@ export class SearchService {
     }
     return response[destination];
   }
+
 }
 
 export const search = new SearchService();
