@@ -85,3 +85,8 @@ Posteriomente, RENFE junto con la empresa de ciberseguridad S21sec decieron cerr
 - Con un texto relevante
 - Sin usar target="_blank"
 
+
+## Referencias
+
+- https://searchengineland.com/google-starts-giving-ranking-boost-secure-httpsssl-sites-199446
+- https://developers.google.com/search/mobile-sites/mobile-seo/

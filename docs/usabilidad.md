@@ -24,7 +24,7 @@ Los usuarios de las páginas web tienden a hacer un uso mecánico de esta, por e
 
 + Etiquetado de los botones: Utilizamos siempre los mismos términos en aquellos botones que realicen la misma acción. No usar sinónimos como Eliminar o Borrar, utilizar siempre el mismo durante el desarrollo de nuestra página.
 
-+ Orden de los menús: Seguir siempre el mismo orden, si damos las funciones “Crear” “Modificar” “Eliminar”, seguir ofreciéndolas en ese orden, no poner en el siguiente submenú “Crear”, “Eliminar”, “Modificar” para facilitar un uso más mecánico y fluido de la web.
++ Orden de los menús: Seguir siempre el mismo orden, si damos las funciones “Crear”, “Modificar”, “Eliminar”, seguir ofreciéndolas en ese orden, no poner en el siguiente submenú “Crear”, “Eliminar”, “Modificar” para facilitar un uso más mecánico y fluido de la web.
 
 + Estilo y posición de los botones: Los botones se posicionen en lugares intuitivos y siempre en los mismos. Si utilizamos un botón rojo abajo a la derecha para eliminar un ítem de una lista, deberemos seguir esa técnica en todas las listas.
 
@@ -168,3 +168,15 @@ Debemos dar al usuario la libertad de deshacer sus acciones para que si alguna h
 }
 ```
 
+Referencias:
+
+- https://www.w3.org/TR/role-attribute/
+- https://webkit.org/blog/7551/responsive-design-for-motion/
+- https://accessibility.blog.gov.uk/2016/09/02/dos-and-donts-on-designing-for-accessibility/
+- https://medium.com/swlh/the-illusion-of-time-8f321fa2f191
+- https://rollupjs.org
+- https://bitsofco.de/async-vs-defer/
+- https://imageoptim.com/
+- https://www.smashingmagazine.com/2009/03/breadcrumbs-in-web-design-examples-and-best-practices/
+- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- https://en.wikipedia.org/wiki/Above_the_fold
