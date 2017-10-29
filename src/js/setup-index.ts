@@ -8,6 +8,8 @@ export function setupIndex() {
   setupDynamicJumbo();
   setupDataList();
 }
+
+// Usado para el autocompletado de las ciudades
 function setupDataList() {
   const datalist = document.getElementById('data-ciudades');
   if (!datalist) {
@@ -20,6 +22,7 @@ function setupDataList() {
   }
 }
 
+// Usado para el efecto parallax del formulario
 function setupFormContainer () {
   const form = document.getElementById('form-container');
   if (!form) {
@@ -33,6 +36,8 @@ function setupFormContainer () {
   }, false);
 }
 
+// Usado para elegir una imagen de fondo diferente de forma aleatoria
+// cada vez que el pagina carga
 function setupJumboImage() {
   const imgs = ['jumbo1', 'jumbo2', 'jumbo3', 'jumbo4'];
   const jumbo = document.getElementById('jumbo');
@@ -41,6 +46,7 @@ function setupJumboImage() {
   }
 }
 
+// Usado para configurar el efecto de máquina de escribir
 function setupDynamicJumbo() {
   const ele = document.getElementById('dynamic-jumbo') as HTMLElement;
   if (!ele) {

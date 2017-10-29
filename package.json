@@ -6,7 +6,7 @@
     "clean": "rm -rf ./www/build ./dist",
     "dev-server": "live-server --mount=/:./www --watch=./www",
     "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run dev-server\"",
-    "watch-css": "node-sass ./src/index.scss --output ./www/build --watch --outputStyle expanded",
+    "watch-css": "node-sass ./src/index.scss --output ./www/build --watch",
     "watch-js": "rollup -c --watch",
     "build": "npm run build-js && npm run build-css",
     "build-css": "node-sass ./src/index.scss --output ./www/build --format compressed",

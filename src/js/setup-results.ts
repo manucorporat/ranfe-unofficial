@@ -2,6 +2,7 @@ import { getParameterByName, setDOMValues } from './utils';
 import { Forecast, weather } from './weather';
 import { search } from './search';
 
+// Initializa la pagina de resultados
 export function setupResults() {
   const origin = getParameterByName('origin').trim().toLowerCase();
   const destination = getParameterByName('destination').trim().toLowerCase();
@@ -11,6 +12,7 @@ export function setupResults() {
   setupSearch(origin, destination);
 }
 
+// Initializa los campos donde aparece el nombre de la ciudad de origen y destino
 function setupDOM(origin: string, destination: string) {
   setDOMValues('#title-origin', 'textContent', origin);
   setDOMValues('#title-destination', 'textContent', destination);
@@ -19,6 +21,7 @@ function setupDOM(origin: string, destination: string) {
   setDOMValues('input[name=destination]', 'value', destination);
 }
 
+// Initializa los nodos del DOM con la informacion meteorologia de las ciudades consultadas
 async function setupWeather(origin: string, destination: string) {
   Promise.all([
     weather.todayForecast(normalizeCity(destination)),
@@ -36,6 +39,7 @@ function normalizeCity(city: string): string {
   return city + ', Spain';
 }
 
+// Initializa el DOM con los resultados de la busqueda de billetes
 async function setupSearch(origin: string, destination: string) {
   const resultsTable = document.getElementById('table-data');
   if (!resultsTable) {
@@ -82,6 +86,7 @@ function updateWeatherWidget(id: string, city: string, forecast: Forecast) {
   containerEl.appendChild(el);
 }
 
+// Convierte el codigo de la API remota de accuweather a nuestro propio iconos
 function getIcon(forecast: Forecast): string {
   const icon = forecast.WeatherIcon;
   let iconName = 'fa-sun-o';

@@ -325,3 +325,8 @@ button.form-input:focus {
     padding: 1rem .5rem;
   }
 }
+
+@media (prefers-reduced-motion) {
+  /* ajustar estilos para reducir el movimiento */
+  transform: none !important;
+}
