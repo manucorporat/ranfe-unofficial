@@ -1,24 +1,23 @@
 # Usabilidad y Accesibilidad Web
 
-En primer lugar es importante diferenciar entre Usabilidad y Accesibilidad, a grandes rasgos, podemos definir la Usabilidad como la experiencia de usuario, es decir, como un interlocutor humano va a usar nuestra web y percibir nuestro mensaje. Mientras que la accesibilidad estaría destinado a un caracter más tecnico que permita a cierto segmento con discapacidades poder usar nuestra web.
+En primer lugar es importante diferenciar entre Usabilidad y Accesibilidad. A grandes rasgos, podemos definir la Usabilidad como la experiencia de usuario, es decir, como un interlocutor humano que va a usar nuestra web y percibir nuestro mensaje. Por otro lado, la accesibilidad estaría destinada a un carácter más técnico que permita a cierto segmento con diversidad funcional poder usar nuestra web.
 
 ## Usabilidad
 
 Tambien llamada "UX (User Experience)" o en español "Experiencia de Usuario", tiene que ver con el diseño de una web que facilita a un humano su utilización y la finalización de una tarea.
 
-Es diseño, cuando este lo entendemos como no solo caracteristicas esteticas.
+Es diseño, siempre y cuando lo entendamos como no solo caracteristicas esteticas.
 
 Para un buen diseño es importante definir primero nuestro proyecto, el cual es la web de Renfe y un objetivo: la compra de billetes.
 
-Entendemos que el diseño se tiene que centrar alrededor de proceso de compra, ya que predecimos que será el caso de uso más común y posteriormente optimizar para los sucesivos casos de uso populares, como puede ser: Cancelar/cambiar un billete, buscar ofertas y ayuda.
-
+Entendemos que el diseño se tiene que centrar alrededor de proceso de compra, ya que predecimos que será el caso de uso principal, más común, y posteriormente optimizar para los sucesivos casos de uso populares, como puede ser: Cancelar/cambiar un billete, buscar ofertas y ayuda.
 
 ### Página Principal
 
-Nuestra intencion es buscar la practidad y la familiaridad para que el proceso de compra tenga la menor fricción posible.
-Además queremos aprovechar esta posición privilegiada para comunicar una imagen de marca moderna, fiable, segura, ecologicá y española.
+Nuestra intencion es buscar el pragmatismo y la familiaridad para que el proceso de compra tenga la menor fricción posible.
+Además queremos aprovechar esta posición privilegiada para comunicar una imagen de marca moderna, fiable, segura, ecológica y española.
 
-### Consistencia y estandarización:
+### Consistencia y estandarización
 
 Los usuarios de las páginas web tienden a hacer un uso mecánico de esta, por esta razón se debe seguir unas pautas durante todo el desarrollo del sitio web.
 
@@ -42,7 +41,7 @@ Los usuarios de las páginas web tienden a hacer un uso mecánico de esta, por e
 
 ![](resizer.png)
 
-El mercado cada vez es más movil y por ello hemos diseñado la web para que se adapte eficientemente a las diferentes pantallas, siempre mantiendo su practicidad y el mensaje corporativo.
+El mercado cada vez es más móvil y por ello hemos diseñado la web para que se adapte adecuadamente a las diferentes pantallas, siempre mantiendo su practicidad y el mensaje corporativo.
 
 Como se puede ver, independientemente del tamaño de la pantalla, la utilidad no cambia en su esencia.
 
