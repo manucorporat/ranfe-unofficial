@@ -12,7 +12,8 @@
     "serve": "stencil-dev-server",
     "start": "npm run dev",
     "test": "jest --no-cache",
-    "test.watch": "jest --watch --no-cache"
+    "test.watch": "jest --watch --no-cache",
+    "deploy": "bs --no-yarn --no-cleanup --directory ./www --hook build"
   },
   "dependencies": {
     "@stencil/core": "^0.0.8-7",
@@ -23,6 +24,7 @@
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
+    "branchsite": "^4.0.2",
     "jest": "^21.2.1"
   },
   "repository": {
