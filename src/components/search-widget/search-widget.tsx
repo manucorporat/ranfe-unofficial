@@ -32,13 +32,13 @@ export class SearchWidget {
     console.log(ev);
     ev.preventDefault();
 
-    // const formData = new FormData(ev.target) as any;
-    // const params = new URLSearchParams();
-    // for (let entry of formData.entries()) {
-    //   params.append(entry[0], entry[1]);
-    // }
-    // const url = '/results?' + params.toString();
-    // this.history.push(url, {});
+    const formData = new FormData(ev.target) as any;
+    const params = new URLSearchParams();
+    for (let entry of formData.entries()) {
+      params.append(entry[0], entry[1]);
+    }
+    const url = '/results?' + params.toString();
+    this.history.push(url, {});
   }
 
   render() {

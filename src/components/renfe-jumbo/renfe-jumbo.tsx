@@ -11,13 +11,12 @@ export class RenfeJumbo {
   @Element() el: HTMLElement;
 
   componentDidLoad() {
-    console.log('dsff');
     this.setupParallax();
     this.setupTypeWritter();
   }
 
   setupParallax() {
-    const form = this.el.querySelector('search-widget') as any;
+    const form = this.el.querySelector('#form-container') as any;
     if (!form) {
       return;
     }

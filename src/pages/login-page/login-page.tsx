@@ -1,5 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
-import { doLogin, getFormEntries } from '../../utils/utils';
+import { doLogin, getFormEntries, getLogin, doLogout } from '../../utils/utils';
 
 @Component({
   tag: 'login-page',
@@ -17,6 +17,15 @@ export class LoginPage {
   // }
   @State() didError = false;
   @Prop() history: any;
+
+  componentDidLoad() {
+    if (location.search.includes('logout')) {
+      doLogout();
+    }
+    if (getLogin()) {
+      this.history.push('/admin/new');
+    }
+  }
 
   onSubmit(ev: Event) {
     ev.preventDefault();

@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import { getLogin } from '../../utils/utils';
+import { getLogin, doLogout } from '../../utils/utils';
 
 @Component({
   tag: 'admin-page',
@@ -55,6 +55,10 @@ export class AdminPage {
                 url={`/admin/${s.id}`}
                 class={{ 'selected': s === selected }}
               >{s.name}</stencil-route-link>))}
+
+            <stencil-route-link
+              url={`/login?logout`}
+            >LOGOUT</stencil-route-link>
           </div>
         </div>
         <div class="main-container">
