@@ -1,5 +1,5 @@
 import { Component, Prop } from '@stencil/core';
-import { getLogin, doLogout } from '../../utils/utils';
+import { getLogin } from '../../utils/utils';
 
 @Component({
   tag: 'admin-page',
@@ -45,6 +45,7 @@ export class AdminPage {
   render() {
     const selected = this.sections.find(s => s.id === this.getSection());
     const Component = selected.component;
+
     return [
       <renfe-header background={true} />,
       <div class="flex-section">
@@ -56,9 +57,7 @@ export class AdminPage {
                 class={{ 'selected': s === selected }}
               >{s.name}</stencil-route-link>))}
 
-            <stencil-route-link
-              url={`/login?logout`}
-            >LOGOUT</stencil-route-link>
+            <stencil-route-link url={`/login?logout`}>LOGOUT</stencil-route-link>
           </div>
         </div>
         <div class="main-container">
