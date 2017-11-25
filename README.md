@@ -21,7 +21,8 @@
 
 ## Como probar la web:
 
-### Metodo 1. Abriendo www/index.html con el navegador
+### Metodo 1.
+Abriendo www/index.html con el navegador
 
 ### Metodo 2. Desarrollo.
 

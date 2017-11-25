@@ -1,0 +1,25 @@
+@import "../../variables";
+
+weather-container {
+  display: block;
+
+  .weather-content {
+    padding: 2rem;
+
+    h3 {
+      font-size: 5rem;
+      font-weight: 200;
+
+      margin: 0;
+    }
+
+    h4 {
+      font-size: 3rem;
+      font-weight: 400;
+      text-transform: capitalize;
+
+      margin: 0;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

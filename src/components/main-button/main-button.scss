@@ -1,0 +1,65 @@
+@import "../../variables";
+
+.buttons {
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+main-button {
+  display: flex;
+
+  flex: 1;
+  flex-flow: column;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 20rem;
+  height: 29rem;
+
+  border-top: 1rem solid #853566;
+  font-size: 2.5rem;
+  color: #853566;
+  background: #fff;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
+  transition: transform 100ms ease-in-out;
+
+  text-align: center;
+  padding: 1rem 1rem 2rem;
+  margin: 1rem;
+
+  &:hover {
+    border-top: $fat-border solid $focus-color;
+    color: $focus-color;
+  }
+
+  > i {
+    display: inline-block;
+
+    min-width: 80%;
+
+    font: normal normal normal 1.4rem/1 FontAwesome;
+
+    font-size: 3em;
+
+    margin: 0;
+  }
+
+  > h4 {
+    font-weight: 600;
+    letter-spacing: .2rem;
+    text-transform: lowercase;
+
+    margin: 2rem 0;
+  }
+
+  > p {
+    font-size: 1.9rem;
+
+    margin: 0;
+  }
+}

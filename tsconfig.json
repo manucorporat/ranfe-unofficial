@@ -1,15 +1,25 @@
 {
   "compilerOptions": {
-      "strict": true,
-      "lib": ["es2017", "dom"],
-      "outDir": "./dist/",        // path to output directory
-      "sourceMap": true,          // allow sourcemap support
-      "module": "es6",            // specifiy module code generation
-      "jsx": "react",             // use typescript to transpile jsx to js
-      "target": "es5",            // specify ECMAScript target version
-      "allowJs": true             // allow a partial TypeScript and JavaScript codebase
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "moduleResolution": "node",
+    "module": "es2015",
+    "target": "es2015",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "jsxFactory": "h"
   },
   "include": [
-      "./src/"
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

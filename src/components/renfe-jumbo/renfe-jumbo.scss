@@ -1,0 +1,140 @@
+@import "../../variables";
+
+renfe-jumbo {
+  display: block;
+  height: 65rem;
+
+  background: #dec9ff;
+  background-repeat: no-repeat,
+  no-repeat,
+  no-repeat;
+
+  padding: $header-height 6rem 2.5rem;
+  background-position: center, center, center;
+  background-size: cover;
+  background-color: #60d096;
+  background-image: linear-gradient(to bottom, rgba(255, 184, 184, .52) 0%, rgba(255, 255, 255, 0) 66%), url("/assets/images/alex.jpg");
+
+  h1 {
+    width: 45rem;
+
+    text-shadow: 0 0 1rem rgba(0, 0, 0, .5);
+    color: #fff;
+
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .widget {
+    padding: 4rem 6rem;
+  }
+
+  .jumbo-content {
+    position: relative;
+
+    width: 100%;
+    max-width: 87rem;
+    height: 100%;
+
+    margin: auto;
+  }
+
+  @include tablet {
+    padding: 3rem;
+    h1 {
+      width: 40rem;
+      font-size: 5.5rem;
+    }
+
+    .widget {
+      padding: 4rem;
+    }
+  }
+
+  @include phone {
+    padding: 2rem;
+
+    h1 {
+      width: 30rem;
+      font-size: 4.7rem;
+    }
+
+    .widget {
+      padding: 2rem;
+    }
+
+    .form-container {
+      bottom: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion) {
+    /* ajustar estilos para reducir el movimiento */
+    transform: none !important;
+  }
+
+}
+
+
+// @include tablet {
+//   .widget {
+//     padding: 4rem;
+//   }
+
+//   .origin,
+//   .destination {
+//     min-width: 100%;
+//   }
+
+//   .form-container {
+//     transform: none !important;
+//   }
+
+//   h1,
+//   h2 {
+//     font-size: 5.5rem;
+//   }
+
+// }
+
+// @media (prefers-reduced-motion) {
+//   /* ajustar estilos para reducir el movimiento */
+//   transform: none !important;
+// }
+
+
+// @include phone {
+//   .widget {
+//     padding: 2rem;
+//   }
+
+//   h1,
+//   h2 {
+//     font-size: 4.7rem;
+//   }
+
+//   .form-container {
+//     bottom: 0;
+//   }
+
+//   .form-group {
+//     min-width: 100%;
+//   }
+
+//   .date,
+//   .people {
+//     min-width: auto;
+//   }
+
+//   .submit {
+//     max-width: 50%;
+
+//     border: $thin-border solid $main-color;
+//     font-size: 3.5rem;
+//   }
+// }
+
+// @media (prefers-reduced-motion) {
+//   /* ajustar estilos para reducir el movimiento */
+//   transform: none !important;
+// }

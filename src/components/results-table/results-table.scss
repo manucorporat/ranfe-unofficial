@@ -1,0 +1,56 @@
+@import "../../variables";
+
+results-table {
+  i {
+    transition: transform ease-in-out 400ms;
+    &.reversed {
+      transform: rotateZ(180deg);
+    }
+  }
+
+  .tickets {
+    width: 100%;
+
+    font-size: 2rem;
+    border-collapse: collapse;
+
+    margin-top: 4rem;
+
+    thead td {
+      border-bottom: $thin-border solid $main-color;
+      font-weight: 500;
+
+      padding-bottom: 1.5rem;
+    }
+
+    tbody {
+      :first-child td {
+        padding-top: 2.5rem;
+      }
+
+      tr:hover > td {
+        border-bottom: .1rem solid $focus-color;
+        color: $focus-color;
+      }
+
+      td {
+        border-bottom: .1rem solid rgba(128, 128, 128, .493);
+
+        margin: 0;
+      }
+    }
+
+    td {
+      padding-top: 1.5rem;
+      padding-bottom: .7rem;
+      padding-left: 1rem;
+    }
+  }
+
+  .no-trains {
+    font-size: 3rem;
+
+    margin-top: 10rem;
+    text-align: center;
+  }
+}

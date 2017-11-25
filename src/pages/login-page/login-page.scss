@@ -1,0 +1,69 @@
+@import "../../variables";
+
+login-page renfe-header {
+    border: 0;
+}
+
+.login-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  z-index: -1;
+}
+
+.login-photo {
+  flex: 1;
+  flex-basis: 50rem;
+  flex-shrink: 5;
+
+  background-position: center, center, center;
+  background-size: cover;
+  background-color: #60d096;
+  background-image: linear-gradient(to bottom, rgba(255, 184, 184, .52) 0%, rgba(255, 255, 255, 0) 66%), url("/assets/images/rail.jpeg");
+
+  border-right: $fat-border solid #820165;
+}
+
+.login-content {
+  flex: 1;
+  flex-basis: 50rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    width: 90%;
+    max-width: 30rem;
+
+    input, button {
+      min-width: 100%;
+    }
+
+    button[type=submit] {
+      margin-top: 1rem;
+      border: $thin-border solid $main-color;
+      font-weight: 700;
+      color: $main-color;
+    }
+  }
+}
+
+.form-error {
+  animation: errorShake 300ms 1 linear;
+
+  button[type=submit] {
+    border-color: red !important;
+    color: red !important;
+  }
+}
+
+@keyframes errorShake {
+  0% { -webkit-transform: translate(30px); }
+  20% { -webkit-transform: translate(-30px); }
+  40% { -webkit-transform: translate(15px); }
+  60% { -webkit-transform: translate(-15px); }
+  80% { -webkit-transform: translate(8px); }
+  100% { -webkit-transform: translate(0px); }
+}

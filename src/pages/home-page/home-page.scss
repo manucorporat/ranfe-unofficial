@@ -1,0 +1,71 @@
+@import "../../variables";
+
+.cities-container {
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+.city {
+  flex: 1;
+
+  min-width: 25rem;
+  max-width: 45rem;
+  height: 30rem;
+
+  font-size: 5rem;
+  font-weight: 200;
+  line-height: 30rem;
+  text-shadow: 0 0 1rem rgb(0, 0, 0);
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  margin: .25rem;
+  text-align: center;
+  background-position: center;
+}
+
+.city:hover {
+  font-weight: 500;
+  text-shadow: none;
+  color: #000;
+
+  filter: sepia(1) hue-rotate(200deg);
+}
+
+.madrid {
+  flex-grow: 3;
+
+  background-image: url("assets/images/madrid.jpg");
+}
+
+.barcelona {
+  flex-grow: 2;
+
+  background-image: url("assets/images/barcelona.jpg");
+}
+
+.bilbao {
+  background-image: url("assets/images/bilbao.jpg");
+}
+
+.sevilla {
+  background-image: url("assets/images/sevilla.jpg");
+}
+
+.valencia {
+  background-image: url("assets/images/valencia.jpg");
+}
+
+.discover {
+  max-width: initial;
+
+  font-size: 15rem;
+  line-height: 25rem;
+
+  text-shadow: none;
+  color: #000;
+  background: #3e3e3e;
+}
+

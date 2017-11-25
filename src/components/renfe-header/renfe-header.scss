@@ -1,0 +1,66 @@
+@import "../../variables";
+
+renfe-header {
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  height: $header-height;
+
+  border-bottom: $fat-border solid $main-color;
+
+  padding-left: 3.5rem;
+  padding-top: 1rem;
+
+  &.background {
+    position: relative;
+    background-color: #60d096;
+    background-image: linear-gradient(to bottom, rgba(255, 184, 184, .52) 0%, rgba(255, 255, 255, 0) 66%), url("/assets/images/alex.jpg");
+    background-position-y: top;
+    background-size: cover;
+  }
+}
+
+renfe-header img {
+  height: 10rem;
+}
+
+
+.github {
+  position: fixed;
+  top: 30px;
+  z-index: 1000;
+
+  width: 200px;
+
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  background: #0c2229;
+  transform: rotateZ(45deg);
+
+  padding: 5px 0;
+  text-align: center;
+  right: -60px;
+}
+
+
+@include tablet {
+  .github {
+    display: none;
+  }
+}
+
+
+@include phone {
+
+  renfe-header {
+    padding-top: 1.4rem;
+
+    img {
+      height: 5rem;
+    }
+  }
+
+}
+

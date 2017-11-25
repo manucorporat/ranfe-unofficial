@@ -1,0 +1,45 @@
+@import "../../variables";
+
+
+admin-page {
+
+  .admin-nav {
+    stencil-route-link > a {
+      display: block;
+      padding: 1rem 2rem;
+      width: 100%;
+      text-align: left;
+      font-size: 2rem;
+      text-decoration: none;
+      color: $main-color;
+      border-bottom: 0.3rem solid $main-color;
+      margin-bottom: 2rem;
+    }
+
+    stencil-route-link.selected > a {
+      border-bottom: 0.3rem solid $focus-color;
+      color: $focus-color;
+    }
+  }
+
+  .flex-section {
+    padding-top: 8rem;
+  }
+
+  .form-group {
+    flex-basis: 100% !important;
+    margin-bottom: 4rem;
+  }
+
+  form .form-group button.admin-submit {
+    color: $main-color;
+    max-width: 20rem;
+    padding: 0;
+    border: 0.3rem solid $main-color;
+  }
+
+  admin-page .form-group {
+    margin-bottom: 5rem;
+  }
+
+}

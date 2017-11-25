@@ -1,0 +1,15 @@
+@import "../../variables";
+
+type-writter {
+  display: block;
+
+  width: fit-content;
+  height: 1.2em;
+
+  font-weight: 500;
+  letter-spacing: .1rem;
+  background: #0c2228;
+
+  margin-left: -.5rem;
+  padding: 0 1rem;
+}

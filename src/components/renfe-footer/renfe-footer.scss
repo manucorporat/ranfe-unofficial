@@ -1,0 +1,15 @@
+@import "../../variables";
+
+renfe-footer {
+  display: block;
+  background: $main-color;
+  padding: 5rem 8rem;
+  z-index: 1;
+  color: white;
+  font-size: 1.6rem;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

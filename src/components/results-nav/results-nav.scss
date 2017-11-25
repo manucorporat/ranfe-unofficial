@@ -1,0 +1,62 @@
+@import "../../variables";
+
+$arrow-heigth: 4rem;
+
+
+results-nav {
+  display: flex;
+
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: 4rem;
+}
+
+results-nav button {
+  position: relative;
+
+  flex: 1;
+
+  height: $arrow-heigth;
+
+  border-bottom: $thin-border solid $main-color;
+  font-size: 2.1rem;
+  letter-spacing: .7px;
+  text-transform: lowercase;
+
+  text-align: center;
+  padding-left: 1rem;
+  padding-top: .5rem;
+  margin-right: 1.5rem;
+  color: rgb(19, 19, 19);
+
+  &::before {
+    position: absolute;
+    top: 0;
+
+    width: $arrow-heigth / 1.4142;
+    height: $arrow-heigth / 1.4142;
+
+    border-right: $thin-border solid $main-color;
+    border-bottom: $thin-border solid $main-color;
+    content: "";
+    transform: rotateZ(-45deg);
+
+    transform-origin: top right;
+    box-sizing: border-box;
+    right: 0;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  &.selected {
+    border-bottom: $thin-border solid $focus-color;
+    opacity: 1;
+
+    &::before {
+      border-right: $thin-border solid $focus-color;
+      border-bottom: $thin-border solid $focus-color;
+    }
+  }
+}

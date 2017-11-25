@@ -1,0 +1,58 @@
+@import "../../variables";
+
+$arrow-heigth: 4rem;
+
+
+// .filter {
+//   position: sticky;
+//   top: 4rem;
+
+//   margin-top: 8rem;
+
+//   .widget {
+//     padding: 1rem;
+//     margin-bottom: 5rem;
+//   }
+// }
+
+.top-content {
+  position: sticky;
+  position: -webkit-sticky;
+
+  top: 0;
+  z-index: 1;
+  display: none;
+
+  flex: 1;
+
+  letter-spacing: .2rem;
+}
+
+.form-group-mini {
+  margin: 1rem -.25rem;
+}
+
+.widget-mini {
+  position: sticky;
+  top: 0;
+
+  box-shadow: none;
+
+  border-radius: 0;
+  padding: .3rem 1rem;
+  margin: 0;
+}
+
+.title-result {
+  text-align: center;
+}
+
+@include bigtablet {
+  .top-content {
+    display: block;
+  }
+
+  .side-container {
+    display: none;
+  }
+}

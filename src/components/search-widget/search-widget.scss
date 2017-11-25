@@ -1,0 +1,76 @@
+@import "../../variables";
+
+.form-container {
+  position: absolute;
+
+  bottom: -6rem;
+
+  left: 0;
+  right: 0;
+  will-change: transform;
+}
+
+.swap {
+  position: relative;
+  bottom: -2rem;
+  z-index: 10;
+
+  flex: 0;
+  flex-basis: 3.5rem;
+
+  height: 3.5rem;
+
+  border: $thin-border solid #e6e6e6;
+  color: $main-color;
+  background: #fff;
+
+  padding: 0;
+  margin-top: -4.2rem;
+  margin-right: -3.2rem;
+  left: -1.6rem;
+
+  font-size: 1.7rem;
+}
+
+form button.submit[type=submit] {
+  min-width: 5rem;
+  max-width: 5rem;
+
+  font-size: 2.5rem;
+  color: $main-color;
+
+  padding: 0;
+}
+
+.form-group.city-group {
+  flex: 2;
+}
+
+.form-group.date-group {
+  flex: 3;
+}
+
+@include tablet {
+  .form-group.city-group,
+  .form-group.date-group {
+    min-width: 100%;
+  }
+}
+
+@include phone {
+  .form-group.city-group input {
+    min-width: 100%;
+  }
+
+  .people {
+    min-width: 100%;
+  }
+
+  form button.submit[type=submit] {
+    max-width: 50%;
+
+    border: $thin-border solid $main-color;
+    font-size: 3.5rem;
+  }
+}
+
