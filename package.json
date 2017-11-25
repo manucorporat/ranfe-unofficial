@@ -13,7 +13,7 @@
     "start": "npm run dev",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "deploy": "bs --no-yarn --no-cleanup --directory ./www --hook build"
+    "deploy": "bs --no-cleanup --directory ./www --hook build"
   },
   "dependencies": {
     "@stencil/core": "^0.0.8-7",
