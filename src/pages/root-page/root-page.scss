@@ -171,7 +171,8 @@ form {
     color: $main-color;
   }
 
-  input, button[type='submit'] {
+  input,
+  button[type='submit'] {
     display: block;
 
     flex: 1;
@@ -190,6 +191,7 @@ form {
     padding: 1rem;
     -webkit-appearance: none;
     margin: 0.5rem 0;
+    min-width: 1rem;
   }
 
   input {
