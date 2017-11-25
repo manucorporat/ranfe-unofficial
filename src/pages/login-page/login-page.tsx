@@ -19,6 +19,9 @@ export class LoginPage {
   @Prop() history: any;
 
   componentDidLoad() {
+    if (Context.isServer) {
+      return;
+    }
     if (location.search.includes('logout')) {
       doLogout();
     }
