@@ -18,6 +18,13 @@ export async function sendForm(command: string, ev: Event) {
     method: 'post',
     body: new FormData(ev.target as HTMLFormElement)
   });
+  switch (response.status) {
+    case 400: throw new Error('la peticion fue mal enviada');
+    case 401: throw new Error('acceso denegado');
+  }
+  if (response.status !== 200) {
+    throw new Error('unknown error')
+  }
   return response.json();
 }
 

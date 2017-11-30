@@ -1,5 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
-import { doLogin, getFormEntries, getLogin, doLogout, sendForm } from '../../utils/utils';
+import { doLogin, getLogin, doLogout, sendForm } from '../../utils/utils';
 
 @Component({
   tag: 'login-page',
@@ -22,9 +22,9 @@ export class LoginPage {
     }
   }
 
-    async onSubmit(ev: Event) {
+  async onSubmit(ev: Event) {
     try {
-      const json = await sendForm('/login.php', ev);
+      const json = await sendForm('login.php', ev);
       doLogin(json.token);
       this.history.push('/admin/new');
     } catch (e) {

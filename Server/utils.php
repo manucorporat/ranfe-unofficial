@@ -18,6 +18,7 @@ function mustPOST($key) {
 function send_json($code, $data = false) {
 
     http_response_code($code);
+    header("Access-Control-Allow-Origin: *");
     if ($data) {
         header("Content-Type: application/json");
         echo json_encode($data);
