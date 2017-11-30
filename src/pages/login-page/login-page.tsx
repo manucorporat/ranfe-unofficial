@@ -1,5 +1,5 @@
-import { Component, Prop, State } from '@stencil/core';
-import { doLogin, getLogin, doLogout, sendForm } from '../../utils/utils';
+import { Component, Prop } from '@stencil/core';
+import { doLogin, getLogin, doLogout, sendForm, shakeForm } from '../../utils/utils';
 
 @Component({
   tag: 'login-page',
@@ -7,7 +7,6 @@ import { doLogin, getLogin, doLogout, sendForm } from '../../utils/utils';
 })
 export class LoginPage {
 
-  @State() didError = false;
   @Prop() history: any;
 
   componentDidLoad() {
@@ -29,14 +28,13 @@ export class LoginPage {
       this.history.push('/admin/new');
     } catch (e) {
       console.error(e);
-      this.loginError();
+      this.loginError(ev.target as HTMLFormElement);
     }
   }
 
-  loginError() {
+  loginError(form: HTMLFormElement) {
     console.error('login failed');
-    this.didError = true;
-    setTimeout(() => this.didError = false, 800);
+    shakeForm(form);
   }
 
   render() {
@@ -45,7 +43,7 @@ export class LoginPage {
       <div class="login-container">
         <div class="login-photo" />
         <div class="login-content">
-          <form onSubmit={(ev) => this.onSubmit(ev)} class={{ 'form-error': this.didError }}>
+          <form onSubmit={(ev) => this.onSubmit(ev)}>
             <input type="text" placeholder="Usuario" name="user" required />
             <input type="password" placeholder="Contraseña" name="password" required />
             <button type="submit">Acceder</button>

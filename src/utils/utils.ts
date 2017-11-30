@@ -11,21 +11,36 @@ export interface UserData {
   email: string;
 }
 
-export async function sendForm(command: string, ev: Event) {
+export async function sendForm(command: string, ev: Event): Promise<any|null> {
   ev.preventDefault();
-  const url = BASE_URL + command;
-  const response = await fetch(url, {
-    method: 'post',
-    body: new FormData(ev.target as HTMLFormElement)
-  });
-  switch (response.status) {
-    case 400: throw new Error('la peticion fue mal enviada');
-    case 401: throw new Error('acceso denegado');
+  const form = ev.target as HTMLFormElement;
+
+  try {
+    formReadonly(form, true);
+    const url = BASE_URL + command;
+    const response = await fetch(url, {
+      method: 'post',
+      body: new FormData(form)
+    });
+    switch (response.status) {
+      case 400: throw new Error('la peticion fue mal enviada');
+      case 401: throw new Error('acceso denegado');
+    }
+    if (response.status !== 200) {
+      throw new Error('unknown error')
+    }
+    formClean(form);
+    try {
+      return await response.json();
+    } catch (e) {
+      return null;
+    }
+  } catch (e) {
+    shakeForm(form);
+    throw e;
+  } finally {
+    formReadonly(form, false);
   }
-  if (response.status !== 200) {
-    throw new Error('unknown error')
-  }
-  return response.json();
 }
 
 export function getLogin(): string {
@@ -63,6 +78,29 @@ export function getFormEntries(form: HTMLFormElement) {
     results[item.name] = item.value;
   }
   return results;
+}
+
+export function formReadonly(form: HTMLFormElement, readOnly: boolean) {
+  const elements = form.elements;
+  for (let i = 0; i < elements.length; i++) {
+    let item = elements.item(i) as HTMLInputElement;
+    item.readOnly = readOnly;
+  }
+}
+
+export function formClean(form: HTMLFormElement) {
+  const elements = form.elements;
+  for (let i = 0; i < elements.length; i++) {
+    let item = elements.item(i) as HTMLInputElement;
+    item.value = '';
+  }
+}
+
+export function shakeForm(form: HTMLFormElement) {
+  form.classList.add('form-error');
+  setTimeout(() => {
+    form.classList.remove('form-error');
+  }, 800);
 }
 
 function keyForUser(user: UserData): string {
