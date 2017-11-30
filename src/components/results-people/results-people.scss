@@ -3,13 +3,29 @@
 results-people {
   .person {
     margin-bottom: 2rem;
-    padding: 1rem 2rem;
+    padding: 2rem 3rem;
     font-size: 2rem;
     color: $main-color;
     border: $thin-border solid $main-color;
     border-radius: 0.5rem;
     /* border-radius: 1rem; */
     // box-shadow: $light-shadow;
+  }
+
+  .person-title {
+    font-weight: 500;
+  }
+
+  .person-summary {
+    padding-left: 2rem;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    p {
+      margin: 0;
+    }
+    strong {
+      font-weight: 500;
+    }
   }
 
   .form-group {
@@ -22,6 +38,13 @@ results-people {
   }
 
   .person.selected {
+    border-color: $focus-color;
+    .person-title {
+      color: $focus-color;
+    }
+    .person-summary {
+      display: none;
+    }
     .person-form {
       display: flex;
     }

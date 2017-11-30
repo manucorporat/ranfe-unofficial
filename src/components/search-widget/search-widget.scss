@@ -1,13 +1,17 @@
 @import "../../variables";
 
-.form-container {
-  position: absolute;
+search-widget.small {
+  .form-group {
+    min-width: 100% !important;
+  }
 
-  bottom: -6rem;
+  .form-group.city-group input {
+    min-width: 100% !important;
+  }
 
-  left: 0;
-  right: 0;
-  will-change: transform;
+  .people {
+    min-width: 100% !important;
+  }
 }
 
 .swap {

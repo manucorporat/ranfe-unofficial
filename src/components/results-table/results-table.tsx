@@ -21,31 +21,30 @@ export class ResultsTable {
     const data = this.data;
     if (!data || data.length === 0) {
       return <div class="no-trains">No hay trenes disponibles</div>;
-    } else {
-      return (
-        <div>
-          <div class="tickets head">
-            <div>Salida</div>
-            <div>Llegada</div>
-            <div>Duración</div>
-            <div>Tren</div>
-            <div>Precio</div>
-          </div>
-          {data.map((item) => (
-            <button class={{
-              tickets: true,
-              selected: item.id === this.selectedId
-            }} onClick={() => this.onSelected(item.id)}>
-              <div>{item.departure}</div>
-              <div>{item.arrival}</div>
-              <div>{item.duration}</div>
-              <div>{item.train_model}</div>
-              <div>{item.price}</div>
-            </button>
-          ))}
-        </div>
-      );
     }
+    return (
+      <div>
+        <div class="tickets head">
+          <div>Salida</div>
+          <div>Llegada</div>
+          <div>Duración</div>
+          <div>Tren</div>
+          <div>Precio</div>
+        </div>
+        {data.map((item) => (
+          <button class={{
+            tickets: true,
+            selected: item.id === this.selectedId
+          }} onClick={() => this.onSelected(item.id)}>
+            <div>{item.departure}</div>
+            <div>{item.arrival}</div>
+            <div>{item.duration}</div>
+            <div>{item.train_model}</div>
+            <div>{item.price}</div>
+          </button>
+        ))}
+      </div>
+    );
   }
 
   render() {

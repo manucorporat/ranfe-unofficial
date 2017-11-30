@@ -20,17 +20,50 @@ export class ResultsPage {
     this.hasArrival = !!this.getArrival();
     console.log(this.getCityA());
 
-    const formData = new FormData();
-    formData.append('origin', this.getCityA());
-    formData.append('destination', this.getCityB());
+    // const formData = new FormData();
+    // formData.append('origin', this.getCityA());
+    // formData.append('destination', this.getCityB());
 
-    const response = await fetch('http://localhost:8000/results.php', {
-      method: 'post',
-      body: formData
-    })
-    const json = await response.json();
-    console.log(json);
-    this.resultsDeparture = json;
+    // const response = await fetch('http://localhost:8000/results.php', {
+    //   method: 'post',
+    //   body: formData
+    // })
+    // const json = await response.json();
+    // console.log(json);
+    this.resultsDeparture = [
+      {
+        id: 1,
+        departure: '12:04',
+        arrival: '12:50',
+        duration: "12",
+        price: '12',
+        train_model: 'AVANT',
+      },
+      {
+        id: 2,
+        departure: '12:04',
+        arrival: '12:50',
+        duration: "12",
+        price: '12',
+        train_model: 'AVANT',
+      },
+      {
+        id: 3,
+        departure: '12:04',
+        arrival: '12:50',
+        duration: "12",
+        price: '12',
+        train_model: 'AVANT',
+      },
+      {
+        id: 4,
+        departure: '12:04',
+        arrival: '12:50',
+        duration: "12",
+        price: '12',
+        train_model: 'AVANT',
+      }
+    ];
   }
 
   setCurrentIndex(index: number) {
@@ -41,16 +74,17 @@ export class ResultsPage {
   @Listen('tableSelected')
   onTableSelected(ev: CustomEvent) {
     const id = ev.detail as string;
-    if (this.currentIndex === 0) {
-      this.selectedDeparture = id;
-      this.setCurrentIndex(1);
-    } else if (this.currentIndex === 1) {
-      if (!this.hasArrival) {
-        throw new Error('arrival is disabled');
+    this.selectedDeparture = id;
+    setTimeout(() => {
+      if (this.currentIndex === 0) {
+        this.setCurrentIndex(1);
+      } else if (this.currentIndex === 1) {
+        if (!this.hasArrival) {
+          throw new Error('arrival is disabled');
+        }
+        this.setCurrentIndex(2);
       }
-      this.selectedArrival = id;
-      this.setCurrentIndex(2);
-    }
+    }, 200);
   }
 
   @Listen('navTab')
@@ -70,8 +104,8 @@ export class ResultsPage {
   getArrival(): string {
     return getURLParam('arrival');
   }
-  getPeople(): string {
-    return getURLParam('people');
+  getPeople(): number {
+    return 2;
   }
   get() {
     return [];
@@ -96,7 +130,7 @@ export class ResultsPage {
         selectedId={this.selectedArrival}
         data={this.resultsArrival} />;
 
-      case 2: return <results-people />;
+      case 2: return <results-people nuPeople={this.getPeople()} />;
       case 3: return <results-end />;
     }
   }
@@ -114,7 +148,7 @@ export class ResultsPage {
         <div class="side-container">
           <div class="sticky">
             <div class="widget">
-              <search-widget cityA={this.getCityA()} cityB={this.getCityB()} />
+              <search-widget class="small" cityA={this.getCityA()} cityB={this.getCityB()} />
             </div>
             <div class="widget">
               <weather-container city={this.getCityA()} />
