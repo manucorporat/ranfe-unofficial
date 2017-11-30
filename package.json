@@ -8,15 +8,15 @@
   ],
   "scripts": {
     "build": "stencil build --prerender",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
+    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" \"npm run php\"",
     "serve": "stencil-dev-server",
+    "php": "cd ./Server && php -S localhost:8000",
     "start": "npm run dev",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
     "deploy": "bs --no-cleanup --directory ./www --hook build"
   },
   "dependencies": {
-    "@stencil/core": "^0.0.8-7",
     "@stencil/router": "latest",
     "ionicons": "^4.0.0-6"
   },
