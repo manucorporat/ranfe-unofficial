@@ -1,8 +1,9 @@
 <?php
-include utils.php;
+    require_once("./utils.php");
+    mustMETHOD("POST");
 
-    $user = must($_POST["user"]);
-    $password = must($_POST["password"]);
+    $user = mustPOST("user");
+    $password = mustPOST("password");
 
     if($user == "root" && $password == "root"){
         send_json(200, array(
@@ -11,5 +12,4 @@ include utils.php;
     } else {
         send_json(401);
     }
-
 ?>
