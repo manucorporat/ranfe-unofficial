@@ -1,4 +1,4 @@
-import { Component, Prop } from "@stencil/core";
+import { Component, Prop, Event, EventEmitter } from "@stencil/core";
 
 @Component({
   tag: 'results-table',
@@ -9,7 +9,13 @@ export class ResultsTable {
   @Prop() cityA: string;
   @Prop() cityB: string;
   @Prop() reversed: boolean = false;
+  @Prop() selectedId: string;
   @Prop() data: any;
+  @Event() tableSelected: EventEmitter;
+
+  onSelected(id: string) {
+    this.tableSelected.emit(id);
+  }
 
   renderResults() {
     const data = this.data;
@@ -17,30 +23,27 @@ export class ResultsTable {
       return <div class="no-trains">No hay trenes disponibles</div>;
     } else {
       return (
-        <table class="tickets">
-          <thead>
-            <tr>
-              <td>Salida</td>
-              <td>Llegada</td>
-              <td>Duración</td>
-              <td>Tren</td>
-              <td>Clase</td>
-              <td>Precio</td>
-            </tr>
-          </thead>
-          <tbody id="table-data">
-            {data.map((item) => (
-              <tr>
-                <td>{item.start}</td>
-                <td>{item.end}</td>
-                <td>{item.duration}</td>
-                <td>{item.train}</td>
-                <td>{item.type}</td>
-                <td>{item.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div>
+          <div class="tickets head">
+            <div>Salida</div>
+            <div>Llegada</div>
+            <div>Duración</div>
+            <div>Tren</div>
+            <div>Precio</div>
+          </div>
+          {data.map((item) => (
+            <button class={{
+              tickets: true,
+              selected: item.id === this.selectedId
+            }} onClick={() => this.onSelected(item.id)}>
+              <div>{item.departure}</div>
+              <div>{item.arrival}</div>
+              <div>{item.duration}</div>
+              <div>{item.train_model}</div>
+              <div>{item.price}</div>
+            </button>
+          ))}
+        </div>
       );
     }
   }

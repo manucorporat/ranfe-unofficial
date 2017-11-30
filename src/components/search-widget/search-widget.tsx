@@ -1,5 +1,5 @@
 import { Component, Prop, Element } from "@stencil/core";
-import { RouterHistory } from "@stencil/router";
+import { ActiveRouter } from "@stencil/router";
 
 @Component({
   tag: 'search-widget',
@@ -10,8 +10,7 @@ export class SearchWidget {
   @Element() el: HTMLElement;
   @Prop() cityA: string;
   @Prop() cityB: string;
-  @Prop() history: RouterHistory;
-
+  @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
 
   swapCities() {
     const inputOrigin = this.el.querySelector('input[name=origin]') as HTMLInputElement;
@@ -38,7 +37,8 @@ export class SearchWidget {
       params.append(entry[0], entry[1]);
     }
     const url = '/results?' + params.toString();
-    this.history.push(url, {});
+    const history = this.activeRouter.get('history');
+    history.push(url, {});
   }
 
   render() {
@@ -55,8 +55,8 @@ export class SearchWidget {
           <input type="text" placeholder="Destino" name="destination" value={this.cityB} required></input>
         </div>
         <div class="form-group date-group">
-          <input type="text" placeholder="Ida" name="ida" class="ida" required />
-          <input type="text" placeholder="Vuelta" name="ida"  class="vuelta" />
+          <input type="text" placeholder="Ida" name="departure" class="ida" required />
+          <input type="text" placeholder="Vuelta" name="arrival"  class="vuelta" />
           <input type="text" placeholder="Personas" value="1 adulto" name="people" class="people" required />
           <button type="submit" class="submit">
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>

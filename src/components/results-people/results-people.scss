@@ -1,0 +1,29 @@
+@import "../../variables";
+
+results-people {
+  .person {
+    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    color: $main-color;
+    border: $thin-border solid $main-color;
+    border-radius: 0.5rem;
+    /* border-radius: 1rem; */
+    // box-shadow: $light-shadow;
+  }
+
+  .form-group {
+    min-width: 100%;
+  }
+
+  .person-form {
+    display: none;
+    margin: 4rem;
+  }
+
+  .person.selected {
+    .person-form {
+      display: flex;
+    }
+  }
+}

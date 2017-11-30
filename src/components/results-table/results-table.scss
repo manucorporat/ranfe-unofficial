@@ -9,42 +9,31 @@ results-table {
   }
 
   .tickets {
+    display: flex;
     width: 100%;
-
     font-size: 2rem;
-    border-collapse: collapse;
+    border-bottom: .1rem solid rgba(128, 128, 128, .493);
+    margin: 0;
+    padding: 1.5rem 0;
 
-    margin-top: 4rem;
-
-    thead td {
-      border-bottom: $thin-border solid $main-color;
-      font-weight: 500;
-
-      padding-bottom: 1.5rem;
-    }
-
-    tbody {
-      :first-child td {
-        padding-top: 2.5rem;
-      }
-
-      tr:hover > td {
-        border-bottom: .1rem solid $focus-color;
-        color: $focus-color;
-      }
-
-      td {
-        border-bottom: .1rem solid rgba(128, 128, 128, .493);
-
-        margin: 0;
-      }
-    }
-
-    td {
-      padding-top: 1.5rem;
-      padding-bottom: .7rem;
+    > div {
+      text-align: left;
+      flex: 1;
       padding-left: 1rem;
     }
+  }
+
+  .tickets.selected {
+    color: $focus-color;
+    font-weight: 600;
+    border-bottom: $thin-border solid $focus-color;
+  }
+
+  .tickets.head {
+    border-bottom: $thin-border solid $main-color;
+    font-weight: 500;
+    margin-top: 3rem;
+    padding-bottom: 1rem;
   }
 
   .no-trains {

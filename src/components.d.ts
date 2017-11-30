@@ -8,9 +8,6 @@ import '@stencil/router';
 
 import 'ionicons';
 
-import {
-  RouterHistory,
-} from '@stencil/router';
 
 import {
   MainButton as MainButton
@@ -170,6 +167,37 @@ declare global {
 
 
 import {
+  ResultsPeople as ResultsPeople
+} from './components/results-people/results-people';
+
+declare global {
+  interface HTMLResultsPeopleElement extends ResultsPeople, HTMLElement {
+  }
+  var HTMLResultsPeopleElement: {
+    prototype: HTMLResultsPeopleElement;
+    new (): HTMLResultsPeopleElement;
+  };
+  interface HTMLElementTagNameMap {
+    "results-people": HTMLResultsPeopleElement;
+  }
+  interface ElementTagNameMap {
+    "results-people": HTMLResultsPeopleElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "results-people": JSXElements.ResultsPeopleAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ResultsPeopleAttributes extends HTMLAttributes {
+      
+        nuPeople?: number
+    }
+  }
+}
+
+
+import {
   ResultsTable as ResultsTable
 } from './components/results-table/results-table';
 
@@ -197,6 +225,7 @@ declare global {
         cityA?: string,
         cityB?: string,
         reversed?: boolean,
+        selectedId?: string,
         data?: any
     }
   }
@@ -229,8 +258,7 @@ declare global {
     export interface SearchWidgetAttributes extends HTMLAttributes {
       
         cityA?: string,
-        cityB?: string,
-        history?: RouterHistory
+        cityB?: string
     }
   }
 }
