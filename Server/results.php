@@ -20,7 +20,7 @@ if($stmt = mysqli_prepare($db,"select * from journey_info where origin = ? and d
     $results = array();
     while (mysqli_stmt_fetch($stmt)) {
         $results[] = array(
-            'id'=> $id;
+            'id'=> $id,
             'origin' => $origin,
             'destination' => $destination,
             'departure' => $departure,
