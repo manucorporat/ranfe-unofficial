@@ -17,6 +17,7 @@
     "deploy": "bs --no-cleanup --directory ./www --hook build"
   },
   "dependencies": {
+    "@stencil/core": "next",
     "@stencil/router": "latest",
     "ionicons": "^4.0.0-6"
   },
