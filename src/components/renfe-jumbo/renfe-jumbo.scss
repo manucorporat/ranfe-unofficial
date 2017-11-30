@@ -25,6 +25,16 @@ renfe-jumbo {
     padding-left: 1rem;
   }
 
+  .form-container {
+    position: absolute;
+
+    bottom: -6rem;
+
+    left: 0;
+    right: 0;
+    will-change: transform;
+  }
+
   .widget {
     padding: 4rem 6rem;
   }
@@ -74,67 +84,3 @@ renfe-jumbo {
   }
 
 }
-
-
-// @include tablet {
-//   .widget {
-//     padding: 4rem;
-//   }
-
-//   .origin,
-//   .destination {
-//     min-width: 100%;
-//   }
-
-//   .form-container {
-//     transform: none !important;
-//   }
-
-//   h1,
-//   h2 {
-//     font-size: 5.5rem;
-//   }
-
-// }
-
-// @media (prefers-reduced-motion) {
-//   /* ajustar estilos para reducir el movimiento */
-//   transform: none !important;
-// }
-
-
-// @include phone {
-//   .widget {
-//     padding: 2rem;
-//   }
-
-//   h1,
-//   h2 {
-//     font-size: 4.7rem;
-//   }
-
-//   .form-container {
-//     bottom: 0;
-//   }
-
-//   .form-group {
-//     min-width: 100%;
-//   }
-
-//   .date,
-//   .people {
-//     min-width: auto;
-//   }
-
-//   .submit {
-//     max-width: 50%;
-
-//     border: $thin-border solid $main-color;
-//     font-size: 3.5rem;
-//   }
-// }
-
-// @media (prefers-reduced-motion) {
-//   /* ajustar estilos para reducir el movimiento */
-//   transform: none !important;
-// }
