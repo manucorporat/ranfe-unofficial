@@ -1,10 +1,22 @@
 <?php
 
-function mustMETHOD($method) {
+$TOKEN = "1234567";
+
+function checkMETHOD($method) {
     if($_SERVER['REQUEST_METHOD'] != $method) {
         send_json(405);
         exit(-1);
     }
+}
+
+
+function checkTOKEN(){
+    $t = mustPOST("token");
+    if($t != $TOKEN){
+        send_json(401);
+        exit(-1);
+    }
+
 }
 
 function mustPOST($key) {

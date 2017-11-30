@@ -12,7 +12,7 @@ $db_name = 'viaje';
 $host = 'localhost';
 $login = 'root';
 $pass = 'eliseo';
-$db_name = 'viaje';
+$db_name = 'journey';
 
 /*Establecemos y comprobamos la conexion con la base de datos*/
 @$db = mysqli_init();

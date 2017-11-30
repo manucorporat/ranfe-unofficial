@@ -1,54 +1,49 @@
-create database viaje;
+create database journey;
 
-use viaje;
+use journey;
 
-create table info_recorrido
+
+create table journey_info
 (
     id int not null auto_increment primary key,
-    ciudad_a char(15) not null,
-    ciudad_b char(15) not null
+    origin char(15) not null,
+    destination char(15) not null,
+    departure time not null,
+    arrival time not null,
+    train_model char(10) not null,
+    num_seats int not null,
+    price char(7) not null
 );
 
-create table info_viaje
-(
+create table ocupation (
     id int not null auto_increment primary key,
-    salida time not null,
-    llegada time not null,
-    modelo_tren char(10) not null,
-    num_asientos_turista int not null,
-    num_asientos_preferentes int not null,
-    info_recorrido int not null
+    num_seats int not null,
+    person_info int,
+    used int not null,
+    day date not null,
+    journey_info int not null
 );
 
-create table ocupacion (
+create table person_info (
     id int not null auto_increment primary key,
-    num_asiento int not null,
-    info_persona int,
-    estado int not null,
-    dia date not null,
-    info_viaje int not null
-);
-
-create table info_persona (
-    id int not null auto_increment primary key,
-    nombre char(20) not null,
-    apellidos char(20) not null,
+    name char(20) not null,
+    surname char(20) not null,
     dni char(10) not null,
-    telefono char(12) not null,
-    correo char(50) not null,
-    ocupacion int not null
+    phone_number char(12) not null,
+    email char(50) not null,
+    ocupation int not null
 );
 
-
+/*
 insert into info_recorrido values
-(null,'MADRID', 'BILBAO'),/*1*/
-(null,'BILBAO', 'MADRID'),/*2*/
-(null,'MADRID', 'VALLADOLID'),/*3*/
-(null,'VALLADOLID', 'MADRID'),/*4*/
-(null,'MADRID', 'BARCELONA'),/*5*/
-(null,'BARCELONA', 'MADRID'),/*6*/
-(null,'VALLADOLID', 'BARCELONA'),/*7*/
-(null,'BARCELONA', 'VALLADOLID');/*8*/
+(null,'MADRID', 'BILBAO'),
+(null,'BILBAO', 'MADRID'),
+(null,'MADRID', 'VALLADOLID'),
+(null,'VALLADOLID', 'MADRID'),
+(null,'MADRID', 'BARCELONA'),
+(null,'BARCELONA', 'MADRID'),
+(null,'VALLADOLID', 'BARCELONA'),
+(null,'BARCELONA', 'VALLADOLID');
 
 
 insert into info_viaje values 
@@ -83,3 +78,4 @@ insert into info_persona values
 (null, 'Javier','Gonzalez ','11111111i','692841247','javiergay@gmail.jj',2),
 (null, 'Pablo','Alvarez','87494792j','7147814214','pablo.9@hotmail.oo',3);
 
+*/
