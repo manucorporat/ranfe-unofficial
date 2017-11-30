@@ -1,6 +1,8 @@
 
 const TOKEN_KEY = 'token';
 
+const BASE_URL = 'http://localhost:8000/'
+
 export interface UserData {
   id: string;
   name: string;
@@ -9,8 +11,9 @@ export interface UserData {
   email: string;
 }
 
-export async function sendForm(url: string, ev: Event) {
+export async function sendForm(command: string, ev: Event) {
   ev.preventDefault();
+  const url = BASE_URL + command;
   const response = await fetch(url, {
     method: 'post',
     body: new FormData(ev.target as HTMLFormElement)

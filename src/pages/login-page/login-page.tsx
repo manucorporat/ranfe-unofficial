@@ -1,5 +1,5 @@
 import { Component, Prop, State } from '@stencil/core';
-import { doLogin, getFormEntries, getLogin, doLogout } from '../../utils/utils';
+import { doLogin, getFormEntries, getLogin, doLogout, sendForm } from '../../utils/utils';
 
 @Component({
   tag: 'login-page',
@@ -7,14 +7,6 @@ import { doLogin, getFormEntries, getLogin, doLogout } from '../../utils/utils';
 })
 export class LoginPage {
 
-  // async onSubmit(ev: Event) {
-  //   try {
-  //     const json = await sendForm('/login.php', ev);
-  //     doLogin(json.token);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // }
   @State() didError = false;
   @Prop() history: any;
 
@@ -30,15 +22,13 @@ export class LoginPage {
     }
   }
 
-  onSubmit(ev: Event) {
-    ev.preventDefault();
-    const formData = getFormEntries(ev.target as any);
-    const user = formData['user'];
-    const password = formData['password'];
-    if (user === 'admin' && password === 'admin') {
-      doLogin('admin');
+    async onSubmit(ev: Event) {
+    try {
+      const json = await sendForm('/login.php', ev);
+      doLogin(json.token);
       this.history.push('/admin/new');
-    } else {
+    } catch (e) {
+      console.error(e);
       this.loginError();
     }
   }
