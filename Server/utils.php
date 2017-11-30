@@ -16,7 +16,17 @@ function checkTOKEN(){
         send_json(401);
         exit(-1);
     }
+}
 
+function noReturnExecute($stmt, $error=500){
+    $test = mysqli_stmt_execute($stmt);
+
+    if($test){
+        send_json(200,array(
+            'message' => "OK"
+        ));
+    }
+    else send_json($error);
 }
 
 function mustPOST($key) {

@@ -22,19 +22,8 @@ if($stmt = mysqli_prepare($db,"insert into journey_info(origin,
 
     mysqli_stmt_bind_param($stmt, "sssssis",$origin,$destination,$departure,$arrival,$train_model,$num_seats,$price);
     
-    $test = mysqli_stmt_execute($stmt);
-    /*
-    mysqli_stmt_bind_result($stmt,$test);
+    noReturnExecute($stmt);            
     
-    mysqli_stmt_fetch($stmt);
-    */
-    if($test){
-        send_json(200,array(
-            'message' => "OK"
-        ));
-    }
-    else send_json(500);
-
 }
 
 
