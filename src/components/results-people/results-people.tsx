@@ -42,7 +42,7 @@ export class ResultsPeople {
           </div>
           <div class="form-group">
             <input placeholder="Nombre" name="name" onInput={(ev) => setValue(ev, 'name', person) } />
-            <input placeholder="Apellidos" name="lastname" onInput={(ev) => setValue(ev, 'lastname', person) }/>
+            <input placeholder="Apellidos" name="surname" onInput={(ev) => setValue(ev, 'surname', person) }/>
           </div>
           <input placeholder="Telefono" name="phone" onInput={(ev) => setValue(ev, 'phone', person) } />
         </form>

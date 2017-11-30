@@ -29,7 +29,7 @@ create table person_info (
     name char(20) not null,
     surname char(20) not null,
     dni char(10) not null,
-    phone_number char(12) not null,
+    phone char(12) not null,
     email char(50) not null,
     ocupation int not null
 );
