@@ -26,6 +26,5 @@ if(!mysqli_real_connect($db,$host,$login,$pass,$db_name)){
     die('Connection Error: ' . mysqli_connect_errno() . ')' . mysqli_connect_error());
 }
 
-echo 'SUCCESS: Conection accepted!' . '<br>';
 
 ?>
