@@ -22,7 +22,7 @@ login-page renfe-header {
   background-color: #60d096;
   background-image: linear-gradient(to bottom, rgba(255, 184, 184, .52) 0%, rgba(255, 255, 255, 0) 66%), url("/assets/images/rail.jpeg");
 
-  border-right: $fat-border solid #820165;
+  border-right: $fat-border solid $main-color;
 }
 
 .login-content {

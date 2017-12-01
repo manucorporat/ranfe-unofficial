@@ -4,7 +4,6 @@ renfe-jumbo {
   display: block;
   height: 65rem;
 
-  background: #dec9ff;
   background-repeat: no-repeat,
   no-repeat,
   no-repeat;
@@ -16,6 +15,9 @@ renfe-jumbo {
   background-image: linear-gradient(to bottom, rgba(255, 184, 184, .52) 0%, rgba(255, 255, 255, 0) 66%), url("/assets/images/alex.jpg");
 
   h1 {
+    font-size: 7rem;
+    font-weight: 200;
+    color: #fff;
     width: 45rem;
 
     text-shadow: 0 0 1rem rgba(0, 0, 0, .5);
@@ -75,12 +77,14 @@ renfe-jumbo {
 
     .form-container {
       bottom: 0;
+      transform: none !important;
     }
   }
 
   @media (prefers-reduced-motion) {
-    /* ajustar estilos para reducir el movimiento */
-    transform: none !important;
+    .form-container {
+      transform: none !important;
+    }
   }
 
 }

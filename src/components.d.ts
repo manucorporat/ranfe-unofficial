@@ -191,7 +191,7 @@ declare global {
   namespace JSXElements {
     export interface ResultsPeopleAttributes extends HTMLAttributes {
       
-        nuPeople?: number
+        people?: any[]
     }
   }
 }

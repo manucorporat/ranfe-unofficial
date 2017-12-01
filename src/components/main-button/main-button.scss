@@ -21,11 +21,11 @@ main-button {
   min-width: 20rem;
   height: 29rem;
 
-  border-top: 1rem solid #853566;
+  border-top: 1rem solid $main-color;
   font-size: 2.5rem;
-  color: #853566;
-  background: #fff;
-  box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
+  color: $main-color;
+  background: transparent;
+  box-shadow: $light-shadow;
   transition: transform 100ms ease-in-out;
 
   text-align: center;

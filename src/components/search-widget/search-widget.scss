@@ -6,11 +6,12 @@ search-widget.small {
   }
 
   .form-group.city-group input {
+    margin: 0 !important;
     min-width: 100% !important;
   }
 
   .people {
-    min-width: 100% !important;
+    min-width: 80% !important;
   }
 }
 
@@ -24,9 +25,9 @@ search-widget.small {
 
   height: 3.5rem;
 
-  border: $thin-border solid #e6e6e6;
+  border: $thin-border solid $widget-color;
   color: $main-color;
-  background: #fff;
+  background: $input-color;
 
   padding: 0;
   margin-top: -4.2rem;

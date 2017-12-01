@@ -16,15 +16,11 @@ $db_name = 'journey';
 
 /*Establecemos y comprobamos la conexion con la base de datos*/
 @$db = mysqli_init();
-if(!$db){
+if (!$db) {
     die('FATAL ERROR: mysqli_init() failed');
 }
 
-if(!mysqli_real_connect($db,$host,$login,$pass,$db_name)){
-
-    echo 'ERROR: Database conection refused <br>';    
+if (!mysqli_real_connect($db, $host, $login, $pass, $db_name)) {
+    echo 'ERROR: Database conection refused <br>';
     die('Connection Error: ' . mysqli_connect_errno() . ')' . mysqli_connect_error());
 }
-
-
-?>

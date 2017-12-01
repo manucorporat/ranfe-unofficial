@@ -7,6 +7,7 @@ import { getURLParam } from '../../utils/utils';
 })
 export class ResultsPage {
 
+  private people: any[] = [];
   @State() selectedDeparture: string;
   @State() selectedArrival: string;
 
@@ -15,6 +16,14 @@ export class ResultsPage {
   @State() validIndex: number = 0;
   @State() resultsDeparture: any;
   @State() resultsArrival: any;
+
+  constructor() {
+    for (let i = 0; i < 2; i++) {
+      this.people.push({
+        nu: i + 1,
+      });
+    }
+  }
 
   async componentDidLoad() {
     this.hasArrival = !!this.getArrival();
@@ -130,7 +139,7 @@ export class ResultsPage {
         selectedId={this.selectedArrival}
         data={this.resultsArrival} />;
 
-      case 2: return <results-people nuPeople={this.getPeople()} />;
+      case 2: return <results-people people={this.people} />;
       case 3: return <results-end />;
     }
   }

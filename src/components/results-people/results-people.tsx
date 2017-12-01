@@ -6,23 +6,8 @@ import { Component, Method, Prop, State } from "@stencil/core";
 })
 export class ResultsPeople {
 
-  @State() people: any[];
+  @Prop() people: any[];
   @State() nu = 0;
-  @Prop() nuPeople: number = 1;
-
-  componentDidLoad() {
-    this.people = [];
-    for (let i = 0; i < this.nuPeople; i++) {
-      this.people.push({
-        nu: i + 1,
-      });
-    }
-  }
-
-  @Method()
-  getPeople(): any[] {
-    return this.people;
-  }
 
   select(person: any) {
     this.people.forEach(p => p.selected = false);

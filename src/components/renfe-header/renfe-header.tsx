@@ -19,7 +19,7 @@ export class HomePage {
   render() {
     return [
       <stencil-route-link url='/'>
-        <img src='/assets/images/renfe.png' alt='Logo de renfe' />
+        trainco
       </stencil-route-link>,
       <a class="github" href="https://github.com/manucorporat/renfe">
         ver en github
