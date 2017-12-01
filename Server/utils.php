@@ -34,7 +34,7 @@ function mustPOST($key) {
         send_json(400);
         exit(-1);
     }
-    return $_POST[$key];
+    return trim($_POST[$key]);
 }
 
 function send_json($code, $data = false) {
