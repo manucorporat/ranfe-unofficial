@@ -1,15 +1,15 @@
 <?php
-    require_once("./utils.php");
-    checkMETHOD("POST");
+require_once("./utils.php");
 
-    $user = mustPOST("user");
-    $password = mustPOST("password");
+checkMETHOD("POST");
 
-    if($user == "root" && $password == "root"){
-        send_json(200, array(
-            'token' => $TOKEN
-        ));
-    } else {
-        send_json(401);
-    }
-?>
+$user = mustPOST("user");
+$password = mustPOST("password");
+
+if ($user == "root" && $password == "root") {
+    send_json(200, array(
+        'token' => $TOKEN
+    ));
+} else {
+    send_json(401);
+}
