@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background: rgb(245, 245, 245);
+  background: $background-color;
   //background: $main-color;
 
   margin: 0;
@@ -30,24 +30,16 @@ button:focus {
   outline: 0;
 }
 
-h1,
-h2 {
-  font-size: 7rem;
-  font-weight: 200;
-  color: #fff;
-}
-
 .widget {
   background: $widget-color;
-  // background: linear-gradient(20deg, #d5c8d3, #689072);
-  box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, .1);
+  box-shadow: $hard-shadow;
 
   padding: 1rem;
   border-radius: $border-radius;
 }
 
 .content {
-  background: #fff;
+  background: $content-color;
 
   padding: 12rem 10rem;
 
@@ -58,11 +50,16 @@ h2 {
     z-index: 1;
     display: block;
 
-    background: rgba(0, 0, 0, .56);
+    background: black;
 
     margin: 0;
     padding: 3.5rem 0;
+  }
+}
 
+@supports (-webkit-backdrop-filter: saturate(180%) blur(2rem)) {
+  .content > h2 {
+    background: rgba(0, 0, 0, .56);
     -webkit-backdrop-filter: saturate(180%) blur(2rem);
   }
 }
@@ -99,6 +96,7 @@ h2 {
 
   .widget {
     margin-bottom: 5rem;
+    padding: 2rem;
   }
 }
 
@@ -114,8 +112,8 @@ h2 {
   position: relative;
   min-height: 60rem;
 
-  background: #fff;
-  box-shadow: 0 1rem 1rem rgba(0, 0, 0, .05);
+  background: $content-color;
+  box-shadow: $light-shadow;
 
   padding: 2.5rem;
   border-radius: $border-radius;
@@ -185,9 +183,9 @@ form {
     height: 5rem;
 
     border: 0;
-    border-bottom: $thin-border solid rgb(131, 0, 101);
+    border-bottom: $thin-border solid $main-color;
     font-size: 1.8rem;
-    background: #fff;
+    background: $input-color;
     // background: rgba(255, 255, 255, 0.75);
 
     border-radius: 0;
@@ -206,8 +204,10 @@ form {
     color: rgb(211, 211, 211);
   }
 
-  input:focus {
-    border-bottom: $thin-border solid $focus-color;
+  input:focus,
+  button:focus, {
+    color: $focus-color !important;
+    border-color: $focus-color !important;
     outline: 0;
   }
 }

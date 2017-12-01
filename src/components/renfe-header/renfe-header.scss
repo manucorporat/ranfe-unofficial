@@ -19,10 +19,17 @@ renfe-header {
     background-position-y: top;
     background-size: cover;
   }
-}
 
-renfe-header img {
-  height: 10rem;
+  stencil-route-link a {
+    color: $main-color;
+    text-decoration: none;
+    font-size: 8rem;
+    font-weight: 600;
+    font-style: italic;
+    position: absolute;
+    bottom: 0;
+    line-height: 0.6;
+  }
 }
 
 
@@ -36,7 +43,7 @@ renfe-header img {
   font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
-  background: #0c2229;
+  background: #000;
   transform: rotateZ(45deg);
 
   padding: 5px 0;

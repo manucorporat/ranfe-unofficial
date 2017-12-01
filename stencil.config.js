@@ -8,7 +8,7 @@ exports.config = {
   ],
   collections: [
     { name: '@stencil/router' },
-    { name: 'ionicons' }
+    { name: 'ionicons' },
   ]
 };
 
