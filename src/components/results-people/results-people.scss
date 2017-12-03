@@ -10,6 +10,9 @@ results-people {
     border-radius: 0.5rem;
     /* border-radius: 1rem; */
     // box-shadow: $light-shadow;
+    height: 14rem;
+    overflow: hidden;
+    transition: height ease-in-out 300ms;
   }
 
   .person-title {
@@ -20,9 +23,11 @@ results-people {
     padding-left: 2rem;
     font-size: 1.6rem;
     margin-top: 1rem;
+
     p {
       margin: 0;
     }
+
     strong {
       font-weight: 500;
     }
@@ -39,12 +44,16 @@ results-people {
 
   .person.selected {
     border-color: $focus-color;
+    height: 34rem;
+
     .person-title {
       color: $focus-color;
     }
+
     .person-summary {
       display: none;
     }
+
     .person-form {
       display: flex;
     }

@@ -17,7 +17,7 @@ results-nav button {
   flex: 1;
 
   height: $arrow-heigth;
-
+  color: $main-color;
   border-bottom: $thin-border solid $main-color;
   font-size: 2.1rem;
   letter-spacing: .7px;
@@ -27,7 +27,6 @@ results-nav button {
   padding-left: 1rem;
   padding-top: .5rem;
   margin-right: 1.5rem;
-  color: rgb(19, 19, 19);
 
   &::before {
     position: absolute;
@@ -51,6 +50,7 @@ results-nav button {
   }
 
   &.selected {
+    color: $focus-color;
     border-bottom: $thin-border solid $focus-color;
     opacity: 1;
 
