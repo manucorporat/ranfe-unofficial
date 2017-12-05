@@ -2,7 +2,6 @@ create database journey;
 
 use journey;
 
-
 create table journey_info
 (
     id int not null auto_increment primary key,
