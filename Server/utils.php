@@ -8,6 +8,16 @@ function checkMETHOD($method) {
     }
 }
 
+function receiveJSON(){
+
+$json_params = file_get_contents("php://input");
+    $decoded_params = json_decode($str);
+    
+if (json_last_error() == JSON_ERROR_NONE)
+  return $decoded_params;
+}
+
+
 function checkTOKEN() {
     $t = mustPOST("token");
     if ($t != $TOKEN) {
@@ -44,3 +54,4 @@ function send_json($code, $data = false) {
         echo json_encode($data);
     }
 }
+
