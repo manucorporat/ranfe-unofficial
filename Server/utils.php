@@ -23,6 +23,35 @@ function checkTOKEN() {
     }
 }
 
+function checkNIE($dni){
+    $regexp= "#((\d{8})([-]?)([A-Z]{1}))#";
+    if(preg_match($regexp,$dni)){
+        return $dni;
+    }
+    else return FALSE;  
+}
+
+/*function checkEmail($email)
+{
+  $matches = null;
+  return (1 === preg_match('/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/', $email, $matches));
+}*/
+
+function checkEmail($email)
+{
+  if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+      return $email;
+  }
+  else return FALSE;
+}
+function checkSQLDate($date){
+    $regexp = "#(\d{4})-(\d{2})-(\d{2})#";
+    if(preg_match($regexp,$date)){
+        return $date;
+    }
+    else return FALSE;
+}
+
 function noReturnExecute($stmt, $error=500) {
     $test = mysqli_stmt_execute($stmt);
 

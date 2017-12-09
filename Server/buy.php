@@ -15,25 +15,9 @@ for($i = 0; $i < count($json); $i++){
         case 'OK':
         send_json(200, 'OK');
         break;
-        
-        case 'Error: No seats available':
-        send_json(200,$check);
-        break;
-        
-        case 'Error: preparing':
-        send_json(500,$check);
-        break;
-        
-        case 'Error: binding params':
-        send_json(500,$check);
-        break;
-
-        case 'Error: executing':
-        send_json(500,$check);
-        break;
-        
+                
         default:
-        send_json(500,'Error: Unknown');
+        send_json(500,$check);
         break;
     }
 }

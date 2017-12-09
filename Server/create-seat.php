@@ -5,6 +5,15 @@ require_once("./mysqli_conect.php");
 
 function createSeat($db, $journey, $used, $day, $dni, $name, $surname, $phone, $email){
     
+    if(!checkSQLDate($day)){
+        return "Error: Not using SQL Date Format";
+    }
+    if(!checkEmail($email)){
+        return "Error: Not an email address";
+    }
+    if(!checkNIE($dni)){
+        return "Error: Not a DNI or NIE";
+    }
     $seat = checkSeat($db, $journey,$day);
 
     if($seat<0){
@@ -93,7 +102,6 @@ function checkOcupation($db, $seat, $journey_id){
             }
         }
         else{
-            echo var_dump($test);
             return -1;
         }
     }
