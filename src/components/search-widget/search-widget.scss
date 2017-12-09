@@ -15,6 +15,28 @@ search-widget.small {
   }
 }
 
+search-widget .calendar {
+  position: absolute;
+  display: none;
+  bottom: 90px;
+  left: 300px;
+
+  border-radius: 0.3rem;
+  background: white;
+  z-index: 100;
+
+  &.show {
+    display: block;
+  }
+}
+
+search-widget calendar-widget {
+  width: 40rem;
+  height: 30rem;
+  padding: 2rem;
+  bottom: 90px;
+}
+
 .swap {
   position: relative;
   bottom: -2rem;

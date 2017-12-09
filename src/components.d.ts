@@ -10,6 +10,37 @@ import 'ionicons';
 
 
 import {
+  CalendarWidget as CalendarWidget
+} from './components/calendar-widget/calendar-widget';
+
+declare global {
+  interface HTMLCalendarWidgetElement extends CalendarWidget, HTMLElement {
+  }
+  var HTMLCalendarWidgetElement: {
+    prototype: HTMLCalendarWidgetElement;
+    new (): HTMLCalendarWidgetElement;
+  };
+  interface HTMLElementTagNameMap {
+    "calendar-widget": HTMLCalendarWidgetElement;
+  }
+  interface ElementTagNameMap {
+    "calendar-widget": HTMLCalendarWidgetElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "calendar-widget": JSXElements.CalendarWidgetAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface CalendarWidgetAttributes extends HTMLAttributes {
+      year?: number;
+      month?: number;
+    }
+  }
+}
+
+
+import {
   MainButton as MainButton
 } from './components/main-button/main-button';
 
@@ -33,10 +64,9 @@ declare global {
   }
   namespace JSXElements {
     export interface MainButtonAttributes extends HTMLAttributes {
-      
-        icon?: string,
-        title?: string,
-        description?: string
+      icon?: string;
+      title?: string;
+      description?: string;
     }
   }
 }
@@ -96,8 +126,7 @@ declare global {
   }
   namespace JSXElements {
     export interface RenfeHeaderAttributes extends HTMLAttributes {
-      
-        background?: boolean
+      background?: boolean;
     }
   }
 }
@@ -134,6 +163,38 @@ declare global {
 
 
 import {
+  ResultsFinish as ResultsFinish
+} from './components/results-finish/results-finish';
+
+declare global {
+  interface HTMLResultsFinishElement extends ResultsFinish, HTMLElement {
+  }
+  var HTMLResultsFinishElement: {
+    prototype: HTMLResultsFinishElement;
+    new (): HTMLResultsFinishElement;
+  };
+  interface HTMLElementTagNameMap {
+    "results-finish": HTMLResultsFinishElement;
+  }
+  interface ElementTagNameMap {
+    "results-finish": HTMLResultsFinishElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      "results-finish": JSXElements.ResultsFinishAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface ResultsFinishAttributes extends HTMLAttributes {
+      people?: any[];
+      departure?: any;
+      arrival?: any;
+    }
+  }
+}
+
+
+import {
   ResultsNav as ResultsNav
 } from './components/results-nav/results-nav';
 
@@ -157,10 +218,9 @@ declare global {
   }
   namespace JSXElements {
     export interface ResultsNavAttributes extends HTMLAttributes {
-      
-        current?: number,
-        valid?: number,
-        buttons?: string[]
+      current?: number;
+      valid?: number;
+      buttons?: string[];
     }
   }
 }
@@ -190,8 +250,7 @@ declare global {
   }
   namespace JSXElements {
     export interface ResultsPeopleAttributes extends HTMLAttributes {
-      
-        people?: any[]
+      people?: any[];
     }
   }
 }
@@ -221,12 +280,11 @@ declare global {
   }
   namespace JSXElements {
     export interface ResultsTableAttributes extends HTMLAttributes {
-      
-        cityA?: string,
-        cityB?: string,
-        reversed?: boolean,
-        selectedId?: string,
-        data?: any
+      cityA?: string;
+      cityB?: string;
+      reversed?: boolean;
+      selectedId?: string;
+      data?: any;
     }
   }
 }
@@ -256,9 +314,8 @@ declare global {
   }
   namespace JSXElements {
     export interface SearchWidgetAttributes extends HTMLAttributes {
-      
-        cityA?: string,
-        cityB?: string
+      cityA?: string;
+      cityB?: string;
     }
   }
 }
@@ -288,13 +345,12 @@ declare global {
   }
   namespace JSXElements {
     export interface TypeWritterAttributes extends HTMLAttributes {
-      
-        text?: string,
-        sentences?: string[],
-        rmLatency?: number,
-        addLatency?: number,
-        emptyDelay?: number,
-        finishDelay?: number
+      text?: string;
+      sentences?: string[];
+      rmLatency?: number;
+      addLatency?: number;
+      emptyDelay?: number;
+      finishDelay?: number;
     }
   }
 }
@@ -324,8 +380,7 @@ declare global {
   }
   namespace JSXElements {
     export interface WeatherContainerAttributes extends HTMLAttributes {
-      
-        city?: string
+      city?: string;
     }
   }
 }
@@ -445,9 +500,8 @@ declare global {
   }
   namespace JSXElements {
     export interface AdminPageAttributes extends HTMLAttributes {
-      
-        match?: any,
-        history?: any
+      match?: any;
+      history?: any;
     }
   }
 }
@@ -507,8 +561,7 @@ declare global {
   }
   namespace JSXElements {
     export interface LoginPageAttributes extends HTMLAttributes {
-      
-        history?: any
+      history?: any;
     }
   }
 }
