@@ -21,7 +21,6 @@ function createSeat($db, $journey, $used, $day, $dni, $name, $surname, $phone, $
         $test = mysqli_stmt_bind_param($stmt, "iissssssi",
             $journey, $used, $day, $dni, $name, $surname, $phone, $email, $seat);
         
-            echo var_dump($seat);
         if(!$test){
             return 'Error: binding params';
         }
@@ -49,19 +48,20 @@ function checkSeat($db, $journey_id, $day){
         return -1;
     }
     $count = 0;
-    while (mysqli_stmt_fetch($stmt)) {
+
+    while ($test = mysqli_stmt_fetch($stmt)) {
         if($seat!=$count) break;
         ++$count;
     }
+
+    echo var_dump($test);
 
     return checkOcupation($db, $seat, $journey_id);
 }
 
 function checkOcupation($db, $seat, $journey_id){
 
-    $stmt = mysqli_prepare($db, "select num_seats from journey_info where id=?;");
-    
-    if($stmt){
+    if($stmt = mysqli_prepare($db, "select num_seats from journey_info where id=?;")){
         $test = mysqli_stmt_bind_param($stmt,"i", $journey_id);
         if(!$test){
             return -1;
