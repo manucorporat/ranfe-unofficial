@@ -28,6 +28,7 @@ function createSeat($db, $journey, $used, $day, $dni, $name, $surname, $phone, $
         if(!$test){
             return 'Error: executing';
         }
+        mysqli_stmt_close($stmt);        
         return 'OK';
     }
     else return 'Error: preparing';
@@ -36,51 +37,69 @@ function checkSeat($db, $journey_id, $day){
     $count = 1;
     $stmt = mysqli_prepare($db, "select seat from seats where journey_info=? and day=? order by seat;");
     $test = mysqli_stmt_bind_param($stmt, "is", $journey_id, $day);
+    
     if(!$test){
         return -1;
     }
+
     $test = mysqli_stmt_execute($stmt);
     if(!$test){
         return -1;
     }
+
     $test = mysqli_stmt_bind_result($stmt, $seat);
     if(!$test){
         return -1;
     }
-    $count = 0;
 
+    $count = 1;
+    //vamos leyendo todos los sitios hasta que el contador encuentre uno vacio
     while ($test = mysqli_stmt_fetch($stmt)) {
-        if($seat!=$count) break;
-        ++$count;
+        if($count!=$seat){
+            break;
+        }    
+        else{
+            ++$count;            
+        }
     }
-
-    echo var_dump($test);
-
-    return checkOcupation($db, $seat, $journey_id);
+    mysqli_stmt_close($stmt);
+    return checkOcupation($db, $count, $journey_id);
 }
 
 function checkOcupation($db, $seat, $journey_id){
-
+    
     if($stmt = mysqli_prepare($db, "select num_seats from journey_info where id=?;")){
+       
         $test = mysqli_stmt_bind_param($stmt,"i", $journey_id);
         if(!$test){
             return -1;
         }
+
         $test = mysqli_stmt_execute($stmt);
         if(!$test){
             return -1;
         }
+
         $test = mysqli_stmt_bind_result($stmt, $num_seats);
         if(!$test){
             return -1;
         }
+
         if($test = mysqli_stmt_fetch($stmt)){
             if($seat>$num_seats){return -1;}
-            else{return $seat;}
+            else{
+                mysqli_stmt_close($stmt); 
+                return $seat;
+            }
         }
-        else return 1;
+        else{
+            echo var_dump($test);
+            return -1;
+        }
     }
-    else return -1;
+    else{
+        return -1;
+    }
     
 }
 
