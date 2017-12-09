@@ -14,9 +14,9 @@ export class CalendarWidget {
 
   @Prop() locales: string;
   @Prop() includeLegend = true;
-  @Prop({ mutable: true }) year: number;
-  @Prop({ mutable: true }) month: number;
-  @Prop({ mutable: true }) day: number;
+  @Prop() year: number;
+  @Prop() month: number;
+  @Prop() day: number;
 
   @Event() calendarSelected: EventEmitter;
 
