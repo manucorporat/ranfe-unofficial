@@ -1,38 +1,31 @@
-@import "../../variables";
+$focus-color: blue;
+$selected-color: red;
 
 calendar-widget {
-  display: block;
-}
-
-calendar-widget .calendar-title {
-  display: flex;
-  justify-content: space-between;
-  font-size: 2rem;
-  padding-bottom: 2.5rem;
-}
-
-calendar-widget .calendar-container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: 1fr;
-  grid-gap: 0.3rem;
+  grid-gap: 3px;
   text-align: center;
 
   > button {
-    font-size: 1.4rem;
-  }
+    font-size: 14px;
 
-  > button:hover {
-    border: $thin-border solid $focus-color;
-    color: $focus-color;
+    .selected {
+      border: 3px solid $selected-color;
+      color: $selected-color;
+    }
+
+    &:hover {
+      border: 3px solid $focus-color;
+      color: $focus-color;
+    }
   }
 
   > div {
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 16px;
     margin: auto 0;
-    padding-bottom: 0.5rem;
-    border-bottom: $thin-border solid $main-color;
+    padding-bottom: 5px;
   }
 }
-
