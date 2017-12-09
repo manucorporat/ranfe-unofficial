@@ -1,8 +1,9 @@
-$focus-color: blue;
-$selected-color: red;
+$focus-color: #00f;
+$selected-color: #f00;
 
 calendar-widget {
   display: grid;
+
   grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: 1fr;
   grid-gap: 3px;
@@ -23,8 +24,9 @@ calendar-widget {
   }
 
   > div {
-    font-weight: 500;
     font-size: 16px;
+    font-weight: 500;
+
     margin: auto 0;
     padding-bottom: 5px;
   }
