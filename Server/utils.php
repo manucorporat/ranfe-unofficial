@@ -9,12 +9,9 @@ function checkMETHOD($method) {
 }
 
 function receiveJSON(){
-
-$json_params = file_get_contents("php://input");
-    $decoded_params = json_decode($str);
-    
-if (json_last_error() == JSON_ERROR_NONE)
-  return $decoded_params;
+    $json_params = file_get_contents("php://input");
+    $decoded_params = json_decode($json_params, true);
+    return $decoded_params;
 }
 
 
@@ -37,7 +34,15 @@ function noReturnExecute($stmt, $error=500) {
         send_json($error);
     }
 }
-
+// function test($test, $error){
+//     if ($test) {
+//         send_json(200, array(
+//             'message' => "OK"
+//         ));
+//     } else {
+//         send_json(500,$error);
+//     }
+// }
 function mustPOST($key) {
     if (!isset($_POST[$key])) {
         send_json(400);

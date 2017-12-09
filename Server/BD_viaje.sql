@@ -19,8 +19,7 @@ create table seats (
     seat int not null,/*asientos que van ocupados*/
     used int not null,
     day date not null,
-    journey_info int not null
-
+    journey_info int not null,
     name char(20) not null,
     surname char(20) not null,
     dni char(10) not null,
