@@ -36,8 +36,8 @@ export class ResultsFinish {
     const PaymentRequest = (window as any).PaymentRequest;
     if (PaymentRequest) {
       const supportedPaymentMethods = [{
-          supportedMethods: 'basic-card',
-        }
+        supportedMethods: 'basic-card',
+      }
       ];
       const allDisplayItems = [];
       const paymentDetails = {
@@ -58,39 +58,35 @@ export class ResultsFinish {
       try {
         await req.show();
       } catch { }
-      try {
-        const tickets = this.getTickets();
-        const response = await sendJSON('buy.php', tickets);
-
-        if (response.message === 'OK') {
-          alert("Comprado con exito");
-        } else {
-          alert(response.message);
-        }
-      } catch(e) {
-        alert(e);
-      }
-      // Use Payment Request API
     } else {
       console.error('payment is not available');
-      // Fallback to traditional checkout
-      //window.location.href = '/checkout/traditional';
+    }
+    try {
+      const tickets = this.getTickets();
+      const response = await sendJSON('buy.php', tickets);
+
+      if (response.message === 'OK') {
+        alert("Comprado con exito");
+      } else {
+        alert(response.message);
+      }
+    } catch(e) {
+      alert(e);
     }
   }
 
   render() {
-    const journeys = [this.departure, this.arrival].filter(j => !!j);
-    const people = this.people.map((person) => {
+    const tickets = this.getTickets();
+    const people = tickets.map((ticket) => {
       return (
         <div class="finish-person">
-          <p><strong>Nombre:</strong> {person.name} {person.surname}</p>
-          <p><strong>DNI:</strong> {person.dni}</p>
-          <p><strong>Teléfono:</strong> {person.phone}</p>
-          <div>
-            {journeys.map(journey => {
-              return <div>{journey.origin} -> {journey.destination}</div>
-            })}
-          </div>
+          <p><strong>Viaje:</strong>{ticket.journey_id}</p>
+          <p><strong>Día:</strong>{ticket.day}</p>
+          <p><strong>DNI:</strong>{ticket.dni}</p>
+          <p><strong>Nombre:</strong>{ticket.name}</p>
+          <p><strong>Apellido:</strong>{ticket.surname}</p>
+          <p><strong>Telefono:</strong>{ticket.phone}</p>
+          <p><strong>Email:</strong>{ticket.email}</p>
         </div>
       )
     });

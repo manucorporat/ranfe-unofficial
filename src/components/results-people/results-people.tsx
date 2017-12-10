@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, State } from "@stencil/core";
+import { Component, Event, EventEmitter, Element, Prop, State } from "@stencil/core";
 import { Person } from "../../pages/results-page/results-page";
 
 @Component({
@@ -7,11 +7,21 @@ import { Person } from "../../pages/results-page/results-page";
 })
 export class ResultsPeople {
 
+  @Element() el: HTMLElement;
   @Prop() people: Person[];
   @State() nu = 0;
 
   @Event() peopleContinue: EventEmitter;
 
+  componentDidLoad() {
+    if (this.people) {
+      configInputs(this.el, 'input[name=dni]', this.people.map(p => p.dni));
+      configInputs(this.el, 'input[name=name]', this.people.map(p => p.name));
+      configInputs(this.el, 'input[name=surname]', this.people.map(p => p.surname));
+      configInputs(this.el, 'input[name=phone]', this.people.map(p => p.phone));
+      configInputs(this.el, 'input[name=email]', this.people.map(p => p.email));
+    }
+  }
 
   select(person: any) {
     const found = this.people.find(p => p === person);
@@ -45,14 +55,14 @@ export class ResultsPeople {
         </div>
         <div class="person-form">
           <div class="form-group">
-            <input placeholder="DNI" onInput={(ev) => setValue(ev, 'dni', person) } required />
+            <input placeholder="DNI" name="dni" onInput={(ev) => setValue(ev, 'dni', person) } required />
           </div>
           <div class="form-group">
-            <input placeholder="Nombre" onInput={(ev) => setValue(ev, 'name', person) } required />
-            <input placeholder="Apellidos" onInput={(ev) => setValue(ev, 'surname', person) } required />
+            <input placeholder="Nombre" name="name" onInput={(ev) => setValue(ev, 'name', person) } required />
+            <input placeholder="Apellidos" name="surname" onInput={(ev) => setValue(ev, 'surname', person) } required />
           </div>
-          <input type="phone" placeholder="Telefono" name="phone" onInput={(ev) => setValue(ev, 'phone', person) } required />
-          <input type="email" placeholder="Email" name="email" onInput={(ev) => setValue(ev,'email',person)} required />
+          <input type="phone" name="phone" placeholder="Telefono" onInput={(ev) => setValue(ev, 'phone', person) } required />
+          <input type="email" name="email" placeholder="Email" onInput={(ev) => setValue(ev,'email',person)} required />
         </div>
       </Div>
     ));
@@ -67,4 +77,11 @@ export class ResultsPeople {
 
 function setValue(ev: Event, field: string, person: any) {
   person[field] = (ev.target as any).value;
+}
+
+function configInputs(el: HTMLElement, query: string, values: string[]) {
+  const found = el.querySelectorAll(query);
+  for (let i = 0; i < found.length; i++) {
+    (found.item(i) as HTMLInputElement).value = values[i];
+  }
 }
