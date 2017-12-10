@@ -8,7 +8,7 @@ $password = mustPOST("password");
 
 if ($user == "root" && $password == "root") {
     send_json(200, array(
-        'token' => $TOKEN
+        'token' => getToken()
     ));
 } else {
     send_json(401);

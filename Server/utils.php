@@ -1,6 +1,7 @@
 <?php
-$TOKEN = "1234567";
-
+function getToken(){
+    return "1234567";    
+}
 function checkMETHOD($method) {
     if ($_SERVER['REQUEST_METHOD'] != $method) {
         send_json(405);
@@ -17,7 +18,8 @@ function receiveJSON(){
 
 function checkTOKEN() {
     $t = mustPOST("token");
-    if ($t != $TOKEN) {
+    $token = getToken();
+    if ($t != $token) {
         send_json(401);
         exit(-1);
     }
@@ -84,6 +86,9 @@ function send_json($code, $data = false) {
     http_response_code($code);
     header("Access-Control-Allow-Origin: *");
     if ($data) {
+        if(is_string($data)){
+            $data = array('message' => $data);
+        }
         header("Content-Type: application/json");
         echo json_encode($data);
     }
