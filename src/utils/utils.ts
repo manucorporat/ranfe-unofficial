@@ -7,11 +7,16 @@ export async function sendForm(command: string, ev: Event): Promise<any|null> {
   const form = ev.target as HTMLFormElement;
 
   try {
+    const body = new FormData(form);
+    const token = getLogin();
+    if (token) {
+      body.append('token', token);
+    }
     formReadonly(form, true);
     const url = BASE_URL + command;
     const response = await fetch(url, {
       method: 'post',
-      body: new FormData(form)
+      body: body,
     });
     switch (response.status) {
       case 400: throw new Error('la peticion fue mal enviada');

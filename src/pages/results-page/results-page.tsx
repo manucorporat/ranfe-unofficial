@@ -47,12 +47,16 @@ export class ResultsPage {
     formData.append('destination', destination);
     formData.append('day', day);
 
-    const response = await fetch('http://localhost:8000/results.php', {
-      method: 'post',
-      body: formData
-    })
-    const json = await response.json();
-    return json as Journey[];
+    try {
+      const response = await fetch('http://localhost:8000/results.php', {
+        method: 'post',
+        body: formData
+      })
+      const json = await response.json();
+      return json as Journey[];
+    } catch {
+      return null;
+    }
   }
 
   async componentDidLoad() {
