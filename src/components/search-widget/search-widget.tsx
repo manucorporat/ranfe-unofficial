@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from "@stencil/core";
+import { Component, Prop, Element, State, Listen } from "@stencil/core";
 import { ActiveRouter } from "@stencil/router";
 
 @Component({
@@ -8,6 +8,7 @@ import { ActiveRouter } from "@stencil/router";
 export class SearchWidget {
 
   @Element() el: HTMLElement;
+  @State() showCalendar: HTMLInputElement = null;
   @Prop() cityA: string;
   @Prop() cityB: string;
   @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
@@ -41,8 +42,29 @@ export class SearchWidget {
     history.push(url, {});
   }
 
+  @Listen('calendarSelected')
+  onCalendarSelected(ev: CustomEvent) {
+    if (this.showCalendar) {
+      const detail = ev.detail;
+      const text = `${detail.year}-${detail.month}-${detail.day}`;
+      this.showCalendar.value = text;
+      this.showCalendar = null;
+    }
+  }
+
+  openCalendar(ev: Event) {
+    ev.preventDefault();
+    this.showCalendar = ev.target as HTMLInputElement;
+  }
+
   render() {
     return [
+      <div class={{
+        calendar: true,
+        show: !!this.showCalendar
+      }}>
+        <calendar-widget />
+      </div>,
       <form onSubmit={(ev) => this.search(ev)}>
         <div class="form-group city-group">
           <input type="text" placeholder="Origen" name="origin" value={this.cityA} required />
@@ -55,9 +77,9 @@ export class SearchWidget {
           <input type="text" placeholder="Destino" name="destination" value={this.cityB} required></input>
         </div>
         <div class="form-group date-group">
-          <input type="text" placeholder="Ida" name="departure" class="ida" required />
-          <input type="text" placeholder="Vuelta" name="arrival"  class="vuelta" />
-          <input type="text" placeholder="Personas" value="1 adulto" name="people" class="people" required />
+          <input type="text" placeholder="Ida" name="departure" onFocus={(ev) => this.openCalendar(ev)} class="ida" required />
+          <input type="text" placeholder="Vuelta" name="arrival" onFocus={(ev) => this.openCalendar(ev)} class="vuelta" />
+          <input type="number" min="1" placeholder="Personas" value="1" name="people" class="people" required />
           <button type="submit" class="submit">
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </button>

@@ -1,4 +1,4 @@
-import { Component, Method, Prop, State } from "@stencil/core";
+import { Component, Event, EventEmitter, Prop, State } from "@stencil/core";
 
 @Component({
   tag: 'results-people',
@@ -9,6 +9,8 @@ export class ResultsPeople {
   @Prop() people: any[];
   @State() nu = 0;
 
+  @Event() peopleSelected: EventEmitter;
+
   select(person: any) {
     this.people.forEach(p => p.selected = false);
     const found = this.people.find(p => p === person);
@@ -18,8 +20,12 @@ export class ResultsPeople {
     }
   }
 
+  onContinue() {
+    this.peopleSelected.emit();
+  }
+
   render() {
-    return this.people && this.people.map(person => (
+    const people = this.people.map(person => (
       <div class={{ person: true, selected: person.selected }} onClick={() => this.select(person)}>
         <div class="person-title">Pasajero {person.nu}</div>
         <div class="person-summary">
@@ -40,6 +46,10 @@ export class ResultsPeople {
         </form>
       </div>
     ));
+    return [
+      ...people,
+      <button onClick={() => this.onContinue()}>Continuar</button>
+    ]
   }
 }
 

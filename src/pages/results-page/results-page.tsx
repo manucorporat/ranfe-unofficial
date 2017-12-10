@@ -17,18 +17,12 @@ export class ResultsPage {
   @State() resultsDeparture: any;
   @State() resultsArrival: any;
 
-  constructor() {
-    for (let i = 0; i < 2; i++) {
-      this.people.push({
-        nu: i + 1,
-      });
-    }
-  }
-
   async componentDidLoad() {
     this.hasArrival = !!this.getArrival();
-    console.log(this.getCityA());
-
+    this.people = [];
+    for (let i = 0; i < this.getPeople(); i++) {
+      this.people.push({nu: i + 1});
+    }
     // const formData = new FormData();
     // formData.append('origin', this.getCityA());
     // formData.append('destination', this.getCityB());
@@ -80,6 +74,11 @@ export class ResultsPage {
     this.validIndex = Math.max(this.validIndex, index);
   }
 
+  @Listen('peopleSelected')
+  onPeopleSelected() {
+    this.setCurrentIndex(this.currentIndex + 1);
+  }
+
   @Listen('tableSelected')
   onTableSelected(ev: CustomEvent) {
     const id = ev.detail as string;
@@ -114,7 +113,7 @@ export class ResultsPage {
     return getURLParam('arrival');
   }
   getPeople(): number {
-    return 2;
+    return parseInt(getURLParam('people'));
   }
   get() {
     return [];
@@ -140,8 +139,26 @@ export class ResultsPage {
         data={this.resultsArrival} />;
 
       case 2: return <results-people people={this.people} />;
-      case 3: return <results-end />;
+      case 3: return <results-finish
+        people={this.people}
+        departure={this.getDepartureData()}
+        arrival={this.getArrivalData()}
+      />;
     }
+  }
+
+  getDepartureData() {
+    if (!this.resultsDeparture) {
+      return null;
+    }
+    return this.resultsDeparture.find(a => a.id === this.selectedDeparture);
+  }
+
+  getArrivalData() {
+    if (!this.resultsArrival) {
+      return null;
+    }
+    return this.resultsArrival.find(a => a.id === this.selectedArrival);
   }
 
   render() {

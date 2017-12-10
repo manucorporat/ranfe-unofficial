@@ -1,0 +1,33 @@
+$focus-color: #00f;
+$selected-color: #f00;
+
+calendar-widget {
+  display: grid;
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 3px;
+  text-align: center;
+
+  > button {
+    font-size: 14px;
+
+    .selected {
+      border: 3px solid $selected-color;
+      color: $selected-color;
+    }
+
+    &:hover {
+      border: 3px solid $focus-color;
+      color: $focus-color;
+    }
+  }
+
+  > div {
+    font-size: 16px;
+    font-weight: 500;
+
+    margin: auto 0;
+    padding-bottom: 5px;
+  }
+}
