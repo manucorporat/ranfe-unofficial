@@ -14,9 +14,9 @@ export class HomePage {
       <div class="content">
         <div class="buttons" role="navigation">
           <main-button icon="train" title="Mis Viajes" description="Consulta tus ultimos viajes" />
-          <main-button icon="ticket" title="Bonos" description="Ahorra comprando bonos de viajes" />
-          <main-button icon="ban" title="Anulaciones" description="Cambia o cancela tu viaje" />
-          <main-button icon="credit-card" title="Factura Online" description="Consulta la factura de tu viaje" />
+          <main-button icon="checkbox" title="Bonos" description="Ahorra comprando bonos de viajes" />
+          <main-button icon="close" title="Anulaciones" description="Cambia o cancela tu viaje" />
+          <main-button icon="card" title="Factura Online" description="Consulta la factura de tu viaje" />
         </div>
       </div>,
 

@@ -21,6 +21,7 @@ main-button {
   min-width: 20rem;
   height: 29rem;
 
+  fill: $main-color;
   border-top: 1rem solid $main-color;
   font-size: 2.5rem;
   color: $main-color;
@@ -35,18 +36,11 @@ main-button {
   &:hover {
     border-top: $fat-border solid $focus-color;
     color: $focus-color;
+    fill:  $focus-color;
   }
 
-  > i {
-    display: inline-block;
-
-    min-width: 80%;
-
-    font: normal normal normal 1.4rem/1 FontAwesome;
-
-    font-size: 3em;
-
-    margin: 0;
+  ion-icon {
+    width: 50px;
   }
 
   > h4 {

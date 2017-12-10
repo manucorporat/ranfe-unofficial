@@ -1,7 +1,10 @@
 @import "../../variables";
 
 results-table {
-  i {
+  ion-icon {
+    display: inline-block;
+    width: 30px;
+    fill: $main-color;
     transition: transform ease-in-out 400ms;
     &.reversed {
       transform: rotateZ(180deg);

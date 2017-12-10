@@ -2,6 +2,7 @@
 
 results-people {
   .person {
+    flex-wrap: wrap;
     margin-bottom: 2rem;
     padding: 2rem 3rem;
     font-size: 2rem;
@@ -38,8 +39,12 @@ results-people {
   }
 
   .person-form {
-    display: none;
+    display: flex;
+    opacity: 0;
     margin: 4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center
   }
 
   .person.selected {
@@ -55,7 +60,7 @@ results-people {
     }
 
     .person-form {
-      display: flex;
+      opacity: 1;
     }
   }
 }

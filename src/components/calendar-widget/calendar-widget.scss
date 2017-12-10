@@ -12,9 +12,9 @@ calendar-widget {
   > button {
     font-size: 14px;
 
-    .selected {
-      border: 3px solid $selected-color;
-      color: $selected-color;
+    &.selected {
+      background: $focus-color;
+      color: white;
     }
 
     &:hover {

@@ -1,72 +1,71 @@
 import { Component, Listen, State } from '@stencil/core';
 import { getURLParam } from '../../utils/utils';
 
+export interface Journey {
+  id: string;
+  origin: string;
+  destination: string;
+  day: string;
+  departure: string;
+  arrival: string;
+  train_model: string;
+  num_seats: number;
+  price: string;
+};
+
+export interface Person {
+  nu: number;
+  selected: boolean;
+
+  dni?: string;
+  name?: string;
+  surname?: string;
+  phone?: string;
+  email?: string;
+}
+
 @Component({
   tag: 'results-page',
   styleUrl: 'results-page.scss'
 })
 export class ResultsPage {
 
-  private people: any[] = [];
-  @State() selectedDeparture: string;
-  @State() selectedArrival: string;
+  private people: Person[] = [];
+  @State() selectedDeparture: Journey;
+  @State() selectedArrival: Journey;
 
   @State() hasArrival: boolean;
   @State() currentIndex: number = 0;
   @State() validIndex: number = 0;
-  @State() resultsDeparture: any;
-  @State() resultsArrival: any;
+  @State() resultsDeparture: Journey[];
+  @State() resultsArrival: Journey[];
+
+
+  async requestJourneys(origin: string, destination: string, day: string) {
+    const formData = new FormData();
+    formData.append('origin', origin);
+    formData.append('destination', destination);
+    formData.append('day', day);
+
+    const response = await fetch('http://localhost:8000/results.php', {
+      method: 'post',
+      body: formData
+    })
+    const json = await response.json();
+    return json as Journey[];
+  }
 
   async componentDidLoad() {
     this.hasArrival = !!this.getArrival();
     this.people = [];
     for (let i = 0; i < this.getPeople(); i++) {
-      this.people.push({nu: i + 1});
+      this.people.push({
+        nu: i + 1,
+        selected: false
+      });
     }
-    // const formData = new FormData();
-    // formData.append('origin', this.getCityA());
-    // formData.append('destination', this.getCityB());
 
-    // const response = await fetch('http://localhost:8000/results.php', {
-    //   method: 'post',
-    //   body: formData
-    // })
-    // const json = await response.json();
-    // console.log(json);
-    this.resultsDeparture = [
-      {
-        id: 1,
-        departure: '12:04',
-        arrival: '12:50',
-        duration: "12",
-        price: '12',
-        train_model: 'AVANT',
-      },
-      {
-        id: 2,
-        departure: '12:04',
-        arrival: '12:50',
-        duration: "12",
-        price: '12',
-        train_model: 'AVANT',
-      },
-      {
-        id: 3,
-        departure: '12:04',
-        arrival: '12:50',
-        duration: "12",
-        price: '12',
-        train_model: 'AVANT',
-      },
-      {
-        id: 4,
-        departure: '12:04',
-        arrival: '12:50',
-        duration: "12",
-        price: '12',
-        train_model: 'AVANT',
-      }
-    ];
+    this.resultsDeparture = await this.requestJourneys(this.getCityA(), this.getCityB(), this.getDeparture());
   }
 
   setCurrentIndex(index: number) {
@@ -74,25 +73,24 @@ export class ResultsPage {
     this.validIndex = Math.max(this.validIndex, index);
   }
 
-  @Listen('peopleSelected')
-  onPeopleSelected() {
+  @Listen('peopleContinue')
+  onPeopleContinue() {
     this.setCurrentIndex(this.currentIndex + 1);
   }
 
   @Listen('tableSelected')
   onTableSelected(ev: CustomEvent) {
-    const id = ev.detail as string;
-    this.selectedDeparture = id;
-    setTimeout(() => {
-      if (this.currentIndex === 0) {
-        this.setCurrentIndex(1);
-      } else if (this.currentIndex === 1) {
-        if (!this.hasArrival) {
-          throw new Error('arrival is disabled');
-        }
-        this.setCurrentIndex(2);
+    const journey = ev.detail as Journey;
+    if (this.currentIndex === 0) {
+      this.selectedDeparture = journey;
+      this.setCurrentIndex(1);
+    } else if (this.currentIndex === 1) {
+      if (!this.hasArrival) {
+        throw new Error('arrival is disabled');
       }
-    }, 200);
+      this.selectedArrival = journey;
+      this.setCurrentIndex(2);
+    }
   }
 
   @Listen('navTab')
@@ -115,9 +113,6 @@ export class ResultsPage {
   getPeople(): number {
     return parseInt(getURLParam('people'));
   }
-  get() {
-    return [];
-  }
 
   renderPage() {
     let index = this.currentIndex;
@@ -128,14 +123,14 @@ export class ResultsPage {
       case 0: return <results-table
         cityA={this.getCityA()}
         cityB={this.getCityB()}
-        selectedId={this.selectedDeparture}
+        selected={this.selectedDeparture}
         data={this.resultsDeparture} />;
 
       case 1: return <results-table
         reversed={true}
         cityA={this.getCityA()}
         cityB={this.getCityB()}
-        selectedId={this.selectedArrival}
+        selected={this.selectedArrival}
         data={this.resultsArrival} />;
 
       case 2: return <results-people people={this.people} />;
@@ -147,18 +142,18 @@ export class ResultsPage {
     }
   }
 
-  getDepartureData() {
+  getDepartureData(): Journey {
     if (!this.resultsDeparture) {
       return null;
     }
-    return this.resultsDeparture.find(a => a.id === this.selectedDeparture);
+    return this.resultsDeparture.find(journey => journey === this.selectedDeparture);
   }
 
-  getArrivalData() {
+  getArrivalData(): Journey {
     if (!this.resultsArrival) {
       return null;
     }
-    return this.resultsArrival.find(a => a.id === this.selectedArrival);
+    return this.resultsArrival.find(journey => journey === this.selectedArrival);
   }
 
   render() {
@@ -166,7 +161,12 @@ export class ResultsPage {
       <renfe-header background={true}/>,
 
       <div class="top-content">
-        <search-widget cityA={this.getCityA()} cityB={this.getCityB()} />
+        <search-widget
+          cityA={this.getCityA()}
+          cityB={this.getCityB()}
+          departure={this.getDeparture()}
+          arrival={this.getArrival()}
+          people={this.getPeople()+''} />
       </div>,
 
       <div class="flex-section">
@@ -174,7 +174,12 @@ export class ResultsPage {
         <div class="side-container">
           <div class="sticky">
             <div class="widget">
-              <search-widget class="small" cityA={this.getCityA()} cityB={this.getCityB()} />
+              <search-widget class="small"
+                cityA={this.getCityA()}
+                cityB={this.getCityB()}
+                departure={this.getDeparture()}
+                arrival={this.getArrival()}
+                people={this.getPeople()+''}/>
             </div>
             <div class="widget">
               <weather-container city={this.getCityA()} />

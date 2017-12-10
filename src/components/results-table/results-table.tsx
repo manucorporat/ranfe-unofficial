@@ -1,4 +1,5 @@
 import { Component, Prop, Event, EventEmitter } from "@stencil/core";
+import { Journey } from "../../pages/results-page/results-page";
 
 @Component({
   tag: 'results-table',
@@ -9,12 +10,12 @@ export class ResultsTable {
   @Prop() cityA: string;
   @Prop() cityB: string;
   @Prop() reversed: boolean = false;
-  @Prop() selectedId: string;
-  @Prop() data: any;
+  @Prop() selected: Journey;
+  @Prop() data: Journey[];
   @Event() tableSelected: EventEmitter;
 
-  onSelected(id: string) {
-    this.tableSelected.emit(id);
+  onSelected(journey: Journey) {
+    this.tableSelected.emit(journey);
   }
 
   renderResults() {
@@ -27,20 +28,20 @@ export class ResultsTable {
         <div class="tickets head">
           <div>Salida</div>
           <div>Llegada</div>
-          <div>Duración</div>
           <div>Tren</div>
           <div>Precio</div>
         </div>
-        {data.map((item) => (
-          <button class={{
-            tickets: true,
-            selected: item.id === this.selectedId
-          }} onClick={() => this.onSelected(item.id)}>
-            <div>{item.departure}</div>
-            <div>{item.arrival}</div>
-            <div>{item.duration}</div>
-            <div>{item.train_model}</div>
-            <div>{item.price}</div>
+        {data.map((journey) => (
+          <button
+            class={{
+              tickets: true,
+              selected: journey === this.selected
+            }}
+            onClick={() => this.onSelected(journey)}>
+            <div>{journey.departure}</div>
+            <div>{journey.arrival}</div>
+            <div>{journey.train_model}</div>
+            <div>{journey.price}</div>
           </button>
         ))}
       </div>
@@ -48,15 +49,10 @@ export class ResultsTable {
   }
 
   render() {
-    const iconClass = {
-      'fa': true,
-      'fa-long-arrow-right': true,
-      'reversed': this.reversed
-    };
     return [
       <div class="title-result">
         <h2>
-          <span id="title-origin">{this.cityA}</span> <i class={iconClass} aria-hidden="true"></i> <span id="title-destination">{this.cityB}</span>
+          <span id="title-origin">{this.cityA}</span>   <ion-icon name="arrow-forward"></ion-icon> <span id="title-destination">{this.cityB}</span>
         </h2>
       </div>,
       this.renderResults()

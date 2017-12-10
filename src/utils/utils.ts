@@ -1,15 +1,6 @@
 
 const TOKEN_KEY = 'token';
-
 const BASE_URL = 'http://localhost:8000/'
-
-export interface UserData {
-  id: string;
-  name: string;
-  lastName: string;
-  phone: string;
-  email: string;
-}
 
 export async function sendForm(command: string, ev: Event): Promise<any|null> {
   ev.preventDefault();
@@ -65,20 +56,6 @@ export function doLogout() {
   localStorage.removeItem(TOKEN_KEY);
 }
 
-export function addUserData(user: UserData) {
-  const key = keyForUser(user);
-  localStorage.setItem(key, JSON.stringify(user));
-}
-
-export function getUserData(user: UserData): UserData | null {
-  const key = keyForUser(user);
-  const data = localStorage.getItem(key);
-  if (data) {
-    return JSON.parse(data);
-  } else {
-    return null;
-  }
-}
 
 export function getFormEntries(form: HTMLFormElement) {
   const results = {};
@@ -111,8 +88,4 @@ export function shakeForm(form: HTMLFormElement) {
   setTimeout(() => {
     form.classList.remove('form-error');
   }, 800);
-}
-
-function keyForUser(user: UserData): string {
-  return `user_${user.id}`;
 }

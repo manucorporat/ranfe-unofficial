@@ -212,6 +212,24 @@ form {
   }
 }
 
+button[type=submit].normal-button,
+button.normal-button {
+  display: block;
+  height: 5rem;
+  font-size: 1.8rem;
+  background: #fff;
+  width: auto;
+  background-clip: padding-box;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  min-width: 1rem;
+
+  margin-top: 1rem;
+  border: 0.3rem solid $main-color;
+  font-weight: 700;
+  color: $main-color;
+}
+
 
 @include tablet {
   h1,

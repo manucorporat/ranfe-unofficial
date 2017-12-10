@@ -1,4 +1,4 @@
-import { Component, Prop, Element, State, Listen } from "@stencil/core";
+import { Component, Prop, Element, Listen, State } from "@stencil/core";
 import { ActiveRouter } from "@stencil/router";
 
 @Component({
@@ -7,11 +7,23 @@ import { ActiveRouter } from "@stencil/router";
 })
 export class SearchWidget {
 
-  @Element() el: HTMLElement;
   @State() showCalendar: HTMLInputElement = null;
+
+  @Element() el: HTMLElement;
   @Prop() cityA: string;
   @Prop() cityB: string;
+  @Prop() departure: string;
+  @Prop() arrival: string;
+  @Prop() people: string;
   @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
+
+  componentDidLoad() {
+    (this.el.querySelector('input[name=origin]') as any).value = this.cityA || '';
+    (this.el.querySelector('input[name=destination]') as any).value = this.cityB || '';
+    (this.el.querySelector('input[name=departure]') as any).value = this.departure || '';
+    (this.el.querySelector('input[name=arrival]') as any).value = this.arrival || '';
+    (this.el.querySelector('input[name=people]') as any).value = this.people || '';
+  }
 
   swapCities() {
     const inputOrigin = this.el.querySelector('input[name=origin]') as HTMLInputElement;
@@ -21,10 +33,6 @@ export class SearchWidget {
       inputOrigin.value = inputDestination.value;
       inputDestination.value = tmp;
     }
-  }
-
-  showDate() {
-    // app.toggleVisibility(event, 'ida-vuelta')
   }
 
   search(ev: any) {
@@ -44,41 +52,73 @@ export class SearchWidget {
 
   @Listen('calendarSelected')
   onCalendarSelected(ev: CustomEvent) {
-    if (this.showCalendar) {
+    const input = this.showCalendar;
+    if (input) {
       const detail = ev.detail;
       const text = `${detail.year}-${detail.month}-${detail.day}`;
-      this.showCalendar.value = text;
-      this.showCalendar = null;
+      input.value = text;
+      setTimeout(() => {
+        this.closeCalendar();
+        // const elements = input.form.elements;
+        // const index = Array.from(elements).findIndex(e => e === input);
+        // if (index >= 0 && elements[index + 1]) {
+        //   (elements[index + 1] as any).focus();
+        // }
+      }, 200);
     }
   }
 
   openCalendar(ev: Event) {
     ev.preventDefault();
     this.showCalendar = ev.target as HTMLInputElement;
+    return false;
+  }
+
+  closeCalendar() {
+    if (this.showCalendar) {
+      this.showCalendar.blur();
+    }
+    this.showCalendar = null;
   }
 
   render() {
     return [
       <div class={{
-        calendar: true,
-        show: !!this.showCalendar
+        "calendar": true,
+        "show": !!this.showCalendar
       }}>
-        <calendar-widget />
+        <div class="calendar-dialog-title">{this.showCalendar && this.showCalendar.placeholder}</div>
+        <calendar-widget day={getDayFromInput(this.showCalendar)}/>
       </div>,
       <form onSubmit={(ev) => this.search(ev)}>
         <div class="form-group city-group">
-          <input type="text" placeholder="Origen" name="origin" value={this.cityA} required />
+          <input type="text" placeholder="Origen" name="origin" required />
           <button type="button"
             tabindex="-1"
             class="swap"
-            onClick={()=>this.swapCities()}>
-              <i class="fa fa-exchange" aria-hidden="true"></i>
+            onClick={() => this.swapCities()}>
+            <ion-icon name="swap" />
           </button>
-          <input type="text" placeholder="Destino" name="destination" value={this.cityB} required></input>
+          <input type="text" placeholder="Destino" name="destination" required></input>
         </div>
         <div class="form-group date-group">
-          <input type="text" placeholder="Ida" name="departure" onFocus={(ev) => this.openCalendar(ev)} class="ida" required />
-          <input type="text" placeholder="Vuelta" name="arrival" onFocus={(ev) => this.openCalendar(ev)} class="vuelta" />
+
+          <input
+            type="text"
+            placeholder="Ida"
+            name="departure"
+            onFocus={(ev) => this.openCalendar(ev)}
+            onBlur={()=> this.closeCalendar()}
+            class="ida"
+            required />
+
+          <input type="text"
+            placeholder="Vuelta"
+            name="arrival"
+            onFocus={(ev) => this.openCalendar(ev)}
+            onBlur={()=> this.closeCalendar()}
+            class="vuelta" />
+
           <input type="number" min="1" placeholder="Personas" value="1" name="people" class="people" required />
           <button type="submit" class="submit">
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -87,4 +127,15 @@ export class SearchWidget {
       </form>
     ];
   }
+}
+
+function getDayFromInput(input: HTMLInputElement) {
+  if (!input) {
+    return undefined;
+  }
+  const parts = input.value.split('-');
+  if (parts.length === 3) {
+    return parseInt(parts[2]);
+  }
+  return null;
 }

@@ -16,7 +16,7 @@ export class CalendarWidget {
   @Prop() includeLegend = true;
   @Prop() year: number;
   @Prop() month: number;
-  @Prop() day: number;
+  @Prop({mutable: true}) day: number;
 
   @Event() calendarSelected: EventEmitter;
 
@@ -50,13 +50,17 @@ export class CalendarWidget {
     return days;
   }
 
-  private onSelected(day: number) {
+  private onSelected(ev: Event, day: number) {
+    ev.preventDefault();
+    ev.stopPropagation();
     const date = this.getDate();
+    this.day = day;
     this.calendarSelected.emit({
       day: day,
       month: date.getMonth(),
       year: date.getFullYear()
     });
+    return false;
   }
 
   private renderLegend() {
@@ -77,7 +81,9 @@ export class CalendarWidget {
     return this.buildCalendar().map(day => (
       <button
         class={{ 'selected': day.number === this.day }}
-        onClick={() => this.onSelected(day.number)}
+        onClick={(ev) => this.onSelected(ev, day.number)}
+        onMouseDown={(ev) => ev.preventDefault()}
+        onTouchStart={(ev) => ev.preventDefault()}
         style={{
           gridColumn: `${day.x}`,
           gridRow: `${day.y}`,

@@ -17,24 +17,49 @@ search-widget.small {
 
 search-widget .calendar {
   position: absolute;
-  display: none;
-  bottom: 90px;
-  left: 300px;
+  visibility: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   border-radius: 0.3rem;
   background: white;
   z-index: 100;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
 
   &.show {
-    display: block;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
+.calendar-dialog-title {
+  position: absolute;
+  top: -10rem;
+  left: 2rem;
+  color: white;
+  font-size: 12rem;
+  font-weight: 800;
+  text-transform: lowercase;
+}
+
+.calendar-dialog-toolbar {
+
+}
+
 search-widget calendar-widget {
-  width: 40rem;
-  height: 30rem;
+  width: 100%;
+  height: 100%;
   padding: 2rem;
-  bottom: 90px;
+
+  > button {
+    font-size: 3rem;
+    font-weight: 100;
+  }
 }
 
 .swap {
