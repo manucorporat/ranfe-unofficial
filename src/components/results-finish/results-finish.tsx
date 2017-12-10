@@ -56,13 +56,18 @@ export class ResultsFinish {
         paymentDetails
       );
       try {
-        await req.show()
-      } catch {
+        await req.show();
+        const tickets = this.getTickets();
+        const response = await sendJSON('buy.php', tickets);
 
+        if (response.message === 'OK') {
+          alert("Comprado con exito");
+        } else {
+          alert(response.message);
+        }
+      } catch(e) {
+        alert(e);
       }
-      const tickets = this.getTickets();
-      await sendJSON('buy.php', tickets);
-
       // Use Payment Request API
     } else {
       console.error('payment is not available');
