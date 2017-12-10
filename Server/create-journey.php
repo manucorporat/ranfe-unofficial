@@ -14,15 +14,20 @@ $train_model = mustPOST("train_model");
 $num_seats = mustPOST("num_seats");
 $price = mustPOST("price");
 
+$db = connect();
 
 $stmt = mysqli_prepare($db, "insert into journey_info
     (origin, destination, departure,
     arrival, train_model,num_seats,price)
     values(? ,? ,? ,? ,? ,? ,? );");
 
-if ($stmt) {
-    mysqli_stmt_bind_param($stmt, "sssssis",
-        $origin, $destination, $departure, $arrival, $train_model, $num_seats, $price);
-
-    noReturnExecute($stmt);
+if (!$stmt) {
+    send_json(500);
 }
+$test =mysqli_stmt_bind_param($stmt, "sssssis",
+$origin, $destination, $departure, $arrival, $train_model, $num_seats, $price);
+if(!$test){
+    send_json(500);    
+}
+
+noReturnExecute($stmt);

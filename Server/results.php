@@ -6,18 +6,30 @@ checkMETHOD("POST");
 
 $origin = mustPOST("origin");
 $destination = mustPOST("destination");
-$date = mustPOST("day");
+$day = mustPOST("day");
 
-$stmt = mysqli_prepare($db, "select * from journey_info where origin = ? and destination = ?;");
+$db = connect();
+
+$stmt = mysqli_prepare($db, "select * from journey_info where origin=? and destination=?;");
 if (!$stmt) {
-    send_json(500);
+    send_json(500, "Error: No statement created");
     return;
 }
 
-mysqli_stmt_bind_param($stmt, "ss", $origin, $destination);
-$test = mysqli_stmt_execute($stmt);
-mysqli_stmt_bind_result($stmt, $id, $origin, $destination, $departure, $arrival, $train_model, $num_seats, $price);
+$test = mysqli_stmt_bind_param($stmt, "ss", $origin, $destination);
+if(!$test){
+    send_json(500, "Error binding params");    
+}
 
+$test = mysqli_stmt_execute($stmt);
+if(!$test){
+    send_json(500, "Error executing");  
+}
+
+$test = mysqli_stmt_bind_result($stmt, $id, $origin, $destination, $departure, $arrival, $train_model, $num_seats, $price);
+if(!$test){
+    send_json(500, "Error binding result");  
+}
 
 $results = array();
 while (mysqli_stmt_fetch($stmt)) {
