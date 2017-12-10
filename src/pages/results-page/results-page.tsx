@@ -65,7 +65,13 @@ export class ResultsPage {
     for (let i = 0; i < this.getPeople(); i++) {
       this.people.push({
         nu: i + 1,
-        selected: false
+        selected: false,
+
+        dni: '1323123h',
+        name: 'Manu',
+        surname: 'Almeida',
+        phone: '98234234',
+        email: '1234456l',
       });
     }
 

@@ -57,6 +57,8 @@ export class ResultsFinish {
       );
       try {
         await req.show();
+      } catch { }
+      try {
         const tickets = this.getTickets();
         const response = await sendJSON('buy.php', tickets);
 

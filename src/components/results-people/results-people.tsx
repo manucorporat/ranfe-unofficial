@@ -41,6 +41,7 @@ export class ResultsPeople {
           <p><strong>Nombre:</strong> {person.name} {person.surname}</p>
           <p><strong>DNI:</strong> {person.dni}</p>
           <p><strong>Teléfono:</strong> {person.phone}</p>
+          <p><strong>Email:</strong> {person.email}</p>
         </div>
         <div class="person-form">
           <div class="form-group">
