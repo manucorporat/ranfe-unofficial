@@ -7,11 +7,7 @@ export async function sendJSON(command: string, data: any) {
   const url = BASE_URL + command;
   const response = await fetch(url, {
     method: 'post',
-    body: JSON.stringify(data),
-    headers: new Headers({
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    })
+    body: JSON.stringify(data)
   });
   if (response.status !== 200) {
     throw new Error('error')

@@ -26,9 +26,9 @@ function checkTOKEN() {
 }
 
 function checkNIE($dni){
-    $regexp= "#((\d{8})([-]?)([A-Z]{1}))#";
+    $regexp= "/\d+[A-Z]/i";
     if(preg_match($regexp,$dni)){
-        return $dni;
+        return TRUE;
     }
     else return FALSE;  
 }
@@ -42,14 +42,14 @@ function checkNIE($dni){
 function checkEmail($email)
 {
   if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-      return $email;
+      return TRUE;
   }
   else return FALSE;
 }
 function checkSQLDate($date){
-    $regexp = "#(\d{4})-(\d{2})-(\d{2})#";
+    $regexp = "/^\d{4}-\d{2}-\d{1,2}$/";
     if(preg_match($regexp,$date)){
-        return $date;
+        return TRUE;
     }
     else return FALSE;
 }
@@ -91,6 +91,9 @@ function send_json($code, $data = false) {
         }
         header("Content-Type: application/json");
         echo json_encode($data);
+    }
+    if($code != 200){
+        exit(1);
     }
 }
 

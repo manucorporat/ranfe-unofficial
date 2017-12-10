@@ -1,6 +1,6 @@
 import { Component, Prop } from "@stencil/core";
 import { Journey, Person } from "../../pages/results-page/results-page";
-import { sendForm, sendJSON } from "../../utils/utils";
+import { sendJSON } from "../../utils/utils";
 
 @Component({
   tag: 'results-finish',
@@ -29,6 +29,7 @@ export class ResultsFinish {
         });
       }
     }
+    return tickets;
   }
 
   async onPay() {
