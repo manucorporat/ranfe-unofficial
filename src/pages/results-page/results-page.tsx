@@ -70,6 +70,9 @@ export class ResultsPage {
     }
 
     this.resultsDeparture = await this.requestJourneys(this.getCityA(), this.getCityB(), this.getDeparture());
+    if (this.hasArrival) {
+      this.resultsArrival = await this.requestJourneys(this.getCityB(), this.getCityA(), this.getDeparture());
+    }
   }
 
   setCurrentIndex(index: number) {
