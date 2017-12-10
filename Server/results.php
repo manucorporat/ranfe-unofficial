@@ -6,6 +6,7 @@ checkMETHOD("POST");
 
 $origin = mustPOST("origin");
 $destination = mustPOST("destination");
+$date = mustPOST("day");
 
 $stmt = mysqli_prepare($db, "select * from journey_info where origin = ? and destination = ?;");
 if (!$stmt) {
@@ -28,7 +29,8 @@ while (mysqli_stmt_fetch($stmt)) {
         'arrival' => $arrival,
         'train_model' => $train_model,
         'num_seats' => $num_seats,
-        'price' => $price
+        'price' => $price,
+        'day' => $day
     );
 }
 
