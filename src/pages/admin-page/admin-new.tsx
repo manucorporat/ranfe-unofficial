@@ -8,7 +8,6 @@ export class AdminNew {
 
   async onSubmit(ev) {
     try {
-      debugger;
       await sendForm('create-journey.php', ev);
     } catch (e) {
 

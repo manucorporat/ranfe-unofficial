@@ -2,6 +2,23 @@
 const TOKEN_KEY = 'token';
 const BASE_URL = 'http://localhost:8000/'
 
+
+export async function sendJSON(command: string, data: any) {
+  const url = BASE_URL + command;
+  const response = await fetch(url, {
+    method: 'post',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    })
+  });
+  if (response.status !== 200) {
+    throw new Error('error')
+  }
+  return await response.json();
+}
+
 export async function sendForm(command: string, ev: Event): Promise<any|null> {
   ev.preventDefault();
   const form = ev.target as HTMLFormElement;

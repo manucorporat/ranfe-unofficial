@@ -1,5 +1,6 @@
 import { Component, Prop } from "@stencil/core";
 import { Journey, Person } from "../../pages/results-page/results-page";
+import { sendForm, sendJSON } from "../../utils/utils";
 
 @Component({
   tag: 'results-finish',
@@ -53,7 +54,13 @@ export class ResultsFinish {
         supportedPaymentMethods,
         paymentDetails
       );
-      const result = await req.show()
+      try {
+        await req.show()
+      } catch {
+
+      }
+      const tickets = this.getTickets();
+      await sendJSON('buy.php', tickets);
 
       // Use Payment Request API
     } else {
