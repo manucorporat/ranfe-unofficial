@@ -211,7 +211,9 @@ form {
     outline: 0;
   }
 }
-
+:invalid{
+  box-shadow: none;      
+}
 button[type=submit].normal-button,
 button.normal-button {
   display: block;
@@ -223,6 +225,7 @@ button.normal-button {
   padding: 1rem;
   margin: 0.5rem 0;
   min-width: 1rem;
+  
 
   margin-top: 1rem;
   border: 0.3rem solid $main-color;

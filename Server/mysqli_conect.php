@@ -5,7 +5,7 @@
     $host = 'http://vulcano.tel.uva.es/taw/taw002';
     $login = 'taw002';
     $pass = 'n81e59h7';
-    $db_name = 'viaje';
+    $db_name = 'journey';
     */
 
     
