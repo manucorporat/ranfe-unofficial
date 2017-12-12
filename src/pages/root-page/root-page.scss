@@ -57,12 +57,12 @@ button:focus {
   }
 }
 
-@supports (-webkit-backdrop-filter: saturate(180%) blur(2rem)) {
+/*@supports (-webkit-backdrop-filter: saturate(180%) blur(2rem)) {
   .content > h2 {
     background: rgba(0, 0, 0, .56);
     -webkit-backdrop-filter: saturate(180%) blur(2rem);
   }
-}
+}*/
 
 
 .cities {
