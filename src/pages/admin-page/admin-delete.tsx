@@ -8,12 +8,12 @@ export class AdminDelete {
 
   @State() results: any;
 
-  onSubmit(ev) {
+  async onSubmit(ev) {
     this.results = await sendForm('results.php', ev);
   }
 
   @Listen('tableSelected')
-  onBorrar(ev: CustomEvent) {
+  async onBorrar(ev: CustomEvent) {
     const journey = ev.detail;
     const formData = new FormData();
     formData.append('id', journey.id);
@@ -24,6 +24,7 @@ export class AdminDelete {
         method: 'post',
         body: formData
       });
+      this.results = await sendForm('results.php', ev);
       alert('Viaje borrado');
     } catch {
       alert('Error al borrar');
@@ -44,7 +45,7 @@ export class AdminDelete {
         </div>
         <div class="form-group">
           <button type="submit" class="admin-submit">
-            Añadir viaje
+            Buscar viajes
           </button>
         </div>
       </form>,
