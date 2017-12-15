@@ -1,5 +1,11 @@
 @import "../../variables";
 
+admin-delete,
+admin-edit {
+  .no-trains {
+    display: none !important;
+  }
+}
 
 admin-page {
 
