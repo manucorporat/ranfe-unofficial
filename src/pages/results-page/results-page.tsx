@@ -67,11 +67,11 @@ export class ResultsPage {
         nu: i + 1,
         selected: false,
 
-        // dni: '1323123h',
-        // name: 'Manu',
-        // surname: 'Almeida',
-        // phone: '98234234',
-        // email: 'manu@gmail.com',
+        dni: '',
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
       });
     }
 

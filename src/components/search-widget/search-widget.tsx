@@ -107,6 +107,7 @@ export class SearchWidget {
             type="text"
             placeholder="Ida"
             name="departure"
+            maxlength="20"
             onFocus={(ev) => this.openCalendar(ev)}
             onBlur={()=> this.closeCalendar()}
             class="ida"
@@ -115,6 +116,7 @@ export class SearchWidget {
           <input type="text"
             placeholder="Vuelta"
             name="arrival"
+            maxlength="20"
             onFocus={(ev) => this.openCalendar(ev)}
             onBlur={()=> this.closeCalendar()}
             class="vuelta" />
