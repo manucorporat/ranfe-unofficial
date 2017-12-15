@@ -6,7 +6,11 @@ checkMETHOD("POST");
 
 $origin = mustPOST("origin");
 $destination = mustPOST("destination");
-$day = mustPOST("day");
+$day=2001-01-01;
+
+if (isset($_POST["day"])) {
+        $day=$_POST["day"];
+    }
 
 $db = connect();
 
