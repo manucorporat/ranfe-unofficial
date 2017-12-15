@@ -1,12 +1,13 @@
 import { Component, State, Listen } from '@stencil/core';
 import { sendForm, getLogin } from '../../utils/utils';
+import { Journey } from '../results-page/results-page';
 
 @Component({
   tag: 'admin-delete',
 })
 export class AdminDelete {
 
-  @State() results: any;
+  @State() results: Journey[];
 
   async onSubmit(ev) {
     this.results = await sendForm('results.php', ev);
@@ -24,7 +25,11 @@ export class AdminDelete {
         method: 'post',
         body: formData
       });
-      this.results = await sendForm('results.php', ev);
+      const index = this.results.findIndex(j => j.id === journey.id);
+      if(index >= 0) {
+        this.results.splice(index, 1);
+        this.results = this.results.slice();
+      }
       alert('Viaje borrado');
     } catch {
       alert('Error al borrar');

@@ -10,7 +10,7 @@ $id = mustPOST("id");
 
 $db = connect();
 
-$stmt = mysqli_prepare($db, "delete journey_info where
+$stmt = mysqli_prepare($db, "delete from journey_info where
     id= ? ;");
 
 if (!$stmt) {
