@@ -92,14 +92,14 @@ export class SearchWidget {
       </div>,
       <form onSubmit={(ev) => this.search(ev)}>
         <div class="form-group city-group">
-          <input type="text" placeholder="Origen" name="origin" required />
+          <input type="text" placeholder="Origen" name="origin" maxlength="20" required />
           <button type="button"
             tabindex="-1"
             class="swap"
             onClick={() => this.swapCities()}>
             <ion-icon name="swap" />
           </button>
-          <input type="text" placeholder="Destino" name="destination" required></input>
+          <input type="text" placeholder="Destino" name="destination" maxlength="20" required></input>
         </div>
         <div class="form-group date-group">
 
@@ -121,7 +121,7 @@ export class SearchWidget {
             onBlur={()=> this.closeCalendar()}
             class="vuelta" />
 
-          <input type="number" min="1" placeholder="Personas" value="1" name="people" class="people" required />
+          <input type="number" min="1" max="100" placeholder="Personas" value="1" name="people" class="people" required />
           <button type="submit" class="submit">
             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           </button>
