@@ -1,7 +1,27 @@
+import { Journey } from "../pages/results-page/results-page";
+
 
 const TOKEN_KEY = 'token';
 const BASE_URL = 'http://localhost:8000/'
 
+
+export async function requestJourneys(origin: string, destination: string, day: string) {
+  const formData = new FormData();
+  formData.append('origin', origin);
+  formData.append('destination', destination);
+  formData.append('day', day);
+
+  try {
+    const response = await fetch(`${BASE_URL}results.php`, {
+      method: 'post',
+      body: formData
+    })
+    const json = await response.json();
+    return json as Journey[];
+  } catch {
+    return null;
+  }
+}
 
 export async function sendJSON(command: string, data: any) {
   const url = BASE_URL + command;

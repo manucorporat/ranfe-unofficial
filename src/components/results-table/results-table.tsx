@@ -50,11 +50,11 @@ export class ResultsTable {
 
   render() {
     return [
-      <div class="title-result">
+      ((this.cityA && this.cityB) && <div class="title-result">
         <h2>
           <span id="title-origin">{this.cityA}</span>   <ion-icon name="arrow-forward"></ion-icon> <span id="title-destination">{this.cityB}</span>
         </h2>
-      </div>,
+      </div>),
       this.renderResults()
     ];
   }

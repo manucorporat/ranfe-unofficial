@@ -1,5 +1,5 @@
 import { Component, Listen, State } from '@stencil/core';
-import { getURLParam } from '../../utils/utils';
+import { getURLParam, requestJourneys } from '../../utils/utils';
 
 export interface Journey {
   id: string;
@@ -40,25 +40,6 @@ export class ResultsPage {
   @State() resultsDeparture: Journey[];
   @State() resultsArrival: Journey[];
 
-
-  async requestJourneys(origin: string, destination: string, day: string) {
-    const formData = new FormData();
-    formData.append('origin', origin);
-    formData.append('destination', destination);
-    formData.append('day', day);
-
-    try {
-      const response = await fetch('http://localhost:8000/results.php', {
-        method: 'post',
-        body: formData
-      })
-      const json = await response.json();
-      return json as Journey[];
-    } catch {
-      return null;
-    }
-  }
-
   async componentDidLoad() {
     this.hasArrival = !!this.getArrival();
     this.people = [];
@@ -75,9 +56,9 @@ export class ResultsPage {
       });
     }
 
-    this.resultsDeparture = await this.requestJourneys(this.getCityA(), this.getCityB(), this.getDeparture());
+    this.resultsDeparture = await requestJourneys(this.getCityA(), this.getCityB(), this.getDeparture());
     if (this.hasArrival) {
-      this.resultsArrival = await this.requestJourneys(this.getCityB(), this.getCityA(), this.getDeparture());
+      this.resultsArrival = await requestJourneys(this.getCityB(), this.getCityA(), this.getDeparture());
     }
   }
 
