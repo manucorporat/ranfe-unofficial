@@ -1,5 +1,5 @@
 import { Component, State, Listen } from '@stencil/core';
-import { sendForm, getLogin } from '../../utils/utils';
+import { sendForm } from '../../utils/utils';
 import { Journey } from '../results-page/results-page';
 
 @Component({
@@ -22,6 +22,7 @@ export class AdminPage {
     try {
       await sendForm('edit-journey.php', ev);
       this.journey = null;
+      this.results = null;
       alert('Viaje actualizado');
     } catch (e) {
       alert('Error al actualizar');
@@ -62,7 +63,7 @@ export class AdminPage {
 
       <div class="form-group">
         <button type="submit" class="admin-submit">
-          Añadir viaje
+          Actualizar viaje
       </button>
       </div>
 
@@ -72,7 +73,7 @@ export class AdminPage {
 
   render() {
     return [
-      <h1>Borrar viaje</h1>,
+      <h1>Editar viajes</h1>,
       <form onSubmit={(ev) => this.onSubmit(ev)}>
 
       <div class="form-group">
@@ -87,7 +88,7 @@ export class AdminPage {
           </button>
         </div>
       </form>,
-      (this.journey ? <results-table data={this.results} /> : this.renderForm())
+      (!this.journey ? <results-table data={this.results} /> : this.renderForm())
     ];
   }
 }

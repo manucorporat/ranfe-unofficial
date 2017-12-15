@@ -16,13 +16,13 @@ $price = mustPOST("price");
 
 $db = connect();
 
-$stmt = mysqli_prepare($db, "upadate journey_info set
+$stmt = mysqli_prepare($db, "update journey_info set
     origin = ?, destination = ?, departure = ?,
     arrival = ?, train_model = ?,num_seats = ?,price = ? where id = ?;");
 if (!$stmt) {
     send_json(500);
 }
-$test =mysqli_stmt_bind_param($stmt, "sssssis",
+$test =mysqli_stmt_bind_param($stmt, "sssssisi",
 $origin, $destination, $departure, $arrival, $train_model, $num_seats, $price, $id);
 if(!$test){
     send_json(500);    
