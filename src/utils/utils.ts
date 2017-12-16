@@ -2,38 +2,41 @@ import { Journey } from "../pages/results-page/results-page";
 
 
 const TOKEN_KEY = 'token';
-const BASE_URL = 'http://localhost:8000/'
+export const BASE_URL = '/API/';
 
 
 export async function requestJourneys(origin: string, destination: string, day: string) {
-  const formData = new FormData();
-  formData.append('origin', origin);
-  formData.append('destination', destination);
-  formData.append('day', day);
+  return sendPOST('results.php', {
+    origin,
+    destination,
+    day
+  }) as Promise<Journey[]>;
+}
 
-  try {
-    const response = await fetch(`${BASE_URL}results.php`, {
-      method: 'post',
-      body: formData
-    })
-    const json = await response.json();
-    return json as Journey[];
-  } catch {
-    return null;
+export async function sendPOST(command: string, data: {[key: string]: string}) {
+  const formData = new FormData();
+  for (let key in data) {
+    formData.append(key, data[key]);
   }
+  return sendBody(command, formData);
 }
 
 export async function sendJSON(command: string, data: any) {
+  return sendBody(command, JSON.stringify(data));
+}
+
+async function sendBody(command: string, body: any) {
   const url = BASE_URL + command;
   const response = await fetch(url, {
     method: 'post',
-    body: JSON.stringify(data)
+    body: body
   });
   if (response.status !== 200) {
     throw new Error('error')
   }
   return await response.json();
 }
+
 
 export async function sendForm(command: string, ev: Event): Promise<any|null> {
   ev.preventDefault();

@@ -44,8 +44,8 @@ export class LoginPage {
         <div class="login-photo" />
         <div class="login-content">
           <form onSubmit={(ev) => this.onSubmit(ev)}>
-            <input type="text" placeholder="Usuario" name="user" required />
-            <input type="password" placeholder="Contraseña" name="password" required />
+            <input type="text" maxlength="20" placeholder="Usuario" name="user" required />
+            <input type="password" maxlength="30" placeholder="Contraseña" name="password" required />
             <button type="submit">Acceder</button>
           </form>
         </div>

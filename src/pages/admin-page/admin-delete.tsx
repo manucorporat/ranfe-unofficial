@@ -1,5 +1,5 @@
 import { Component, State, Listen } from '@stencil/core';
-import { sendForm, getLogin } from '../../utils/utils';
+import { sendForm, getLogin, BASE_URL, sendPOST } from '../../utils/utils';
 import { Journey } from '../results-page/results-page';
 
 @Component({
@@ -16,14 +16,10 @@ export class AdminDelete {
   @Listen('tableSelected')
   async onBorrar(ev: CustomEvent) {
     const journey = ev.detail;
-    const formData = new FormData();
-    formData.append('id', journey.id);
-    formData.append('token', getLogin());
-
     try {
-      await fetch(`http://localhost:8000/delete-journey.php`, {
-        method: 'post',
-        body: formData
+      await sendPOST('delete-journey.php', {
+        id: journey.id,
+        token: getLogin()
       });
       const index = this.results.findIndex(j => j.id === journey.id);
       if(index >= 0) {

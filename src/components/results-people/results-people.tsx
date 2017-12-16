@@ -55,14 +55,14 @@ export class ResultsPeople {
         </div>
         <div class="person-form">
           <div class="form-group">
-            <input placeholder="DNI" name="dni" onInput={(ev) => setValue(ev, 'dni', person) } required />
+            <input placeholder="DNI" maxlength="15" name="dni" onInput={(ev) => setValue(ev, 'dni', person) } required />
           </div>
           <div class="form-group">
-            <input placeholder="Nombre" name="name" onInput={(ev) => setValue(ev, 'name', person) } required />
-            <input placeholder="Apellidos" name="surname" onInput={(ev) => setValue(ev, 'surname', person) } required />
+            <input placeholder="Nombre" maxlength="20" name="name" onInput={(ev) => setValue(ev, 'name', person) } required />
+            <input placeholder="Apellidos" maxlength="30" name="surname" onInput={(ev) => setValue(ev, 'surname', person) } required />
           </div>
-          <input type="phone" name="phone" placeholder="Telefono" onInput={(ev) => setValue(ev, 'phone', person) } required />
-          <input type="email" name="email" placeholder="Email" onInput={(ev) => setValue(ev,'email',person)} required />
+          <input type="phone" name="phone" maxlength="20" placeholder="Telefono" onInput={(ev) => setValue(ev, 'phone', person) } required />
+          <input type="email" name="email" maxlength="50" placeholder="Email" onInput={(ev) => setValue(ev,'email',person)} required />
         </div>
       </Div>
     ));
