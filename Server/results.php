@@ -6,11 +6,11 @@ checkMETHOD("POST");
 
 $origin = mustPOST("origin");
 $destination = mustPOST("destination");
-$day=2001-01-01;
+$day = "2001-01-01";
 
 if (isset($_POST["day"])) {
-        $day=$_POST["day"];
-    }
+    $day=$_POST["day"];
+}
 
 $db = connect();
 
@@ -23,19 +23,19 @@ if (!$stmt) {
 
 //Agregamos las variables de la sentencia preparada como parámetros
 $test = mysqli_stmt_bind_param($stmt, "ss", $origin, $destination);
-if(!$test){
-    send_json(500, "Error binding params");    
+if (!$test) {
+    send_json(500, "Error binding params");
 }
 
 //Ejecutamos la consulta preparada
 $test = mysqli_stmt_execute($stmt);
-if(!$test){
-    send_json(500, "Error executing");  
+if (!$test) {
+    send_json(500, "Error executing");
 }
 //Vinculamos las variables a la sentencia preparada para el almacenamiento de resultados
 $test = mysqli_stmt_bind_result($stmt, $id, $origin, $destination, $departure, $arrival, $train_model, $num_seats, $price);
-if(!$test){
-    send_json(500, "Error binding result");  
+if (!$test) {
+    send_json(500, "Error binding result");
 }
 
 $results = array();

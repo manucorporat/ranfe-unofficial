@@ -7,9 +7,9 @@
     $pass = 'n81e59h7';
     $db_name = 'journey';
     */
-    
 
-function connect(){
+
+function connect() {
     /*Variables de casa*/
     $host = 'localhost';
     $login = 'root';
@@ -20,11 +20,10 @@ function connect(){
     if (!$db) {
         die('FATAL ERROR: mysqli_init() failed');
     }
-    
+
     if (!mysqli_real_connect($db, $host, $login, $pass, $db_name)) {
         echo 'ERROR: Database conection refused <br>';
         die('Connection Error: ' . mysqli_connect_errno() . ')' . mysqli_connect_error());
     }
-    return $db; 
-
+    return $db;
 }

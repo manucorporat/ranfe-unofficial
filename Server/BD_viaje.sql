@@ -14,6 +14,20 @@ create table journey_info
     price float not null
 );
 
+create table seats (
+    id int not null auto_increment primary key,
+    seat int not null,/*asientos que van ocupados*/
+    used int not null,
+    day date not null,
+    journey_info int not null,
+    name char(20) not null,
+    surname char(20) not null,
+    dni char(20) not null,
+    phone char(20) not null,
+    email char(60) not null
+);
+
+
 insert into journey_info values
 (null, "valladolid", "madrid", "17:00:00", "19:00:00", "ave", 100, 12),
 (null, "valladolid", "sevilla", "17:00:00", "20:00:00", "talgo", 80, 100),
@@ -31,16 +45,3 @@ insert into journey_info values
 (null, "sevilla", "valladolid", "07:22:00", "12:00:00", "ave", 200, 70),
 (null, "madrid", "valladolid", "11:33:00", "19:00:00", "ave", 250, 70),
 (null, "sevilla", "valladolid", "11:59:00", "15:15:00", "alvia", 100, 55);
-
-create table seats (
-    id int not null auto_increment primary key,
-    seat int not null,/*asientos que van ocupados*/
-    used int not null,
-    day date not null,
-    journey_info int not null,
-    name char(20) not null,
-    surname char(20) not null,
-    dni char(20) not null,
-    phone char(20) not null,
-    email char(60) not null
-);

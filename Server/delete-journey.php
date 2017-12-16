@@ -18,9 +18,9 @@ if (!$stmt) {
     send_json(500);
 }
 //Agregamos las variables de la sentencia preparada como parámetros
-$test =mysqli_stmt_bind_param($stmt, "i", $id);
-if(!$test){
-    send_json(500);    
+$test = mysqli_stmt_bind_param($stmt, "i", $id);
+if (!$test) {
+    send_json(500);
 }
 
 noReturnExecute($stmt);
