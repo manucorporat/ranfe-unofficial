@@ -52,7 +52,7 @@ export class ResultsTable {
     return [
       ((this.cityA && this.cityB) && <div class="title-result">
         <h2>
-          <span id="title-origin">{this.cityA}</span>   <ion-icon name="arrow-forward"></ion-icon> <span id="title-destination">{this.cityB}</span>
+          <span id="title-origin">{this.cityA}</span>   <ion-icon name="arrow-forward" class={{ reversed: this.reversed }}></ion-icon> <span id="title-destination">{this.cityB}</span>
         </h2>
       </div>),
       this.renderResults()

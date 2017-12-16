@@ -6,6 +6,7 @@ exports.config = {
     { components: ['results-page', 'results-nav', 'results-table', 'weather-container'] },
     { components: ['root-page', 'search-widget'] }
   ],
+  serviceWorker: null,
   collections: [
     { name: '@stencil/router' },
     { name: 'ionicons' },
