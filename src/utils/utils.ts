@@ -2,8 +2,8 @@ import { Journey } from "../pages/results-page/results-page";
 
 
 const TOKEN_KEY = 'token';
-// export const BASE_URL = '/API/';
-export const BASE_URL = 'http://localhost:8000/';
+export const BASE_URL = '/API/';
+// export const BASE_URL = 'http://localhost:8000/';
 
 
 export async function requestJourneys(origin: string, destination: string, day: string) {
