@@ -7,7 +7,6 @@
     $pass = 'n81e59h7';
     $db_name = 'journey';
     */
-
     
 
 function connect(){
@@ -16,7 +15,6 @@ function connect(){
     $login = 'root';
     $pass = 'eliseo';
     $db_name = 'journey';
-
     /*Establecemos y comprobamos la conexion con la base de datos*/
     @$db = mysqli_init();
     if (!$db) {
