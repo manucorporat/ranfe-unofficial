@@ -14,10 +14,11 @@
     "start": "npm run dev",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache",
-    "deploy": "bs --no-cleanup --directory ./www --hook build"
+    "deploy": "bs --no-cleanup --directory ./www --hook build",
+    "apache": "npm run build && cp -a Server www/API"
   },
   "dependencies": {
-    "@stencil/core": "0.0.8",
+    "@stencil/core": "0.0.9-2",
     "@stencil/router": "latest",
     "ionicons": "^4.0.0-6"
   },
