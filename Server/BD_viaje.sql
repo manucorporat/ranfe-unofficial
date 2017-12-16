@@ -5,11 +5,11 @@ use journey;
 create table journey_info
 (
     id int not null auto_increment primary key,
-    origin char(20) not null,
-    destination char(20) not null,
+    origin char(25) not null,
+    destination char(25) not null,
     departure time not null,
     arrival time not null,
-    train_model char(20) not null,
+    train_model char(25) not null,
     num_seats int not null,
     price float not null
 );
@@ -20,10 +20,10 @@ create table seats (
     used int not null,
     day date not null,
     journey_info int not null,
-    name char(20) not null,
-    surname char(20) not null,
+    name char(25) not null,
+    surname char(40) not null,
     dni char(20) not null,
-    phone char(20) not null,
+    phone char(25) not null,
     email char(60) not null
 );
 

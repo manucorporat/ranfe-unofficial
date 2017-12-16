@@ -11,3 +11,7 @@ Incluye el fichero de creación de la base de datos
 - `build/: JS compilado por stencil
 - `index.html`: Punto de acceso
 
+## Admin
+
+User: root
+Password: root

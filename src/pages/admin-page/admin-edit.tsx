@@ -44,20 +44,20 @@ export class AdminPage {
       <div class="form-group">
         <h3>Seleccione hora de salida y llegada</h3>
         <ion-icon name="clock" />
-        <input placeholder="Hora de salida" name="departure" value={j.departure} maxlength="10" required />
-        <input placeholder="Hola de llegada" name="arrival" value={j.arrival} maxlength="10" required />
+        <input placeholder="Hora de salida" name="departure" value={j.departure} maxlength="20" required />
+        <input placeholder="Hola de llegada" name="arrival" value={j.arrival} maxlength="20" required />
       </div>
 
       <div class="form-group">
         <h3>Detalles</h3>
         <ion-icon name="people" />
-        <input type="number" placeholder="Número de plazas" name="num_seats" value={j.num_seats} maxlength="10" required />
+        <input type="number" placeholder="Número de plazas" name="num_seats" value={j.num_seats} min="0" max="10000" required />
         <ion-icon name="cash" />
         <input type="number" placeholder="Precio (euros)" name="price" min="0" step="0.01" max="1000" required />
       </div>
 
       <div class="form-group">
-        <input placeholder="Modelo de tren" name="train_model"  value={j.train_model} required />
+        <input placeholder="Modelo de tren" name="train_model" maxlength="20" value={j.train_model} required />
       </div>
       <input type="hidden" name="id" value={j.id} />
 
