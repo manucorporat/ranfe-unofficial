@@ -1,11 +1,23 @@
 <?php
+
 function getToken(){
     return "1234567";    
 }
+
 function checkMETHOD($method) {
     if ($_SERVER['REQUEST_METHOD'] != $method) {
         send_json(405);
         exit(-1);
+    }
+}
+//comprobamos la longitud de un string (solo del valor sin espacios)
+function testLength($string){
+    if(strlen(trim($string))>20){
+        send_json(500,"Error: String too long");
+        exit(-1);
+    }
+    else{
+        return strtolower(trim($string));
     }
 }
 
@@ -15,6 +27,14 @@ function receiveJSON(){
     return $decoded_params;
 }
 
+function checkTime($time){
+    
+    $regexp = "/^([0-1][0-9]|2[0-4]):([0-5][0-9]):([0-5][0-9])$/";
+    if(preg_match($regexp,$time)){
+        return TRUE;
+    }
+    else return FALSE;
+}
 
 function checkTOKEN() {
     $t = mustPOST("token");
@@ -38,7 +58,15 @@ function checkNIE($dni){
   $matches = null;
   return (1 === preg_match('/^[A-z0-9\\._-]+@[A-z0-9][A-z0-9-]*(\\.[A-z0-9_-]+)*\\.([A-z]{2,6})$/', $email, $matches));
 }*/
-
+function testEmailLength($email){
+    if(strlen(trim($email))>20){
+        send_json(500,"Error: Email too long");
+        exit(-1);
+    }
+    else{
+        return strtolower(trim($email));
+    }
+}
 function checkEmail($email)
 {
   if(filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -55,6 +83,7 @@ function checkSQLDate($date){
 }
 
 function noReturnExecute($stmt, $error=500) {
+    //Ejecutamos la consulta preparada
     $test = mysqli_stmt_execute($stmt);
 
     if ($test) {
