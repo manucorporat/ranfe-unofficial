@@ -123,7 +123,7 @@ export class SearchWidget {
 
           <input type="number" min="1" max="100" placeholder="Personas" value="1" name="people" class="people" required />
           <button type="submit" class="submit">
-            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <ion-icon name="arrow-forward" />
           </button>
         </div>
       </form>

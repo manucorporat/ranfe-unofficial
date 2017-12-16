@@ -1,5 +1,5 @@
 import { Component, State, Listen } from '@stencil/core';
-import { sendForm, getLogin, BASE_URL, sendPOST } from '../../utils/utils';
+import { sendForm, getLogin, sendPOST } from '../../utils/utils';
 import { Journey } from '../results-page/results-page';
 
 @Component({
@@ -38,11 +38,10 @@ export class AdminDelete {
       <h1>Borrar viaje</h1>,
       <form onSubmit={(ev) => this.onSubmit(ev)}>
 
-      <div class="form-group">
-        <h3>Seleccione las ciudades de origen y destino</h3>
-        <input placeholder="Ciudad origen" name="origin" maxlength="20" required />
-        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-        <input placeholder="Ciudad destino" name="destination" maxlength="20"  required />
+        <div class="form-group">
+          <h3>Buscar por ciudades de origen y destino</h3>
+          <input placeholder="Ciudad origen" name="origin" maxlength="20" required />
+          <input placeholder="Ciudad destino" name="destination" maxlength="20"  required />
         </div>
         <div class="form-group">
           <button type="submit" class="admin-submit">

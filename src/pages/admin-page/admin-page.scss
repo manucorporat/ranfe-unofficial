@@ -9,6 +9,11 @@ admin-edit {
 
 admin-page {
 
+  ion-icon {
+    max-width: 2.8rem;
+    min-width: 2.8rem;
+  }
+
   .admin-nav {
     stencil-route-link > a {
       display: block;

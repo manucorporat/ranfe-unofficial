@@ -28,13 +28,7 @@ export class LoginPage {
       this.history.push('/admin/new');
     } catch (e) {
       console.error(e);
-      this.loginError(ev.target as HTMLFormElement);
     }
-  }
-
-  loginError(form: HTMLFormElement) {
-    console.error('login failed');
-    shakeForm(form);
   }
 
   render() {

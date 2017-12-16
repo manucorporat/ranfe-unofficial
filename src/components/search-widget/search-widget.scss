@@ -92,6 +92,13 @@ form button.submit[type=submit] {
   color: $main-color;
 
   padding: 0;
+
+  ion-icon {
+    display: block;
+    margin: auto;
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .form-group.city-group {

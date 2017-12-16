@@ -89,7 +89,7 @@ export class TypeWritter {
 }
 
 function isEmpty(text: string): boolean {
-  return text.length === 0;
+  return text && text.length === 0;
 }
 
 // Barajea aleatoriamente un array de datos
