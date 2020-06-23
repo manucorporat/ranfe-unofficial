@@ -1,4 +1,4 @@
-import { Component, State, Listen } from '@stencil/core';
+import { Component, State, Listen, h } from '@stencil/core';
 import { sendForm, getLogin, sendPOST } from '../../utils/utils';
 import { Journey } from '../results-page/results-page';
 

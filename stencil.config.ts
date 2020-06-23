@@ -1,4 +1,7 @@
-exports.config = {
+import { Config } from '@stencil/core'; 
+import {sass} from '@stencil/sass';
+
+export const config: Config = {
   bundles: [
     { components: ['admin-page', 'admin-delete', 'admin-new', 'admin-edit'] },
     { components: ['renfe-header', 'renfe-footer'] },
@@ -6,14 +9,7 @@ exports.config = {
     { components: ['results-page', 'results-nav', 'results-table', 'weather-container'] },
     { components: ['root-page', 'search-widget'] }
   ],
-  serviceWorker: null,
-  collections: [
-    { name: '@stencil/router' },
-    { name: 'ionicons' },
+  plugins: [
+    sass(),
   ]
 };
-
-exports.devServer = {
-  root: 'www',
-  watchGlob: '**/**'
-}

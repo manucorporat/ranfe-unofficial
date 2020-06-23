@@ -1,4 +1,4 @@
-import { Component, Method, Prop } from "@stencil/core";
+import { Component, Method, Prop, h } from "@stencil/core";
 
 @Component({
   tag: 'type-writter',
@@ -31,7 +31,7 @@ export class TypeWritter {
   }
 
   @Method()
-  start() {
+  async start() {
     this.schedule();
   }
 

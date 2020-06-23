@@ -1,4 +1,4 @@
-import { Component, Listen, State } from '@stencil/core';
+import { Component, Listen, State, h } from '@stencil/core';
 import { getURLParam, requestJourneys } from '../../utils/utils';
 
 export interface Journey {

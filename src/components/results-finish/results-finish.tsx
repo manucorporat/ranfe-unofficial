@@ -1,4 +1,4 @@
-import { Component, Prop } from "@stencil/core";
+import { Component, Prop, h } from "@stencil/core";
 import { Journey, Person } from "../../pages/results-page/results-page";
 import { sendJSON } from "../../utils/utils";
 

@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Listen, State } from "@stencil/core";
+import { Component, Prop, Element, Listen, State, h } from "@stencil/core";
 import { ActiveRouter } from "@stencil/router";
 
 @Component({
@@ -45,9 +45,9 @@ export class SearchWidget {
     for (let entry of formData.entries()) {
       params.append(entry[0], entry[1]);
     }
-    const url = '/results?' + params.toString();
-    const history = this.activeRouter.get('history');
-    history.push(url, {});
+    // const url = '/results?' + params.toString();
+    // const history = this.activeRouter.get('history');
+    // history.push(url, {});
   }
 
   @Listen('calendarSelected')

@@ -1,4 +1,6 @@
-import { Component } from "@stencil/core";
+import { Component, h } from "@stencil/core";
+import "@stencil/router";
+import "ionicons";
 
 @Component({
   tag: 'root-page',

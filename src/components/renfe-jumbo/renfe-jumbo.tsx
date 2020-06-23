@@ -1,4 +1,4 @@
-import { Component, Element } from '@stencil/core';
+import { Component, Element, h } from '@stencil/core';
 
 const CITIES = ['Madrid', 'Valladolid', 'Bilbao', 'Sevilla', 'Barcelona', 'Valencia'];
 

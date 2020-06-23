@@ -1,5 +1,5 @@
-import { Component, Prop } from '@stencil/core';
-import { doLogin, getLogin, doLogout, sendForm, shakeForm } from '../../utils/utils';
+import { Component, Prop, Build, h } from '@stencil/core';
+import { doLogin, getLogin, doLogout, sendForm } from '../../utils/utils';
 
 @Component({
   tag: 'login-page',
@@ -10,7 +10,7 @@ export class LoginPage {
   @Prop() history: any;
 
   componentDidLoad() {
-    if (Context.isServer) {
+    if (Build.isServer) {
       return;
     }
     if (location.search.includes('logout')) {
