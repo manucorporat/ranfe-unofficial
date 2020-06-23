@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Journey, Person } from "./pages/results-page/results-page";
+import { RouterHistory } from "@stencil/router";
 export namespace Components {
     interface AdminDelete {
     }
@@ -70,6 +71,7 @@ export namespace Components {
         "cityA": string;
         "cityB": string;
         "departure": string;
+        "history": RouterHistory;
         "people": string;
     }
     interface TypeWritter {
@@ -297,6 +299,7 @@ declare namespace LocalJSX {
         "cityA"?: string;
         "cityB"?: string;
         "departure"?: string;
+        "history"?: RouterHistory;
         "people"?: string;
     }
     interface TypeWritter {

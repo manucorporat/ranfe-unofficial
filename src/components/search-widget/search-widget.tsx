@@ -1,5 +1,5 @@
 import { Component, Prop, Element, Listen, State, h } from "@stencil/core";
-import { ActiveRouter } from "@stencil/router";
+import { RouterHistory, injectHistory } from "@stencil/router";
 
 @Component({
   tag: 'search-widget',
@@ -15,7 +15,7 @@ export class SearchWidget {
   @Prop() departure: string;
   @Prop() arrival: string;
   @Prop() people: string;
-  @Prop({ context: 'activeRouter' }) activeRouter: ActiveRouter;
+  @Prop() history: RouterHistory;
 
   componentDidLoad() {
     (this.el.querySelector('input[name=origin]') as any).value = this.cityA || '';
@@ -45,9 +45,8 @@ export class SearchWidget {
     for (let entry of formData.entries()) {
       params.append(entry[0], entry[1]);
     }
-    // const url = '/results?' + params.toString();
-    // const history = this.activeRouter.get('history');
-    // history.push(url, {});
+    const url = '/results?' + params.toString();
+    this.history.push(url);
   }
 
   @Listen('calendarSelected')
@@ -141,3 +140,5 @@ function getDayFromInput(input: HTMLInputElement) {
   }
   return null;
 }
+
+injectHistory(SearchWidget);
