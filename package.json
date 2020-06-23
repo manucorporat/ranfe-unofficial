@@ -17,7 +17,7 @@
     "apache": "npm run build && cp -a Server www/API"
   },
   "dependencies": {
-    "@stencil/core": "1.15.0-4",
+    "@stencil/core": "1.14.0",
     "@stencil/router": "latest",
     "ionicons": "^5.0.0"
   },
